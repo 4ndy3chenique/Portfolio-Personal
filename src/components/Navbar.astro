@@ -1,0 +1,27 @@
+---
+const { className = "" } = Astro.props;
+import logoUrl from '../assets/Logo.svg';
+import iconHamburguesaUrl from '../assets/IconHamburguesa.svg';
+import '../styles/global.css'
+---
+<nav class={`fixed inset-x-0 top-0 z-50 flex justify-center h-[150px] ${className}`} aria-label="Primary">
+  <div class="w-[2560px] h-[150px] flex items-center justify-center">
+    <div class="w-[2280px] h-[150px] flex">
+      <!-- 310x150 (Logo centrado) -->
+      <div class="w-[310px] h-[150px] flex items-center justify-center">
+        <img src={logoUrl.src} alt="Logo" class="h-auto w-auto" />
+      </div>
+
+      <!-- 1660x150 separador -->
+      <div class="w-[1660px] h-[150px]"></div>
+
+      <!-- 310x150 (Hamburguesa centrada) -->
+      <div class="w-[310px] h-[150px] flex items-center justify-center">
+        <button type="button" aria-label="Abrir menú"
+          class="inline-flex items-center justify-center  focus:outline-none focus:ring-2 focus:ring-white/40 rounded-md">
+          <img src={iconHamburguesaUrl.src} alt="Menú" class="h-full w-full max-w-none" />
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

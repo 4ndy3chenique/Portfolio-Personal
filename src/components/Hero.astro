@@ -1,0 +1,327 @@
+---
+import flecha from "../assets/Flecha.svg";
+import arrow from "../assets/Arrow.svg";
+---
+
+<section
+  id="hero"
+  data-state="intro"
+  class="relative min-h-[calc(100vh-150px)] flex items-center justify-center"
+>
+  
+  <!-- Estado A (centrado) -->
+<div data-role="intro" class="absolute inset-0 transition-opacity duration-300 left-1/7 top-180 -translate-y-1/2 flex items-center justify-center">
+  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1710px] h-[709px]">
+    <div class="relative w-[1710px] h-[709px] font-['Lalezar'] leading-[0.8]">
+      <!-- LÍNEA 1 -->
+      <p class="intro-line-1 will-change-[opacity,transform]
+                 text-white text-[250px] tracking-[0.05em] pl-[70px]
+                 [-webkit-text-stroke:2px_#fff]
+                 [filter:drop-shadow(0_0_15px_rgba(255,255,255,0.35))]">
+        EXPLORA
+      </p>
+      <!-- LÍNEA 2 -->
+      <p class="intro-line-2 will-change-[opacity,transform,filter]
+                 text-transparent text-[280px] tracking-[0.05em] pl-[0px] pt-[10px] pb-[10px]
+                 [-webkit-text-stroke:3px_#fff]
+                 [filter:drop-shadow(0_0_0px_#fff)_drop-shadow(0_0_0px_var(--neon))_drop-shadow(0_0_10px_var(--neon))]"
+         style="--neon:#fff;">
+        MI MUNDO
+      </p>
+      <!-- LÍNEA 3 -->
+      <p class="intro-line-3 will-change-[opacity,transform]
+                 text-white text-[250px] tracking-[0.05em] pl-[300px]
+                 [-webkit-text-stroke:2px_#fff]
+                 [filter:drop-shadow(0_0_15px_rgba(255,255,255,0.35))]">
+        DIGITAL
+      </p>
+    </div>
+  </div>
+</div>
+
+  <!-- Estado B (empieza oculto) -->
+  <div
+    data-role="name"
+    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 pt-40"
+  >
+    <div class="w-[1874px] h-[460px]">
+      <div class="w-[1874px] h-[319px] flex items-center justify-center">
+        <div class="px-6 py-2 rounded-2xl bg-white/0 backdrop-blur-sm">
+          <h1
+            class="font-['Lalezar'] text-white text-[250px] tracking-[0.04em] leading-[0.85] drop-shadow-[0_0px_5px_rgba(255,255,255,0.35)] text-center"
+          >
+            Jhon Echenique
+          </h1>
+        </div>
+      </div>
+      <div class="w-full h-[141px] flex items-center justify-center">
+        <div class="relative w-[1355px] h-[141px]">
+          <div
+            class="absolute left-0 top-0 w-[408px] h-[141px] grid place-items-center"
+            data-opt="0"
+          >
+            <div class="relative">
+              <span
+                class="font-['Lalezar'] text-[50px] text-white transition-all duration-300"
+                >Desarrollador</span
+              >
+              <div
+                class="pointer-events-none absolute inset-0 hidden"
+                data-selection
+              >
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -right-10 -top-6 select-none rotate-0"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -right-10 -bottom-6 select-none rotate-90"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -left-10 -top-6 select-none -rotate-90"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -left-10 -bottom-6 select-none rotate-180"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute left-1/2 top-0 -translate-x-1/2 w-[408px] h-[141px] grid place-items-center"
+            data-opt="1"
+          >
+            <div class="relative">
+              <span
+                class="font-['Lalezar'] text-[50px] text-white transition-all duration-300"
+                >Diseñador</span
+              >
+              <div
+                class="pointer-events-none absolute inset-0 hidden"
+                data-selection
+              >
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -right-10 -top-6 select-none rotate-0"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -right-10 -bottom-6 select-none rotate-90"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -left-10 -top-6 select-none -rotate-90"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -left-10 -bottom-6 select-none rotate-180"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute right-0 top-0 w-[408px] h-[141px] grid place-items-center"
+            data-opt="2"
+          >
+            <div class="relative">
+              <span
+                class="font-['Lalezar'] text-[50px] text-white transition-all duration-300"
+                >Creativo</span
+              >
+              <div
+                class="pointer-events-none absolute inset-0 hidden"
+                data-selection
+              >
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -right-10 -top-6 select-none rotate-0"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -right-10 -bottom-6 select-none rotate-90"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -left-10 -top-6 select-none -rotate-90"
+                />
+                <img
+                  src={arrow.src}
+                  alt=""
+                  class="absolute -left-10 -bottom-6 select-none rotate-180"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="absolute left-65 bottom-1 translate-y-15 font-['Lalezar'] leading-tight tracking-[0.01em] text-white/80 drop-shadow-[0_1px_5px_rgba(255,255,255,0.35)]"
+  >
+    <span class="font-regular text-white text-[25px]"
+      >Ubicado en Lima, Perú</span
+    ><br />
+    <span class="font-regular text-white text-[13px]"
+      >Estudiante en Universidad Privada del Norte</span
+    >
+  </div>
+  <a
+    href="#about"
+    class="group absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-15 z-10"
+    aria-label="Ir a la siguiente sección"
+  >
+    <img
+      src={flecha.src}
+      alt=""
+      class="bloc select-none will-change-transform animate-[arrow-slow_1s_ease-in-out_infinite] motion-reduce:animate-none"
+    />
+  </a>
+
+
+  <style>
+    @keyframes arrow-slow {
+      0%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.95;
+      }
+      50% {
+        transform: translateY(8px);
+        opacity: 1;
+      }
+    }
+
+    /* ENTRADAS cuando el hero está en estado intro */
+#hero[data-state="intro"] .intro-line-1 {
+  animation: in-fade-right .9s cubic-bezier(.22,.61,.36,1) .0s both;
+}
+#hero[data-state="intro"] .intro-line-2 {
+  animation: in-reveal-center .9s cubic-bezier(.22,.61,.36,1) .15s both;
+}
+#hero[data-state="intro"] .intro-line-3 {
+  animation: in-fade-left .9s cubic-bezier(.22,.61,.36,1) .30s both;
+}
+
+/* SALIDAS cuando cambias a estado name */
+#hero[data-state="name"] .intro-line-1 {
+  animation: out-fade-left .5s ease .0s both;
+}
+#hero[data-state="name"] .intro-line-2 {
+  animation: out-shrink-center .5s ease .05s both;
+}
+#hero[data-state="name"] .intro-line-3 {
+  animation: out-fade-right .5s ease .10s both;
+}
+
+/* Keyframes */
+@keyframes in-fade-right {
+  from { opacity: 0; transform: translateX(-48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes in-reveal-center {
+  from { opacity: 0; transform: scaleX(.7); filter: blur(3px); }
+  to   { opacity: 1; transform: scaleX(1);  filter: blur(0); }
+}
+@keyframes in-fade-left {
+  from { opacity: 0; transform: translateX(48px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes out-fade-left {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(-32px); }
+}
+@keyframes out-shrink-center {
+  from { opacity: 1; transform: scaleX(1); filter: blur(0); }
+  to   { opacity: 0; transform: scaleX(.7); filter: blur(2px); }
+}
+@keyframes out-fade-right {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(32px); }
+}
+  </style>
+  <script>
+    (function () {
+      const hero = document.getElementById("hero");
+      if (!hero) return;
+      const intro = hero.querySelector(
+        '[data-role="intro"]'
+      ) as HTMLElement | null;
+      const name = hero.querySelector(
+        '[data-role="name"]'
+      ) as HTMLElement | null;
+      /** * @param {HTMLElement} el */ function show(el: HTMLElement) {
+        el.classList.remove("opacity-0", "pointer-events-none");
+      }
+      /** * @param {HTMLElement} el */ function hide(el: HTMLElement) {
+        el.classList.add("opacity-0", "pointer-events-none");
+      }
+      try {
+        const saved = localStorage.getItem("heroState");
+        if (saved === "name" && intro && name) {
+          hide(intro);
+          show(name);
+          hero.dataset.state = "name";
+        }
+      } catch {}
+      window.addEventListener("hero:toggle", () => {
+        const next = hero.dataset.state === "intro" ? "name" : "intro";
+        if (intro && name) {
+          if (next === "name") {
+            hide(intro);
+            show(name);
+          } else {
+            hide(name);
+            show(intro);
+          }
+          hero.dataset.state = next;
+          try {
+            localStorage.setItem("heroState", next);
+          } catch {}
+        }
+      });
+    })();
+
+    (function () {
+      const root = document.querySelector('[data-role="name"]');
+      if (!root) return;
+      const items = Array.from(root.querySelectorAll("[data-opt]"));
+      if (items.length === 0) return;
+      let idx = 0;
+      const BLUR_CLASS = "blur-[7px] opacity-50";
+      function render() {
+        items.forEach((el, i) => {
+          const label = el.querySelector("span");
+          const sel = el.querySelector("[data-selection]");
+          if (!label) return;
+          if (i === idx) {
+            label.classList.remove(...BLUR_CLASS.split(" "));
+            sel && sel.classList.remove("hidden");
+          } else {
+            label.classList.add(...BLUR_CLASS.split(" "));
+            sel && sel.classList.add("hidden");
+          }
+        });
+      }
+      render();
+      setInterval(() => {
+        idx = (idx + 1) % items.length;
+        render();
+      }, 2000);
+    })();
+    
+  </script>
+</section>

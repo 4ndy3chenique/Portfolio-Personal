@@ -1,0 +1,106 @@
+---
+export interface Props {
+  className?: string;
+  githubHref?: string;
+  mailHref?: string;
+  linkedinHref?: string;
+  bottom1Href?: string; // no se usa cuando es botón, lo dejamos por si luego quieres link
+  bottom2Href?: string;
+}
+
+import github from "../assets/Icon1.svg?url";      // GitHub
+import linkedin from "../assets/Icon2.svg?url";    // LinkedIn
+import mail from "../assets/Icon3.svg?url";        // Mail
+import reloadIcon from "../assets/IconCambio.svg?url";
+import langIcon from "../assets/IconLeng.svg?url";
+
+const {
+  className = "",
+  githubHref = "https://github.com/4ndy3chenique",
+  mailHref = "andy974275@gmail.com",
+  linkedinHref = "https://www.linkedin.com/in/JhonEchenique/",
+  bottom1Href = "#",
+  bottom2Href = "#",
+} = Astro.props;
+
+const mailHrefFinal = mailHref.startsWith("mailto:") ? mailHref : `mailto:${mailHref}`;
+---
+
+<aside
+  class={`fixed right-0 top-0 z-[9998] w-[239px] h-screen pointer-events-none isolate ${className}`}
+  aria-label="Secondary navigation"
+>
+  <div class="relative w-full h-full">
+
+    <!-- PÍLDORA A (148x444) centrada X/Y -->
+    <nav
+      aria-label="Social links"
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[148px] h-[444px] pointer-events-auto"
+    >
+      <div class="w-full h-full rounded-[74px] overflow-hidden bg-[#5C5C5C]/[0.17] backdrop-blur-md ring-1 ring-white/10 shadow-[0_6px_24px_rgba(0,0,0,0.35)]">
+        <ul class="grid grid-rows-3 h-full">
+          <!-- GitHub -->
+          <li class="grid place-items-center">
+            <a href={githubHref} target="_blank" rel="noopener" aria-label="GitHub"
+               class="grid place-items-center w-full h-full focus:outline-none">
+              <img src={github} alt="GitHub" class="select-none" />
+            </a>
+          </li>
+          <!-- LinkedIn -->
+          <li class="grid place-items-center">
+            <a href={linkedinHref} target="_blank" rel="noopener" aria-label="LinkedIn"
+               class="grid place-items-center w-full h-full focus:outline-none">
+              <img src={linkedin} alt="LinkedIn" class="select-none" />
+            </a>
+          </li>
+          <!-- Mail -->
+          <li class="grid place-items-center">
+            <a href={mailHrefFinal} aria-label="Email"
+               class="grid place-items-center w-full h-full focus:outline-none">
+              <img src={mail} alt="Email" class="select-none" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- PÍLDORA B (148x296) centrada X, pegada abajo) -->
+    <div class="absolute left-1/2 bottom-10 -translate-x-1/2 mb-6 w-[148px] h-[296px] pointer-events-auto">
+      <div class="w-full h-full rounded-[74px] overflow-hidden bg-[#5C5C5C]/[0.17] backdrop-blur-md ring-1 ring-white/10 shadow-[0_6px_24px_rgba(0,0,0,0.35)]">
+        <ul class="grid grid-rows-2 h-full">
+          <!-- BOTÓN: emite hero:toggle -->
+          <li class="grid place-items-center">
+            <button
+              type="button"
+              data-hero-toggle
+              aria-label="Cambiar estado del hero"
+              class="grid place-items-center w-full h-full focus:outline-none"
+            >
+              <img src={reloadIcon} alt="" class="select-none" />
+            </button>
+          </li>
+
+          <!-- Idioma (link normal) -->
+          <li class="grid place-items-center">
+            <a href={bottom2Href} aria-label="Idioma"
+               class="grid place-items-center w-full h-full focus:outline-none">
+              <img src={langIcon} alt="Idioma" class="select-none" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</aside>
+
+<script>
+  // Emite un evento global para que el Hero lo escuche
+  (function () {
+    const btn = document.querySelector('[data-hero-toggle]');
+    btn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.dispatchEvent(new CustomEvent('hero:toggle'));
+    });
+  })();
+</script>

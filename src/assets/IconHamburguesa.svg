@@ -1,0 +1,24 @@
+<svg width="150" height="86" viewBox="0 0 150 86" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_f_50_10)">
+<rect x="47" y="18" width="55" height="18" fill="#D9D9D9"/>
+<rect x="47.5" y="18.5" width="54" height="17" stroke="white"/>
+</g>
+<rect x="47" y="18" width="55" height="18" fill="white"/>
+<g filter="url(#filter1_f_50_10)">
+<rect x="47" y="46" width="55" height="18" fill="#D9D9D9"/>
+<rect x="47.5" y="46.5" width="54" height="17" stroke="white"/>
+</g>
+<rect x="47" y="46" width="55" height="18" fill="white"/>
+<defs>
+<filter id="filter0_f_50_10" x="38" y="9" width="73" height="36" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4.5" result="effect1_foregroundBlur_50_10"/>
+</filter>
+<filter id="filter1_f_50_10" x="38" y="37" width="73" height="36" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="4.5" result="effect1_foregroundBlur_50_10"/>
+</filter>
+</defs>
+</svg>

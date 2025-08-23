@@ -1,0 +1,486 @@
+---
+import "../styles/global.css";
+import Document from "../assets/Document.svg";
+import CodeIcon from "../assets/CodeIcon.svg";
+import foto from "../assets/foto.svg";
+import CodeCard from "../assets/CodeCard.svg";
+import Certificate from "../assets/CertificadosCard.svg";
+import SkillCard from "../assets/SkillsCard.svg";
+import Arrow from "../assets/ArrowIcon.svg";
+---
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Lalezar&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
+</style>
+
+<section
+  id="about"
+  class="relative mx-auto w-[2560px] h-[1738px] text-white font-['Lalezar']
+         flex items-center justify-center pt-500"
+>
+  <!-- Contenedor centrado 2171x1591 -->
+  <div
+    class="absolute left-1/2 top-1/2 w-[2171px] h-[1591px] -translate-x-1/2 -translate-y-1/2"
+  >
+    <!-- 1) HEADER: 2171x277 -->
+    <div class="w-[2171px] h-[277px] flex justify-center">
+      <!-- caja 1382x277 -->
+      <div class="w-[1382px] h-[277px]">
+        <!-- título: 1382x179 -->
+        <div class="w-[1382px] h-[179px] grid place-items-center">
+          <h2
+            class="reveal text-[150px] leading-[1] tracking-[0.02em] drop-shadow-[0_1px_16px_rgba(255,255,255,0.35)]"
+            style="--d:0ms"
+          >
+            Sobre mí
+          </h2>
+        </div>
+        <!-- subtítulo: 1382x98 (centrado y arriba) -->
+        <div class="w-[1382px] h-[98px] text-center">
+          <p
+            class="reveal text-[30px] text-white font-['Inder']"
+            style="--d:120ms"
+          >
+            Aprendiendo, creando y compartiendo tecnología.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2) CUERPO: 2171x823 -->
+    <div class="w-[2171px] h-[823px] flex gap-8">
+      <!-- TEXTO: 1396x823 -->
+      <div class="w-[1396px] h-[823px] flex flex-col">
+        <!-- 2.1 saludo/nombre: 1396x307 -->
+        <div class="w-[1396px] h-[307px]">
+          <p
+            class="reveal text-[96px] leading-[1] text-white drop-shadow-[0_0_5px_#BEFEF6] pt-10"
+            style="--d:240ms"
+          >
+            Hey, Soy
+          </p>
+          <h3
+            class="reveal text-[130px] leading-[1] text-black/100 drop-shadow-[0_0_5px_#BEFEF6] [-webkit-text-stroke:0.5px_#fff]"
+            style="--d:360ms"
+          >
+            Jhon Ortega Echenique
+          </h3>
+        </div>
+
+        <!-- 2.2 descripción: 1396x321 -->
+        <div class="w-[1396px] h-[321px]">
+          <p
+            class="reveal text-[40px] leading-snug text-white font-['Inder'] tracking-[0.02em]"
+            style="--d:480ms"
+          >
+            Soy un estudiante de Ingeniería de Sistemas Computacionales en la
+            Universidad Privada del Norte, con 21 años y una gran pasión por la
+            tecnología, el desarrollo web y la programación. Me encanta dar
+            forma a las ideas, desde el diseño de prototipos hasta su
+            implementación, buscando siempre que cada proyecto sea funcional,
+            atractivo y con un toque creativo.
+          </p>
+        </div>
+
+        <!-- 2.3 botones: 1396x195 -->
+        <div class="w-[1396px] h-[195px] flex items-center gap-6 pt-5">
+          <!-- Botón 1 -->
+          <a
+            href="/cv.pdf"
+            class="moving-light reveal w-[394px] h-[107px] rounded-[30px] bg-gradient-to-r from-[#318A99] to-[#112E33] drop-shadow-[0_0_4px_#498B9D] group"
+          >
+            <div
+              class="w-full h-full rounded-[30px] backdrop-blur-md grid grid-cols-[94px_1fr] bg-transparent relative z-[1]"
+            >
+              <div class="w-[94px] h-[107px] grid place-items-center">
+                <img src={Document.src} alt="cv" />
+              </div>
+              <div class="w-[300px] h-[107px] flex items-center">
+                <span
+                  class="text-[40px] font-['Inter'] font-semibold text-white drop-shadow-[0_0_10px_#498B9D]"
+                >
+                  Descargar CV
+                </span>
+              </div>
+            </div>
+          </a>
+
+          <!-- Botón 2 -->
+          <a
+            href="#proyectos"
+            class="moving-light reveal w-[394px] h-[107px] rounded-[30px] border-2 border-[#498B9D] shadow-[0_0_10px_#498B9D] group"
+          >
+            <div
+              class="w-full h-full rounded-[30px] grid grid-cols-[92px_1fr] bg-transparent relative z-[1]"
+            >
+              <div class="w-[94px] h-[107px] grid place-items-center">
+                <img src={CodeIcon.src} alt="proyectos" />
+              </div>
+              <div class="w-[300px] h-[107px] flex items-center">
+                <span
+                  class="text-[40px] font-['Inter'] font-semibold text-[#91CFDA] drop-shadow-[0_0_4px_#498B9D]"
+                >
+                  Ver Proyectos
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- FOTO: 775x823 -->
+      <div class="w-[775px] h-[823px] grid place-items-center reveal">
+        <!-- contenedor con perspectiva -->
+        <div class="perspective-[1200px] relative">
+          <!-- marco foto 693x713 -->
+          <div
+            id="photo3d"
+            class="photo-3d w-[693px] h-[713px] rounded-full overflow-hidden ring-1 ring-white/15 bg-white/5 backdrop-blur-md border-6 shadow-[0_0_50px_#839CA8] relative"
+          >
+            <img src={foto.src} alt="Foto" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) TARJETAS: 2171x491 -->
+    <div class="w-[2171px] h-[491px] grid grid-cols-3 place-items-center">
+      <!-- CARD 1: 695x391 (alineada izquierda y centrada Y) -->
+      <div
+        class="moving-light reveal w-[695px] h-[391px] justify-self-start grid place-items-center backdrop-blur-md border-3 shadow-[0_3px_20px_#839CA8] rounded-[40px]"
+      >
+        <div
+          class="w-[695px] h-[391px] rounded-[40px] bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+        >
+          <!-- top 695x226 -->
+          <div class="w-[695px] h-[226px] flex items-center justify-center">
+            <!-- 616x130 con 2 × 129x129 -->
+            <div class="w-[616px] h-[130px] flex items-center justify-between">
+              <!-- icono -->
+              <div class="w-[129px] h-[129px] grid place-items-center">
+                <img src={CodeCard.src} alt="" />
+              </div>
+              <!-- total -->
+              <div class="w-[129px] h-[129px] grid place-items-center">
+                <span
+                  class="text-[96px] font-semibold font-['Inter'] text-[#CDCDCD]"
+                  >12</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom 695x165 -->
+          <div
+            class="w-full h-[165px] flex items-center justify-between pr-10 pl-10"
+          >
+            <!-- texto 488x165 -->
+            <div class="w-[488px] h-[165px] flex flex-col justify-center">
+              <p
+                class="text-[48px] leading-none font-['Inter'] font-bold text-[#CDCDCD]"
+              >
+                Total Proyectos
+              </p>
+              <p
+                class="text-[24px] text-[#CDCDCD] leading-tight font-['Inter'] font-bold"
+              >
+                Soluciones personales desarrolladas
+              </p>
+            </div>
+
+            <!-- icon 129x165 -->
+            <div class="w-[129px] h-[165px] grid place-items-center">
+              <img src={Arrow.src} alt="" class="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: centrada X/Y -->
+      <div
+        class="moving-light reveal w-[695px] h-[391px] justify-self-start grid place-items-center backdrop-blur-md border-3 shadow-[0_3px_20px_#839CA8] rounded-[40px]"
+      >
+        <div
+          class="w-[695px] h-[391px] rounded-[40px] bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+        >
+          <!-- top 695x226 -->
+          <div class="w-[695px] h-[226px] flex items-center justify-center">
+            <!-- 616x130 con 2 × 129x129 -->
+            <div class="w-[616px] h-[130px] flex items-center justify-between">
+              <!-- icono -->
+              <div class="w-[129px] h-[129px] grid place-items-center">
+                <img src={SkillCard.src} alt="" />
+              </div>
+              <!-- total -->
+              <div class="w-[129px] h-[129px] grid place-items-center">
+                <span
+                  class="text-[96px] font-regular font-['Inter'] text-[#CDCDCD] font-semibold"
+                  >12</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom 695x165 -->
+          <div
+            class="w-full h-[165px] flex items-center justify-between pr-10 pl-10"
+          >
+            <!-- texto 488x165 -->
+            <div class="w-[488px] h-[165px] flex flex-col justify-center">
+              <p
+                class="text-[48px] leading-none font-['Inter'] font-bold text-[#CDCDCD]"
+              >
+                Skills
+              </p>
+              <p
+                class="text-[24px] text-[#CDCDCD] leading-tight font-['Inter'] font-bold"
+              >
+                Habilidades Personales
+              </p>
+            </div>
+            <!-- icon 129x165 -->
+            <div class="w-[129px] h-[165px] grid place-items-center">
+              <img src={Arrow.src} alt="" class="" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD Derecha -->
+      <div
+        class="moving-light reveal w-[695px] h-[391px] justify-self-start grid place-items-center backdrop-blur-md border-3 shadow-[0_3px_20px_#839CA8] rounded-[40px]"
+      >
+        <div
+          class="w-[695px] h-[391px] rounded-[40px] bg-white/5 backdrop-blur-md ring-1 ring-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.35)]"
+        >
+          <!-- top 695x226 -->
+          <div class="w-[695px] h-[226px] flex items-center justify-center">
+            <!-- 616x130 con 2 × 129x129 -->
+            <div class="w-[616px] h-[130px] flex items-center justify-between">
+              <!-- icono -->
+              <div class="w-[129px] h-[129px] grid place-items-center">
+                <img src={Certificate.src} alt="" />
+              </div>
+              <!-- total -->
+              <div class="w-[129px] h-[129px] grid place-items-center">
+                <span
+                  class="text-[96px] font-regular font-['Inter'] text-[#CDCDCD] font-semibold"
+                  >12</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- bottom 695x165 -->
+          <div
+            class="w-full h-[165px] flex items-center justify-between pr-10 pl-10"
+          >
+            <!-- texto 488x165 -->
+            <div class="w-[488px] h-[165px] flex flex-col justify-center">
+              <p
+                class="text-[48px] leading-none font-['Inter'] font-bold text-[#CDCDCD]"
+              >
+                Certificados
+              </p>
+              <p
+                class="text-[24px] leading-tight font-['Inter'] font-bold text-[#CDCDCD]"
+              >
+                Cursos de desarrollo web y programacion
+              </p>
+            </div>
+            <!-- icon 129x165 -->
+            <div class="w-[129px] h-[165px] grid place-items-center">
+              <img src={Arrow.src} alt="" class="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  @keyframes fade-up {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    will-change: opacity, transform, filter;
+  }
+  .reveal.in-view {
+    animation: fade-up 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+    animation-delay: var(--d, 0ms);
+  }
+
+  /* toque sutil de glow al entrar (coincide con tu estética) */
+  .reveal.in-view {
+    text-shadow: 0 0 4px rgba(190, 254, 246, 0.35);
+  }
+  /* LUZ EN MOVIMIENTO (para botones y cards) */
+  .moving-light {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate; /* asegura que el ::before no escape */
+  }
+  .moving-light::before {
+    content: "";
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(
+      120px 120px at var(--mx, -40%) 50%,
+      rgba(145, 207, 218, 0.55),
+      rgba(145, 207, 218, 0.18) 50%,
+      transparent 60%
+    );
+    transform: translateX(0);
+    border-radius: inherit;
+    pointer-events: none;
+    filter: blur(6px);
+    transition: opacity 0.25s ease;
+    opacity: 0; /* visible sólo en hover */
+    z-index: 0;
+  }
+  .moving-light:hover::before {
+    opacity: 1;
+    animation: sweep 1.4s ease-in-out 1;
+  }
+  @keyframes sweep {
+    0% {
+      --mx: -40%;
+    }
+    50% {
+      --mx: 50%;
+    }
+    100% {
+      --mx: 140%;
+    }
+  }
+
+  /* 3D FOTO */
+  .photo-3d {
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg) scale(1);
+    transition:
+      transform 0.2s ease-out,
+      box-shadow 0.2s ease-out;
+    will-change: transform;
+  }
+  .photo-3d::after {
+    /* brillo especular sutil */
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      60% 60% at 30% 20%,
+      rgba(255, 255, 255, 0.12),
+      transparent 60%
+    );
+    mix-blend-mode: screen;
+    border-radius: inherit;
+  }
+
+  /* SCROLL REVEAL */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px) scale(0.98);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+    will-change: opacity, transform;
+  }
+  .reveal.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+</style>
+<script is:inline>
+  // === SCROLL REVEAL ===
+  const revealEls = document.querySelectorAll(".reveal");
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("show");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+  revealEls.forEach((el) => io.observe(el));
+
+  // === FOTO 3D ===
+  const photo = document.getElementById("photo3d");
+  if (photo) {
+    const damp = 35; // menor = más giro
+    const maxTilt = 12; // límite en grados
+    const scale = 1.02;
+    const handle = (ev) => {
+      const rect = photo.getBoundingClientRect();
+      const px = (ev.clientX - rect.left) / rect.width; // 0..1
+      const py = (ev.clientY - rect.top) / rect.height; // 0..1
+      const ry = (px - 0.5) * 2 * maxTilt;
+      const rx = (0.5 - py) * 2 * maxTilt;
+      photo.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) scale(${scale})`;
+      // opcional: sombra dinámica
+      photo.style.boxShadow = `${-ry * 1.2}px ${rx * 1.2}px 60px rgba(131,156,168,0.35)`;
+    };
+    photo.addEventListener("mousemove", handle);
+    photo.addEventListener("mouseleave", () => {
+      photo.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+      photo.style.boxShadow = "0 0 50px #839CA8";
+    });
+  }
+
+  // === LUZ EN MOVIMIENTO CON MOUSE (opcional para seguir cursor) ===
+  // Esto hace que el destello se posicione donde esté el mouse,
+  // además de la animación sweep default en :hover.
+  document.querySelectorAll(".moving-light").forEach((el) => {
+    el.addEventListener("mousemove", (e) => {
+      const r = el.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width) * 100;
+      el.style.setProperty("--mx", x + "%");
+    });
+  });
+</script>
+<script is:inline>
+  const els = document.querySelectorAll("[data-reveal]");
+
+  const enable = () => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in-view");
+            io.unobserve(e.target); // dispara una vez
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
+    );
+
+    els.forEach((el) => io.observe(el));
+  };
+
+  // Accesibilidad: respeta reduce motion
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  if (prefersReduced.matches) {
+    els.forEach((el) => el.classList.add("in-view"));
+  } else {
+    enable();
+    prefersReduced.addEventListener?.("change", (e) => {
+      if (e.matches) els.forEach((el) => el.classList.add("in-view"));
+    });
+  }
+</script>

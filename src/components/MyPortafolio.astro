@@ -1,0 +1,347 @@
+---
+
+interface ProjectCard {
+  title: string;
+  subtitle: string;
+  image: string | { src: string };
+  figmaUrl?: string;
+  detailsUrl?: string;
+}
+import Portfolio1 from '../assets/Portfolio1.svg';
+import Portfolio2 from '../assets/Portfolio2.svg';
+import Portfolio3 from '../assets/Portfolio3.svg';
+import Portfolio4 from '../assets/Portfolio4.svg';
+
+const { projects = [] as ProjectCard[] } = Astro.props;
+
+const fallback = [
+  { title: "Portfolio Personal", subtitle: "Portafolio personal creado para exponer proyectos desarrollados a lo largo de mi experiencia", image: Portfolio1, figmaUrl: "#", detailsUrl: "/Portfolio" },
+  { title: "Veterinaria Santa Cruz",       subtitle: "Plataforma integral para la gestión de citas, control de ingresos, ventas de productos y abastecimiento, con opción de generar reportes.",   image: Portfolio2, figmaUrl: "#", detailsUrl: "#" },
+  { title: "Booky App",    subtitle: "App móvil para compartir cursos con estilo TikTok. Permite seguir usuarios, publicar y compartir archivos, e incluir imágenes, PDFs y más, además de gestionar tu perfil.",     image: Portfolio3, figmaUrl: "#", detailsUrl: "#" },
+  { title: "Barberia ByL",    subtitle: "Sistema web para la venta de productos y gestión de citas, diseñado para optimizar procesos y mejorar la experiencia del cliente.",       image: Portfolio4, figmaUrl: "#", detailsUrl: "#" },
+];
+const data = projects.length ? projects : fallback;
+
+export type SkillCard = {
+  title: string;
+  image: string | { src: string };
+};
+const { skills = [] as SkillCard[] } = Astro.props;
+
+import Html from '../assets/skills/html.svg';
+import Css from '../assets/skills/css.svg';
+import Js from '../assets/skills/js.svg';
+import Java from '../assets/skills/java.svg';
+import Csharp from '../assets/skills/csharp.svg';
+import Python from '../assets/skills/python.svg';
+import Php from '../assets/skills/php.svg';
+import Azure from '../assets/skills/azure.svg';
+import Mysql from '../assets/skills/mysql.svg';
+import Firebase from '../assets/skills/firebase.svg';
+import Xml from '../assets/skills/xml.svg';
+import Bootstrap from '../assets/skills/bootstrap.svg';
+import Figma from '../assets/skills/figma.svg';
+
+
+const skillsFallback: SkillCard[] = [
+  { title: 'HTML', image: Html },
+  { title: 'CSS', image: Css },
+  { title: 'JavaScript', image: Js },
+  { title: 'Java', image: Java },
+  { title: 'C sharp', image: Csharp },
+  { title: 'Python', image: Python },
+  { title: 'PHP', image: Php },
+  { title: 'Azure', image: Azure },
+  { title: 'MySQL', image: Mysql },
+  { title: 'Firebase', image: Firebase },
+  { title: 'XML', image: Xml },
+  { title: 'Bootstrap', image: Bootstrap },
+  { title: 'Figma', image: Figma },
+];
+
+const skillsData = skills.length ? skills : skillsFallback;
+
+import Cert1 from '../assets/certs/Certificado1.svg';
+import Cert2 from '../assets/certs/Certificado2.svg';
+
+type CertCard = {
+  title: string;
+  image: string | { src: string } | null;
+};
+
+const certsData: CertCard[] = [
+  { title: "Power BI Básico", image: Cert1 },
+  { title: "Python Básico", image: Cert2 },
+  { title: "Cert 3", image: null },
+  { title: "Cert 4", image: null },
+];
+
+import TabSkills from '../assets/TabSkills.svg';
+import TabCert from '../assets/TabCert.svg';
+import TabCode from '../assets/TabCode.svg';
+import FigmaIcon from '../assets/VerFigmaIcon.svg';
+import DetailsIcon from '../assets/DetallesIcon.svg';
+import "../styles/global.css";
+---
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Lalezar&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
+</style>
+
+<section id="portfolio" class="relative mx-auto w-[2560px] h-[1946px] text-white font-['Lalezar']">
+  <!-- Contenedor centrado 2171x1879 -->
+  <div class="absolute left-1/2 top-1/2 w-[2171px] h-[1879px] -translate-x-1/2 -translate-y-1/2">
+
+    <!-- HEADER 2171x277 -->
+    <div class="w-[2171px] h-[277px] flex justify-center">
+      <div class="w-[1382px] h-[277px]">
+        <!-- Título 1382x179 -->
+        <div class="w-[1382px] h-[179px] grid place-items-center">
+          <h2 class="text-[150px] leading-[1] tracking-[0.02em] drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)] font-['Lalezar']">
+            Mi Portafolio
+          </h2>
+        </div>
+        <!-- Subtítulo 1382x98 -->
+        <div class="w-[1382px] h-[98px] flex items-start justify-center">
+          <p class="text-[30px] text-white text-center font-['Inder']">
+            Explora mi recorrido a través de proyectos, certificaciones y conocimientos técnicos.
+            Cada sección representa un paso en mi camino de aprendizaje continuo.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTENIDO 2171x1602 -->
+    <div class="w-[2171px] h-[1602px]">
+      <!-- Barra de Tabs 2171x244 -->
+<div class="w-[2171px] h-[244px] flex items-center px-10">
+  <!-- Los 3 items: 670x198 cada uno -->
+  <div class="w-full flex items-center justify-between">
+    <!-- PROYECTOS: IZQUIERDA -->
+    <button
+      data-tab="projects"
+      class="tab-item w-[670px] h-[198px] rounded-[40px] box-border bg-transparent
+              transition focus:outline-none"
+    >
+      <div class="tab-core w-full h-full rounded-[40px] ring-1 ring-white/10">
+        <!-- inner 409x198 -->
+        <div class="w-[409px] h-[198px] mx-auto">
+          <!-- icon 409x121 (centrado X y pegado abajo) -->
+          <div class="w-[409px] h-[121px] flex items-end justify-center">
+            <!-- TODO: icono -->
+            <img src={TabCode.src} alt="" class="" />
+          </div>
+          <!-- texto 409x77 (centrado) -->
+          <div class="w-[409px] h-[77px] grid place-items-center-top">
+            <span class="text-[30px] font-bold font-[Inter] ">Proyectos</span>
+          </div>
+        </div>
+      </div>
+    </button>
+
+    <!-- SKILLS: CENTRO -->
+    <button
+      data-tab="skills"
+      class="tab-item w-[670px] h-[198px] rounded-[40px] box-border bg-transparent
+              transition focus:outline-none"
+    >
+      <div class="tab-core w-full h-full rounded-[40px] ring-1 ring-white/10">
+        <div class="w-[409px] h-[198px] mx-auto">
+          <div class="w-[409px] h-[121px] flex items-end justify-center">
+            <img src={TabSkills.src} alt="" class="" />
+          </div>
+          <div class="w-[409px] h-[77px] grid place-items-center-top">
+            <span class="text-[30px] font-bold font-[Inter]">Skills</span>
+          </div>
+        </div>
+      </div>
+    </button>
+
+    <!-- CERTIFICADOS: DERECHA -->
+    <button
+      data-tab="certs"
+      class="tab-item w-[670px] h-[198px] rounded-[40px] box-border bg-transparent
+              transition focus:outline-none"
+    >
+      <div class="tab-core w-full h-full rounded-[40px] ring-1 ring-white/10">
+        <div class="w-[409px] h-[198px] mx-auto">
+          <div class="w-[409px] h-[121px] flex items-end justify-center">
+            <img src={TabCert.src} alt="" class="" />
+          </div>
+          <div class="w-[409px] h-[77px] grid place-items-center-top">
+            <span class="text-[30px] font-bold font-[Inter]">Certificados</span>
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+
+
+      <!-- Vistas -->
+      <div class="mt-6 px-10">
+
+        <!-- PROYECTOS: grilla 6 cards (670x630) -->
+<div id="tab-projects" class="grid grid-cols-3 gap-x-[40px] gap-y-[40px] justify-between">
+  {data.map(({ title, subtitle, image, figmaUrl = "#", detailsUrl = "#" }: ProjectCard) => (
+    <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                    shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden">
+      <!-- Imagen 670x384 -->
+      <div class="w-[670px] h-[384px] grid place-items-center overflow-hidden">
+        <img src={typeof image === "string" ? image : image.src} alt={title} class="max-w-full max-h-full object-contain" />
+      </div>
+
+      <!-- Contenido 670x246 -->
+      <div class="w-[670px] h-[246px] px-6 py-4 flex flex-col justify-between">
+        <!-- Texto 625x116 -->
+        <div class="w-[625px] h-[116px] px-2">
+          <h3 class="text-[24px] leading-tight font-semibold font-['Inter'] pb-2 tracking-[0.04em]">{title}</h3>
+          <p class="text-[18px] text-white leading-snug font-['Inter'] font-medium tracking-[0.04em]">{subtitle}</p>
+        </div>
+
+        <!-- Acciones (2 × 193x62) -->
+        <div class="flex justify-between items-center w-full px-2">
+          <!-- Botón Figma -->
+          <a href={figmaUrl} target="_blank" rel="noopener"
+            class="w-[193px] h-[62px] flex items-center justify-start gap-2">
+            <img src={FigmaIcon.src} alt="Figma" />
+            <span class="text-[24px] font-semibold font-['Inter'] tracking-[0.02em] text-[#93BAE9]">
+              Ver Figma
+            </span>
+          </a>
+
+          <!-- Botón Detalles -->
+          <a href={detailsUrl}
+            class="w-[193px] h-[62px] rounded-xl flex items-center justify-between gap-2 px-6
+                    bg-[#2C2C2C/13] ring-2 ring-[#2A2A2A] transition">
+            <span class="text-[24px] font-semibold font-['Inter'] tracking-[0.02em]">
+              Detalles
+            </span>
+            <img src={DetailsIcon.src} alt="Detalles" />
+          </a>
+        </div>
+      </div>
+    </article>
+  ))}
+
+  <!-- Card "Próximamente" 1 -->
+  <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] flex items-center justify-center">
+    <span class="text-[22px] font-medium text-white/70">Próximamente</span>
+  </article>
+
+  <!-- Card "Próximamente" 2 -->
+  <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] flex items-center justify-center">
+    <span class="text-[22px] font-medium text-white/70">Próximamente</span>
+  </article>
+</div>
+
+        <!-- SKILLS / CERTS (placeholders por ahora) -->
+        <div id="tab-skills" class="hidden w-full h-[1200px] grid place-items-center text-white/70">
+  <!-- Contenedor FLEX: 5 por fila y última fila centrada -->
+  <div class="w-full h-full mx-auto flex flex-wrap justify-center gap-x-20 gap-y-0">
+    {skillsData.map((skill: SkillCard) => (
+      <!-- Card 353x300 -->
+      <div class="w-[353px] h-[300px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden">
+        <!-- Ícono -->
+        <div class="w-[353px] h-[168px] flex items-center justify-center">
+          {skill.image && (
+            <img
+              src={typeof skill.image === 'string' ? skill.image : (skill.image as { src: string }).src}
+              alt={skill.title}
+              class="max-h-[120px] max-w-[180px] object-contain"
+            />
+          )}
+        </div>
+        <!-- Texto -->
+        <div class="w-[353px] h-[132px] flex flex-col items-center">
+          <div class="w-full pt-5 flex justify-center">
+            <span class="text-[40px] font-bold font-['Inter'] leading-tight tracking-[0.02em] text-white text-center">
+              {skill.title}
+            </span>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+
+        <div id="tab-certs" class="hidden w-full min-h-[1200px] grid place-items-center text-white/70">
+  <!-- GRID de Certificados (2 columnas) -->
+  <div class="w-full max-w-[2034px] grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 place-items-center">
+    {certsData.map((cert) => (
+      <!-- Card 985x607 -->
+      <div class="w-[985px] h-[607px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden flex items-center justify-center">
+        {cert.image ? (
+          <img
+            src={typeof cert.image === 'string' ? cert.image : cert.image.src}
+            alt={cert.title ?? 'Certificado'}
+            class="w-[900px] h-[557px] object-contain"
+          />
+        ) : (
+          <span class="text-[22px] font-medium text-white/70">Próximamente</span>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<script>
+  (function(){
+    const root = document.getElementById('portfolio') || document; // ajusta si tu sección tiene otro id
+    const items = root.querySelectorAll('.tab-item');
+    const views = {
+      projects: root.querySelector('#tab-projects'),
+      skills:   root.querySelector('#tab-skills'),
+      certs:    root.querySelector('#tab-certs'),
+    };
+
+    function setActive(key: string | null){
+      // vista
+      Object.entries(views).forEach(([k,el])=>{
+        if(!el) return;
+        el.classList.toggle('hidden', k !== key);
+      });
+
+      // estilo de botón: borde/degradado cuando activo
+      items.forEach(btn => {
+  const is = btn.getAttribute('data-tab') === key;
+  const core = btn.querySelector('.tab-core');
+
+  // halo sutil cuando está activo
+  btn.classList.toggle('shadow-[0_0_15px_rgba(38,189,212,0.45)]', is);
+  btn.classList.toggle('shadow-none', !is);
+
+  if (core) {
+    // estado activo: glass + borde 2px #26BDD4 + fondo #A8F1FE al 15%
+    core.classList.toggle('bg-[#A8F1FE]/[0.15]', is);
+    core.classList.toggle('backdrop-blur-md', is);
+    core.classList.toggle('border-3', is);
+    core.classList.toggle('border-[#26BDD4]/[0.15]', is);
+
+  }
+});
+
+    }
+
+    items.forEach(btn=>{
+      btn.addEventListener('click', ()=> setActive(btn.getAttribute('data-tab')));
+    });
+
+    // Estado inicial
+    setActive('projects');
+  })();
+</script>
+
