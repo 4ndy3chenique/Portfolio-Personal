@@ -102,13 +102,13 @@ import "../styles/global.css";
       <div class="w-[1382px] h-[277px]">
         <!-- Título 1382x179 -->
         <div class="w-[1382px] h-[179px] grid place-items-center">
-          <h2 class="text-[150px] leading-[1] tracking-[0.02em] drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)] font-['Lalezar']">
+          <h2 data-fade-up class="text-[150px] leading-[1] tracking-[0.02em] drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)] font-['Lalezar']">
             Mi Portafolio
           </h2>
         </div>
         <!-- Subtítulo 1382x98 -->
         <div class="w-[1382px] h-[98px] flex items-start justify-center">
-          <p class="text-[30px] text-white text-center font-['Inder']">
+          <p data-fade-up data-delay="120" class="text-[30px] text-white text-center font-['Inder']">
             Explora mi recorrido a través de proyectos, certificaciones y conocimientos técnicos.
             Cada sección representa un paso en mi camino de aprendizaje continuo.
           </p>
@@ -119,7 +119,7 @@ import "../styles/global.css";
     <!-- CONTENIDO 2171x1602 -->
     <div class="w-[2171px] h-[1602px]">
       <!-- Barra de Tabs 2171x244 -->
-<div class="w-[2171px] h-[244px] flex items-center px-10">
+<div data-fade-up data-delay="220" class="w-[2171px] h-[244px] flex items-center px-10">
   <!-- Los 3 items: 670x198 cada uno -->
   <div class="w-full flex items-center justify-between">
     <!-- PROYECTOS: IZQUIERDA -->
@@ -187,7 +187,7 @@ import "../styles/global.css";
       <div class="mt-6 px-10">
 
         <!-- PROYECTOS: grilla 6 cards (670x630) -->
-<div id="tab-projects" class="grid grid-cols-3 gap-x-[40px] gap-y-[40px] justify-between">
+<div id="tab-projects" data-fade-up data-delay="0" class="grid grid-cols-3 gap-x-[40px] gap-y-[40px] justify-between">
   {data.map(({ title, subtitle, image, figmaUrl = "#", detailsUrl = "#" }: ProjectCard) => (
     <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
                     shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden">
@@ -348,4 +348,194 @@ import "../styles/global.css";
     setActive('projects');
   })();
 </script>
+
+<script>
+  (function () {
+    const root = document.getElementById('portfolio') || document;
+    const items = root.querySelectorAll('.tab-item');
+
+    const views = {
+      projects: root.querySelector('#tab-projects'),
+      skills:   root.querySelector('#tab-skills'),
+      certs:    root.querySelector('#tab-certs'),
+    };
+
+    const RMO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---------------- ANIMACIONES ----------------
+    function animateGroup(
+      els: any[],
+      kind: 'left' | 'center' | 'right',
+      baseDelay = 0
+    ) {
+      if (!els || els.length === 0) return;
+
+      const keyframesByKind: {
+        left: { opacity: number; transform: string }[];
+        center: { opacity: number; transform: string }[];
+        right: { opacity: number; transform: string }[];
+      } = {
+        left:   [{opacity: 0, transform: 'translateX(-40px)'}, {opacity: 1, transform: 'translateX(0)'}],
+        center: [{opacity: 0, transform: 'scale(0.94)'},       {opacity: 1, transform: 'scale(1)'}],
+        right:  [{opacity: 0, transform: 'translateX(40px)'},  {opacity: 1, transform: 'translateX(0)'}],
+      };
+
+      els.forEach((el: { style: { willChange: string; opacity: string; transform: string; }; animate: (arg0: any, arg1: { duration: number; easing: string; delay: number; fill: string; }) => void; }, i: number) => {
+        el.style.willChange = 'transform, opacity';
+        if (RMO) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
+
+        el.animate(keyframesByKind[kind], {
+          duration: 600,
+          easing: 'cubic-bezier(0.22,1,0.36,1)',
+          delay: baseDelay + i * 80,
+          fill: 'both',
+        });
+      });
+    }
+
+    // Para proyectos: 3 columnas fijas
+    function playProjects(viewEl: { querySelectorAll: (arg0: string) => Iterable<unknown> | ArrayLike<unknown>; }) {
+      const cards = Array.from(viewEl.querySelectorAll('article'));
+      if (!cards.length) return;
+
+      const left  = cards.filter((_, i) => i % 3 === 0);
+      const mid   = cards.filter((_, i) => i % 3 === 1);
+      const right = cards.filter((_, i) => i % 3 === 2);
+
+      animateGroup(left,  'left',   0);
+      animateGroup(mid,   'center', 80);
+      animateGroup(right, 'right',  160);
+    }
+
+    // Para skills/certs: agrupar por posición X (tercios del contenedor)
+    function playByPosition(viewEl: {
+      [x: string]: any; id: string; querySelectorAll: (arg0: string) => Iterable<unknown> | ArrayLike<unknown>; 
+}) {
+      const container = viewEl; // el propio tab es el contenedor
+      const rect = container.getBoundingClientRect();
+      const t1 = rect.left + rect.width / 3;
+      const t2 = rect.left + (2 * rect.width) / 3;
+
+      // Tomamos los hijos "tarjeta" directos (dos niveles por tu markup)
+      const cards =
+        viewEl.id === 'tab-skills'
+          ? Array.from(viewEl.querySelectorAll(':scope > div > div'))
+          : Array.from(viewEl.querySelectorAll(':scope > div > div'));
+
+      if (!cards.length) return;
+
+      const left: unknown[] = [], mid: unknown[] = [], right: unknown[] = [];
+      cards.forEach((el) => {
+        const r = (el as HTMLElement).getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        if (cx < t1) left.push(el);
+        else if (cx < t2) mid.push(el);
+        else right.push(el);
+      });
+
+      animateGroup(left,  'left',   0);
+      animateGroup(mid,   'center', 80);
+      animateGroup(right, 'right',  160);
+    }
+
+    function playEnter(key: 'projects' | 'skills' | 'certs') {
+      const view = views[key];
+      if (!view) return;
+      // Asegura que los hijos empiecen visibles para animar
+      view.querySelectorAll('*').forEach((n: Element) => { (n as HTMLElement).style.opacity = ''; });
+      if (key === 'projects') playProjects(view);
+      else playByPosition(view);
+    }
+
+    // ---------------- TABS ----------------
+    function setActive(key: string | null) {
+      Object.entries(views).forEach(([k, el]) => {
+        if (!el) return;
+        el.classList.toggle('hidden', k !== key);
+      });
+
+      // Estilo activo del botón
+      items.forEach((btn) => {
+        const is = btn.getAttribute('data-tab') === key;
+        const core = btn.querySelector('.tab-core');
+        btn.classList.toggle('shadow-[0_0_15px_rgba(38,189,212,0.45)]', is);
+        btn.classList.toggle('shadow-none', !is);
+
+        if (core) {
+          core.classList.toggle('bg-[#A8F1FE]/[0.15]', is);
+          core.classList.toggle('backdrop-blur-md', is);
+          core.classList.toggle('border-2', is);
+          core.classList.toggle('border-[#26BDD4]', is);
+          core.classList.toggle('ring-1', !is);
+          core.classList.toggle('ring-white/10', !is);
+        }
+      });
+
+      // Lanzar animación de entrada tras mostrar el tab
+      if (key === "projects" || key === "skills" || key === "certs") {
+        requestAnimationFrame(() => playEnter(key));
+      }
+    }
+
+    items.forEach((btn) => {
+      btn.addEventListener('click', () => setActive(btn.getAttribute('data-tab')));
+    });
+
+    // Estado inicial
+    setActive('projects');
+  })();
+</script>
+
+<script>
+(function () {
+  const root = document.getElementById('portfolio');
+  if (!root) return;
+
+  const RMO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = Array.from(root.querySelectorAll('[data-fade-up]'));
+
+  // Estado inicial
+  els.forEach((el) => {
+    const e = el as HTMLElement;
+    e.style.opacity = '0';
+    e.style.transform = 'translateY(24px)';
+    e.style.willChange = 'transform, opacity';
+  });
+
+  const io = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = /** @type {HTMLElement} */ (entry.target);
+        const delay = Number(el.getAttribute('data-delay') || 0);
+
+        if (RMO) {
+          (el as HTMLElement).style.opacity = '1';
+          (el as HTMLElement).style.transform = 'none';
+        } else {
+          el.animate(
+            [
+              { opacity: 0, transform: 'translateY(24px)' },
+              { opacity: 1, transform: 'translateY(0)' }
+            ],
+            {
+              duration: 650,
+              easing: 'cubic-bezier(0.22,1,0.36,1)',
+              delay,
+              fill: 'both'
+            }
+          );
+        }
+
+        obs.unobserve(el); // solo una vez
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
+  );
+
+  els.forEach((el) => io.observe(el));
+})();
+</script>
+
+
 
