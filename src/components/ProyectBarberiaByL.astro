@@ -1,0 +1,322 @@
+---
+import Portfolio4 from "../assets/Portfolio4.svg";
+import ArrowRight from "../assets/ArrowRigh.svg";
+import ArrowLeft from "../assets/ArrowLeft.svg";
+import CodeCard from "../assets/CodeCard.svg";
+import TagCard from "../assets/TagCard.svg";
+import ArrowFigma from "../assets/ArrowFigma.svg";
+import githubIcon from "../assets/githubbotton.svg";
+import codecont from "../assets/CodeContent.svg";
+
+export interface Props {
+  backHref?: string;
+  crumbLeft?: string; // ej: "Proyectos"
+  crumbRight?: string; // ej: "Portafolio Personal"
+  title?: string; // ej: "Portafolio"
+  image?: string; // 807x462 aprox
+  description?: string;
+
+  techCount?: number; // cantidad de tecnologías
+  funcCount?: number; // cantidad de funciones
+
+  features?: string[]; // listado de funciones principales
+  techs?: string[]; // listado de tecnologías
+
+  figmaUrl?: string;
+  githubUrl?: string;
+  docsUrl?: string;
+}
+
+const BASE = import.meta.env.BASE_URL || '/';
+const {
+  backHref = `${BASE}#portfolio`,
+  crumbLeft = "Proyectos",
+  crumbRight = "Barberia ByL",
+  title = "Barberia ByL",
+  image = Portfolio4,
+  description = "Plataforma web integral diseñada para optimizar la gestión de la barberia, de esta  forma permitie administrar de forma centralizada citas, empleados, servicios, productos e ingresos. Desarrollada en Java bajo el patrón MVC, utiliza Servlets y DAOs para consultas eficientes a MySQL, con vistas JSP y diseño responsive en Bootstrap. Incorpora un sistema de doble inicio de sesión para administradores y clientes, gestión de inventario, configuración de precios, generación de reportes descargables (PDF/Excel) y medidas de seguridad que cumplen con estándares de calidad del software. El despliegue se realiza automáticamente en Azure mediante integración continua con GitHub, garantizando actualizaciones rápidas y estables en la nube.",
+  techCount = 9,
+  funcCount = 7,
+  features = [
+    "Crear, editar, cancelar y confirmar citas con estados personalizados.",
+    "Alta, baja, edición y asignación de roles y permisos.",
+    "CRUD de servicios con precios, duración y disponibilidad.",
+    "Registro, control de inventario y seguimiento de stock.",
+    "Registro de ingresos/gastos y visualización por rango de fechas.",
+    "Exportación de reportes en PDF y Excel.",
+    "Inicio de sesión diferenciado para administradores y clientes.",
+  ],
+  techs = [
+    "Java",
+    "JSP",
+    "Boostrap",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "MySQL",
+    "Tomcat",
+    "Azure",
+  ],
+  figmaUrl = "https://www.figma.com/design/yCBzQRzZgn2JE1Uo0E22Jd/Portafolio-Web--Prototipe-?node-id=0-1&t=hp0zYpPfw052E4Nu-1",
+  githubUrl = "#",
+  docsUrl = "#",
+} = Astro.props;
+---
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Lalezar&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
+</style>
+
+<section class="w-full grid place-items-center pt-35">
+  <!-- Contenedor 1800x1122 centrado -->
+  <div class="relative w-[1800px] h-[1122px]">
+    <!-- 1) Header 1800x135 -->
+    <div class="w-[1800px] h-[135px] flex items-center">
+      <!-- Botón -->
+      <div class="w-[218px] h-[135px] flex items-center">
+        <a
+          href={backHref}
+          class="w-[193px] h-[62px] rounded-[10px] grid grid-cols-[30px_1fr] items-center gap-3
+             bg-[#2C2C2C]/[0.13] ring-2 ring-[#2A2A2A] backdrop-blur-md hover:bg-white/10 transition pl-5"
+        >
+          <img src={ArrowLeft.src} alt="" />
+          <span
+            class="font-['Inter'] text-[24px] font-semibold tracking-[0.02em] pl-1"
+            >Regresar</span
+          >
+        </a>
+      </div>
+
+      <!-- Breadcrumb -->
+      <div class="w-[379px] h-[134px] flex items-center gap-3">
+        <span
+          class="text-[#A7A7A7] font-['Inter'] text-[24px] font-regular tracking-[0.02em]"
+          >{crumbLeft}</span
+        >
+        <img src={ArrowRight.src} alt="" class="pt-3" />
+        <span class="text-white font-['Inter'] text-[21px] font-semibold"
+          >{crumbRight}</span
+        >
+      </div>
+    </div>
+
+    <!-- 2) Cuerpo: 2 columnas 900x987 -->
+    <div class="w-[1800px] h-[987px] grid grid-cols-2 gap-0">
+      <!-- 2.A Columna izquierda (info) 900x987 -->
+      <div class="w-[900px] h-[987px]">
+        <!-- 2.A.1 Título 900x124 -->
+        <div class="w-[900px] h-[124px] flex items-end">
+          <h1
+            class="font-['Inter'] font-extrabold text-[96px] tracking-[0.02em]"
+          >
+            {title}
+          </h1>
+        </div>
+
+        <!-- 2.A.2 Separador 168x10 con degradado -->
+        <div class="w-[900px] h-[10px] mt-3">
+          <div
+            class="w-[168px] h-[10px] rounded-full"
+            style="background:linear-gradient(90deg,#28717E 0%, rgba(34,118,118,0.7) 100%);"
+          >
+          </div>
+        </div>
+
+        <!-- 2.A.3 Contenido 900x853 -->
+        <div class="w-[900px] h-[853px] mt-4 flex flex-col justify-between">
+          <!-- a) Descripción 900x293 -->
+          <div class="w-[900px] h-[293px]">
+            <p
+              class="font-['Inter'] text-[20px] font-regular tracking-[0.02em] text-white"
+            >
+              {description}
+            </p>
+          </div>
+
+          <!-- b) Cantidades 900x181 -> inner 886x155 -> 2 × (403x126) -->
+          <div class="w-[900px] h-[181px] pt-4">
+            <div
+              class="w-[886px] h-[155px] mx-auto flex items-center justify-between rounded-[20px] px-5 ring-1 ring-[#1F1F1F] bg-[#060606]"
+            >
+              <!-- Tecnologías -->
+              <div
+                class="w-[403px] h-[126px] rounded-[20px] bg-[#060606] ring-1 ring-white/10 backdrop-blur-md px-4 flex items-center px-10 gap-6"
+              >
+                <!-- Icono primero -->
+                <div
+                  class="w-[60px] h-[60px] rounded-full grid place-items-center"
+                >
+                  <img src={CodeCard.src} alt="" class="" />
+                </div>
+                <!-- Texto a la derecha -->
+                <div class="flex-1">
+                  <div class="font-['Lalezar'] text-[40px] leading-none">
+                    {techCount}
+                  </div>
+                  <div
+                    class="font-['Inter'] text-[20px] text-[#8F8F8F] leading-tight tracking-[0.02em]"
+                  >
+                    Tecnologías Usadas
+                  </div>
+                </div>
+              </div>
+
+              <!-- Funciones -->
+              <div
+                class="w-[403px] h-[126px] rounded-[20px] bg-[#060606] ring-1 ring-white/10 backdrop-blur-md px-4 flex items-center px-10 gap-6"
+              >
+                <!-- Icono primero -->
+                <div
+                  class="w-[60px] h-[60px] rounded-full grid place-items-center"
+                >
+                  <!-- cambia por tu icono -->
+                  <img src={TagCard.src} alt="" class="" />
+                </div>
+                <!-- Texto a la derecha -->
+                <div class="flex-1">
+                  <div class="font-['Lalezar'] text-[40px] leading-none">
+                    {funcCount}
+                  </div>
+                  <div
+                    class="font-['Inter'] text-[20px] text-[#8F8F8F] leading-tight tracking-[0.02em]"
+                  >
+                    Funciones Principales
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- c) Botones 900x136 (tres × 273x83) -->
+          <div class="w-[900px] h-[136px] grid grid-cols-3 items-center">
+            <!-- IZQUIERDA -->
+            <div class="flex justify-start pl-1">
+              {
+                figmaUrl && (
+                  <a
+                    href={figmaUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="w-[273px] h-[83px] rounded-2xl p-[10px] ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
+                  >
+                    <div class="w-[223px] h-[62px] grid grid-cols-[60px_1fr] items-center pl-5">
+                      <img src={ArrowFigma.src} alt="" class="" />
+                      <span class="justify-self-end font-['Inter'] text-[28px] text-[#C5D5E9] font-semibold tracking-[0.04em]">
+                        Ver Figma
+                      </span>
+                    </div>
+                  </a>
+                )
+              }
+            </div>
+
+            <!-- CENTRO -->
+            <div class="flex justify-center">
+              {
+                githubUrl && (
+                  <a
+                    href={githubUrl}
+                    target="_blank"
+                    rel="noopener"
+                    class="w-[273px] h-[83px] rounded-2xl p-[10px] ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
+                  >
+                    <div class="w-[223px] h-[62px] grid grid-cols-[60px_1fr] items-center pl-5">
+                      <img src={githubIcon.src} alt="" class="pl-5" />
+                      <span class="justify-self-center font-['Inter'] text-[28px] text-[#C5D5E9] font-semibold pl-5 tracking-[0.04em]">
+                        Github
+                      </span>
+                    </div>
+                  </a>
+                )
+              }
+            </div>
+
+            <!-- DERECHA -->
+            <div class="flex justify-end pr-1">
+              {
+                docsUrl && (
+                  <a
+                    href={docsUrl}
+                    class="w-[273px] h-[83px] rounded-2xl p-[10px] ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
+                  >
+                    <div class="w-[223px] h-[62px] grid grid-cols-[60px_1fr] items-center">
+                      <span class="justify-self-center font-['Inter'] text-[28px] text-[#C5D5E9] font-semibold pl-50 tracking-[0.04em]">
+                        Documentación
+                      </span>
+                    </div>
+                  </a>
+                )
+              }
+            </div>
+          </div>
+
+          <!-- d) Tecnologías 900x243 -->
+          <div class="w-[900px] h-[243px]">
+            <!-- título fila 900x65 -->
+            <div class="w-[900px] h-[65px] flex items-center gap-4 pl-1">
+              <!-- TODO: icono -->
+              <img src={codecont.src} alt="" class="" />
+              <p
+                class="font-['Inter'] text-[28px] tracking-[0.02em] text-semibold"
+              >
+                Tecnologías Usadas
+              </p>
+            </div>
+            <!-- grid 900x178 : 5 columnas, cada chip 127x46 -->
+            <div
+              class="w-[900px] h-[178px] grid grid-cols-5 gap-5 content-start pt-4 px-1"
+            >
+              {
+                techs.map((t) => (
+                  <div class="w-[127px] h-[46px] rounded-full grid place-items-center ring-1 ring-[#1F1F1F] bg-[#060606]">
+                    <span class="font-['Inter'] text-[20px]">{t}</span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.B Columna derecha 900x987 (foto + funciones) -->
+      <div class="w-[900px] h-[987px] relative">
+        <!-- Foto 807x462, centrada X / top Y -->
+        <div
+          class="absolute left-1/2 top-0 -translate-x-1/2 w-[807px] h-[462px] rounded-3xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-md"
+        >
+          <img
+            src={typeof image === "string" ? image : image.src}
+            alt={title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <!-- Funciones 807x493, centrada X / bottom Y -->
+        <div
+          class="absolute left-1/2 bottom-0 -translate-x-1/2 w-[807px] h-[493px] rounded-3xl ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md p-5"
+        >
+          <!-- inner 765x442 -->
+          <div class="w-[765px] h-[442px] mx-auto">
+            <!-- título 765x58 -->
+            <div class="w-[765px] h-[58px] flex items-center">
+              <h3
+                class="font-['Inter'] text-[30px] font-medium tracking-[0.02em]"
+              >
+                Funciones Principales
+              </h3>
+            </div>
+            <!-- lista 765x384 -->
+            <div class="w-[765px] h-[384px] overflow-auto">
+              <ul
+                class="list-disc pl-8 font-['Inter'] text-[20px] leading-12 text-[#ACACAC]"
+              >
+                {features.map((f) => <li>{f}</li>)}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

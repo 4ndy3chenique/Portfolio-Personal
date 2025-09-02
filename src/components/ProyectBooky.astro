@@ -1,5 +1,5 @@
 ---
-import Portfolio1 from '../assets/Portfolio1.svg';
+import Portfolio3 from '../assets/Portfolio3.svg';
 import ArrowRight from '../assets/ArrowRigh.svg';
 import ArrowLeft from '../assets/ArrowLeft.svg';
 import CodeCard from '../assets/CodeCard.svg';
@@ -31,21 +31,22 @@ const BASE = import.meta.env.BASE_URL || '/';
 const {
   backHref = `${BASE}#portfolio`,
   crumbLeft = "Proyectos",
-  crumbRight = "Portafolio Personal",
-  title = "Portafolio",
-  image = Portfolio1,
-  description = "Mi Portafolio es un sitio web personal diseñado para presentar mis proyectos y habilidades de forma visualmente atractiva y profesional. Desarrollado con HTML, CSS puro y JavaScript, incorpora un fondo en 3D para aportar dinamismo e impacto visual, manteniendo un diseño totalmente responsive que se adapta a cualquier dispositivo. El despliegue se realiza en Azure, con integración continua desde GitHub para aplicar actualizaciones automáticas. Este es el proyecto al que más dedicación y cuidado he puesto, cuidando cada detalle de la experiencia de usuario y la estética para reflejar mi estilo y nivel profesional.",
+  crumbRight = "Booky App",
+  title = "Booky App",
+  image = Portfolio3,
+  description = "Aplicación móvil desarrollada en Android Studio para compartir información y tareas académicas de forma fiable, con dos roles de usuario: docente y estudiante. Programada en Java y XML, usa endpoints en PHP conectados a una base de datos MySQL alojada en Azure y contenedores para almacenar archivos, imágenes y documentos. Su diseño minimalista en blanco y negro, inspirado en TikTok, incluye modo noche, personalización de perfil, registro/login con Firebase y APIs de Google y Facebook. Integra Google Maps para geolocalizar publicaciones, permite seguir usuarios, crear carpetas públicas o privadas y guardar contenido en un feed tipo TikTok. Actualmente está en fase beta con gran potencial de crecimiento.",
   techCount = 5,
   funcCount = 7,
   features = [
-    "Sección dedicada a mostrar tus trabajos con descripciones, imágenes y tecnologías usadas.",
-    "Fondo interactivo en tres dimensiones para una experiencia visual atractiva.",
-    "Adaptación completa a móviles, tablets y pantallas de escritorio.",
-    "Integración con GitHub y despliegue automático en Azure.",
-    "Animaciones y efectos con JavaScript para mejorar la navegación.",
-    "Uso de HTML y CSS puro para lograr velocidad y limpieza en la interfaz."
+    "Con Firebase y APIs de Google y Facebook.",
+    "Docente y estudiante, con permisos diferenciados.",
+    "Subida de archivos, imágenes y documentos a contenedores seguros.",
+    "Foto, fondo y configuración de modo día/noche.",
+    "API de Google Maps para ubicar publicaciones y mejorar el filtrado.",
+    "Seguir usuarios, dar corazones y guardar publicaciones en el feed.",
+    "Creación de carpetas públicas o privadas para guías o publicaciones."
   ],
-  techs = ["Tailwind","Astro","HTML", "JavaScript", "Azure"],
+  techs = ["Java","PHP","XML", "Azure", "MySQL","Firebase"],
   figmaUrl = "https://www.figma.com/design/yCBzQRzZgn2JE1Uo0E22Jd/Portafolio-Web--Prototipe-?node-id=0-1&t=hp0zYpPfw052E4Nu-1",
   githubUrl = "#",
   docsUrl = "#",
@@ -103,7 +104,7 @@ const {
 
           <!-- a) Descripción 900x293 -->
           <div class="w-[900px] h-[293px]">
-            <p class="font-['Inter'] text-[23px] font-regular tracking-[0.02em] text-white">
+            <p class="font-['Inter'] text-[22px] font-regular tracking-[0.02em] text-white">
               {description}
             </p>
           </div>

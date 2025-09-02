@@ -16,9 +16,9 @@ const { projects = [] as ProjectCard[] } = Astro.props;
 
 const fallback = [
   { title: "Portfolio Personal", subtitle: "Portafolio personal creado para exponer proyectos desarrollados a lo largo de mi experiencia", image: Portfolio1, figmaUrl: "#", detailsUrl: "/Portfolio" },
-  { title: "Veterinaria Santa Cruz",       subtitle: "Plataforma integral para la gestión de citas, control de ingresos, ventas de productos y abastecimiento, con opción de generar reportes.",   image: Portfolio2, figmaUrl: "#", detailsUrl: "#" },
-  { title: "Booky App",    subtitle: "App móvil para compartir cursos con estilo TikTok. Permite seguir usuarios, publicar y compartir archivos, e incluir imágenes, PDFs y más, además de gestionar tu perfil.",     image: Portfolio3, figmaUrl: "#", detailsUrl: "#" },
-  { title: "Barberia ByL",    subtitle: "Sistema web para la venta de productos y gestión de citas, diseñado para optimizar procesos y mejorar la experiencia del cliente.",       image: Portfolio4, figmaUrl: "#", detailsUrl: "#" },
+  { title: "Veterinaria Santa Cruz",       subtitle: "Plataforma integral para la gestión de citas, control de ingresos, ventas de productos y abastecimiento, con opción de generar reportes.",   image: Portfolio2, figmaUrl: "#", detailsUrl: "/Veterinaria" },
+  { title: "Booky App",    subtitle: "App móvil para compartir cursos con estilo TikTok. Permite seguir usuarios, publicar y compartir archivos, e incluir imágenes, PDFs y más, además de gestionar tu perfil.",     image: Portfolio3, figmaUrl: "#", detailsUrl: "/BookyApp" },
+  { title: "Barberia ByL",    subtitle: "Sistema web para la venta de productos y gestión de citas, diseñado para optimizar procesos y mejorar la experiencia del cliente.",       image: Portfolio4, figmaUrl: "#", detailsUrl: "/BarberiaByL" },
 ];
 const data = projects.length ? projects : fallback;
 
@@ -41,6 +41,8 @@ import Firebase from '../assets/skills/firebase.svg';
 import Xml from '../assets/skills/xml.svg';
 import Bootstrap from '../assets/skills/bootstrap.svg';
 import Figma from '../assets/skills/figma.svg';
+import AstroIcon from '../assets/skills/AstroIcon.svg';
+import Tailwind from '../assets/skills/TailwindIcon.svg';
 
 
 const skillsFallback: SkillCard[] = [
@@ -51,6 +53,8 @@ const skillsFallback: SkillCard[] = [
   { title: 'C sharp', image: Csharp },
   { title: 'Python', image: Python },
   { title: 'PHP', image: Php },
+  { title: 'Astro', image: AstroIcon },
+  { title: 'Tailwind', image: Tailwind },
   { title: 'Azure', image: Azure },
   { title: 'MySQL', image: Mysql },
   { title: 'Firebase', image: Firebase },
@@ -89,7 +93,7 @@ import "../styles/global.css";
   @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
 </style>
 
-<section id="portfolio" class="relative mx-auto w-[2560px] h-[1946px] text-white font-['Lalezar']">
+<section id="portfolio" class="scroll-mt-[2px] relative mx-auto w-[2560px] h-[1946px] text-white font-['Lalezar']">
   <!-- Contenedor centrado 2171x1879 -->
   <div class="absolute left-1/2 top-1/2 w-[2171px] h-[1879px] -translate-x-1/2 -translate-y-1/2">
 
@@ -239,7 +243,7 @@ import "../styles/global.css";
 </div>
 
         <!-- SKILLS / CERTS (placeholders por ahora) -->
-        <div id="tab-skills" class="hidden w-full h-[1200px] grid place-items-center text-white/70">
+        <div id="tab-skills" class="hidden w-full h-[1200px] grid place-items-center text-white">
   <!-- Contenedor FLEX: 5 por fila y última fila centrada -->
   <div class="w-full h-full mx-auto flex flex-wrap justify-center gap-x-20 gap-y-0">
     {skillsData.map((skill: SkillCard) => (
