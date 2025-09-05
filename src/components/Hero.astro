@@ -3,66 +3,96 @@ import flecha from "../assets/Flecha.svg";
 import arrow from "../assets/Arrow.svg";
 ---
 
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Lalezar&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
+</style>
 <section
   id="hero"
   data-state="intro"
-  class="relative min-h-[calc(100vh-150px)] flex items-center justify-center"
+  class="relative min-h-screen md:min-h-[calc(100vh-150px)] flex items-center justify-center"
 >
-  
-  <!-- Estado A (centrado) -->
-<div data-role="intro" class="absolute inset-0 transition-opacity duration-300 left-1/7 top-180 -translate-y-1/2 flex items-center justify-center">
-  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1710px] h-[709px]">
-    <div class="relative w-[1710px] h-[709px] font-['Lalezar'] leading-[0.8]">
-      <!-- LÍNEA 1 -->
-      <p class="intro-line-1 will-change-[opacity,transform]
-                 text-white text-[250px] tracking-[0.05em] pl-[70px]
+  <div
+    data-role="intro"
+    class="absolute inset-0 transition-opacity duration-300
+         flex items-center justify-center
+         md:pt-[150px]"
+  >
+    <div
+      class="w-[402px] h-[216px] md:w-[1710px] md:h-[709px]
+             mx-auto"
+    >
+      <div
+        class="relative w-full h-full
+               font-['Lalezar'] leading-[0.8]
+               text-center md:text-center"
+      >
+        <p
+          class="intro-line-1 will-change-[opacity,transform] pt-2
+                 text-white text-[64px] md:text-[250px] tracking-[0.05em]
+                 pl-0 md:pl-0 <!-- sin padding en desktop -->
                  [-webkit-text-stroke:2px_#fff]
-                 [filter:drop-shadow(0_0_15px_rgba(255,255,255,0.35))]">
-        EXPLORA
-      </p>
-      <!-- LÍNEA 2 -->
-      <p class="intro-line-2 will-change-[opacity,transform,filter]
-                 text-transparent text-[280px] tracking-[0.05em] pl-[0px] pt-[10px] pb-[10px]
+                 [filter:drop-shadow(0_0_15px_rgba(255,255,255,0.35))]"
+        >
+          EXPLORA
+        </p>
+
+        <p
+          class="intro-line-2 will-change-[opacity,transform,filter] m-5
+                 text-transparent text-[64px] md:text-[280px] tracking-[0.05em]
+                 pl-0 md:pl-0 pt-0 pb-0 md:pt-[10px] md:pb-[10px]
                  [-webkit-text-stroke:3px_#fff]
                  [filter:drop-shadow(0_0_0px_#fff)_drop-shadow(0_0_0px_var(--neon))_drop-shadow(0_0_10px_var(--neon))]"
-         style="--neon:#fff;">
-        MI MUNDO
-      </p>
-      <!-- LÍNEA 3 -->
-      <p class="intro-line-3 will-change-[opacity,transform]
-                 text-white text-[250px] tracking-[0.05em] pl-[300px]
+          style="--neon:#fff;"
+        >
+          MI MUNDO
+        </p>
+
+        <p
+          class="intro-line-3 will-change-[opacity,transform]
+                 text-white text-[64px] md:text-[250px] tracking-[0.05em]
+                 pl-0 md:pl-0 <!-- sin padding en desktop -->
                  [-webkit-text-stroke:2px_#fff]
-                 [filter:drop-shadow(0_0_15px_rgba(255,255,255,0.35))]">
-        DIGITAL
-      </p>
+                 [filter:drop-shadow(0_0_15px_rgba(255,255,255,0.35))]"
+        >
+          DIGITAL
+        </p>
+      </div>
     </div>
   </div>
-</div>
 
-  <!-- Estado B (empieza oculto) -->
   <div
     data-role="name"
-    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 pt-40"
+    class="absolute inset-0 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300"
   >
-    <div class="w-[1874px] h-[460px]">
-      <div class="w-[1874px] h-[319px] flex items-center justify-center">
-        <div class="px-6 py-2 rounded-2xl bg-white/0 backdrop-blur-sm">
+    <div class="w-full md:w-[1874px] md:h-[460px]">
+      <div
+        class="w-full md:w-[1874px] md:h-[319px] flex items-center justify-center"
+      >
+        <div
+          class="px-4 py-1 md:px-6 md:py-2 rounded-2xl bg-white/0 backdrop-blur-sm"
+        >
           <h1
-            class="font-['Lalezar'] text-white text-[250px] tracking-[0.04em] leading-[0.85] drop-shadow-[0_0px_5px_rgba(255,255,255,0.35)] text-center"
+            class="font-['Lalezar'] text-white text-[50px] md:text-[250px]
+                 tracking-[0.04em] leading-[0.95] md:leading-[0.85]
+                 drop-shadow-[0_0px_5px_rgba(255,255,255,0.35)] text-center"
           >
-            Jhon Echenique
+            Jhon <br class="md:hidden" /> Echenique
           </h1>
         </div>
       </div>
-      <div class="w-full h-[141px] flex items-center justify-center">
-        <div class="relative w-[1355px] h-[141px]">
+
+      <div class="w-full md:h-[141px] flex items-center justify-center">
+        <div class="relative w-[330px] h-[90px] md:w-[1355px] md:h-[141px]">
           <div
-            class="absolute left-0 top-0 w-[408px] h-[141px] grid place-items-center"
+            class="absolute left-0 top-1/2 -translate-y-1/2
+                 w-[110px] h-[90px] grid place-items-center
+                 md:left-0 md:top-0 md:translate-y-0 md:w-[408px] md:h-[141px]"
             data-opt="0"
           >
             <div class="relative">
               <span
-                class="font-['Lalezar'] text-[50px] text-white transition-all duration-300"
+                class="font-['Lalezar'] text-[10px] md:text-[50px] text-white transition-all duration-300"
                 >Desarrollador</span
               >
               <div
@@ -72,33 +102,36 @@ import arrow from "../assets/Arrow.svg";
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -right-10 -top-6 select-none rotate-0"
+                  class="absolute -right-4 -top-1.5 md:-right-10 md:-top-6 select-none rotate-0 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -right-10 -bottom-6 select-none rotate-90"
+                  class="absolute -right-4 -bottom-3 md:-right-10 md:-bottom-6 select-none rotate-90 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -left-10 -top-6 select-none -rotate-90"
+                  class="absolute -left-4 -top-1.5 md:-left-10 md:-top-6 select-none -rotate-90 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -left-10 -bottom-6 select-none rotate-180"
+                  class="absolute -left-4 -bottom-3 md:-left-10 md:-bottom-6 select-none rotate-180 w-5 h-5 md:w-auto md:h-auto"
                 />
               </div>
             </div>
           </div>
+
           <div
-            class="absolute left-1/2 top-0 -translate-x-1/2 w-[408px] h-[141px] grid place-items-center"
+            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+                 w-[110px] h-[90px] grid place-items-center
+                 md:top-0 md:translate-y-0 md:w-[408px] md:h-[141px]"
             data-opt="1"
           >
             <div class="relative">
               <span
-                class="font-['Lalezar'] text-[50px] text-white transition-all duration-300"
+                class="font-['Lalezar'] text-[10px] md:text-[50px] text-white transition-all duration-300"
                 >Diseñador</span
               >
               <div
@@ -108,33 +141,36 @@ import arrow from "../assets/Arrow.svg";
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -right-10 -top-6 select-none rotate-0"
+                  class="absolute -right-4 -top-1.5 md:-right-10 md:-top-6 select-none rotate-0 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -right-10 -bottom-6 select-none rotate-90"
+                  class="absolute -right-4 -bottom-3 md:-right-10 md:-bottom-6 select-none rotate-90 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -left-10 -top-6 select-none -rotate-90"
+                  class="absolute -left-4 -top-1.5 md:-left-10 md:-top-6 select-none -rotate-90 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -left-10 -bottom-6 select-none rotate-180"
+                  class="absolute -left-4 -bottom-3 md:-left-10 md:-bottom-6 select-none rotate-180 w-5 h-5 md:w-auto md:h-auto"
                 />
               </div>
             </div>
           </div>
+
           <div
-            class="absolute right-0 top-0 w-[408px] h-[141px] grid place-items-center"
+            class="absolute right-0 top-1/2 -translate-y-1/2
+                 w-[110px] h-[90px] grid place-items-center
+                 md:top-0 md:translate-y-0 md:w-[408px] md:h-[141px]"
             data-opt="2"
           >
             <div class="relative">
               <span
-                class="font-['Lalezar'] text-[50px] text-white transition-all duration-300"
+                class="font-['Lalezar'] text-[10px] md:text-[50px] text-white transition-all duration-300"
                 >Creativo</span
               >
               <div
@@ -144,22 +180,22 @@ import arrow from "../assets/Arrow.svg";
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -right-10 -top-6 select-none rotate-0"
+                  class="absolute -right-4 -top-1.5 md:-right-10 md:-top-6 select-none rotate-0 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -right-10 -bottom-6 select-none rotate-90"
+                  class="absolute -right-4 -bottom-3 md:-right-10 md:-bottom-6 select-none rotate-90 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -left-10 -top-6 select-none -rotate-90"
+                  class="absolute -left-4 -top-1.5 md:-left-10 md:-top-6 select-none -rotate-90 w-5 h-5 md:w-auto md:h-auto"
                 />
                 <img
                   src={arrow.src}
                   alt=""
-                  class="absolute -left-10 -bottom-6 select-none rotate-180"
+                  class="absolute -left-4 -bottom-3 md:-left-10 md:-bottom-6 select-none rotate-180 w-5 h-5 md:w-auto md:h-auto"
                 />
               </div>
             </div>
@@ -168,28 +204,41 @@ import arrow from "../assets/Arrow.svg";
       </div>
     </div>
   </div>
+
   <div
-    class="absolute left-65 bottom-1 translate-y-15 font-['Lalezar'] leading-tight tracking-[0.01em] text-white/80 drop-shadow-[0_1px_5px_rgba(255,255,255,0.35)]"
+    class="absolute
+         left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+         mt-[var(--offsetY,0px)] md:mt-0
+         text-center md:text-left
+         font-['Lalezar'] leading-tight tracking-[0.01em]
+         text-white/80 drop-shadow-[0_1px_5px_rgba(255,255,255,0.35)]
+         md:left-65 md:bottom-1 md:top-auto md:translate-x-0 md:translate-y-15"
+    style="--offsetY: 200px;"
   >
-    <span class="font-regular text-white text-[25px]"
-      >Ubicado en Lima, Perú</span
-    ><br />
-    <span class="font-regular text-white text-[13px]"
-      >Estudiante en Universidad Privada del Norte</span
-    >
+    <span class="block font-regular text-white text-[15px] md:text-[25px]">
+      Ubicado en Lima, Perú
+    </span>
+    <span class="block font-regular text-white text-[8px] md:text-[13px]">
+      Estudiante en Universidad Privada del Norte
+    </span>
   </div>
   <a
     href="#about"
-    class="group absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-15 z-10"
     aria-label="Ir a la siguiente sección"
+    class="group absolute z-10
+         left-1/2 top-1/2 -translate-x-1/2
+         translate-y-[calc(-50%+var(--arrowOffsetY,0px))]
+         md:top-auto md:bottom-0 md:-translate-x-1/2 md:translate-y-10"
+    style="--arrowOffsetY: 350px;"
   >
     <img
       src={flecha.src}
       alt=""
-      class="bloc select-none will-change-transform animate-[arrow-slow_1s_ease-in-out_infinite] motion-reduce:animate-none"
+      class="block select-none will-change-transform
+           animate-[arrow-slow_1s_ease-in-out_infinite]
+           motion-reduce:animate-none"
     />
   </a>
-
 
   <style>
     @keyframes arrow-slow {
@@ -204,54 +253,92 @@ import arrow from "../assets/Arrow.svg";
       }
     }
 
-    /* ENTRADAS cuando el hero está en estado intro */
-#hero[data-state="intro"] .intro-line-1 {
-  animation: in-fade-right .9s cubic-bezier(.22,.61,.36,1) .0s both;
-}
-#hero[data-state="intro"] .intro-line-2 {
-  animation: in-reveal-center .9s cubic-bezier(.22,.61,.36,1) .15s both;
-}
-#hero[data-state="intro"] .intro-line-3 {
-  animation: in-fade-left .9s cubic-bezier(.22,.61,.36,1) .30s both;
-}
+    #hero[data-state="intro"] .intro-line-1 {
+      animation: in-fade-right 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0s both;
+    }
+    #hero[data-state="intro"] .intro-line-2 {
+      animation: in-reveal-center 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.15s
+        both;
+    }
+    #hero[data-state="intro"] .intro-line-3 {
+      animation: in-fade-left 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s both;
+    }
 
-/* SALIDAS cuando cambias a estado name */
-#hero[data-state="name"] .intro-line-1 {
-  animation: out-fade-left .5s ease .0s both;
-}
-#hero[data-state="name"] .intro-line-2 {
-  animation: out-shrink-center .5s ease .05s both;
-}
-#hero[data-state="name"] .intro-line-3 {
-  animation: out-fade-right .5s ease .10s both;
-}
+    #hero[data-state="name"] .intro-line-1 {
+      animation: out-fade-left 0.5s ease 0s both;
+    }
+    #hero[data-state="name"] .intro-line-2 {
+      animation: out-shrink-center 0.5s ease 0.05s both;
+    }
+    #hero[data-state="name"] .intro-line-3 {
+      animation: out-fade-right 0.5s ease 0.1s both;
+    }
 
-/* Keyframes */
-@keyframes in-fade-right {
-  from { opacity: 0; transform: translateX(-48px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-@keyframes in-reveal-center {
-  from { opacity: 0; transform: scaleX(.7); filter: blur(3px); }
-  to   { opacity: 1; transform: scaleX(1);  filter: blur(0); }
-}
-@keyframes in-fade-left {
-  from { opacity: 0; transform: translateX(48px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
+    @keyframes in-fade-right {
+      from {
+        opacity: 0;
+        transform: translateX(-48px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    @keyframes in-reveal-center {
+      from {
+        opacity: 0;
+        transform: scaleX(0.7);
+        filter: blur(3px);
+      }
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+        filter: blur(0);
+      }
+    }
+    @keyframes in-fade-left {
+      from {
+        opacity: 0;
+        transform: translateX(48px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
 
-@keyframes out-fade-left {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(-32px); }
-}
-@keyframes out-shrink-center {
-  from { opacity: 1; transform: scaleX(1); filter: blur(0); }
-  to   { opacity: 0; transform: scaleX(.7); filter: blur(2px); }
-}
-@keyframes out-fade-right {
-  from { opacity: 1; transform: translateX(0); }
-  to   { opacity: 0; transform: translateX(32px); }
-}
+    @keyframes out-fade-left {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(-32px);
+      }
+    }
+    @keyframes out-shrink-center {
+      from {
+        opacity: 1;
+        transform: scaleX(1);
+        filter: blur(0);
+      }
+      to {
+        opacity: 0;
+        transform: scaleX(0.7);
+        filter: blur(2px);
+      }
+    }
+    @keyframes out-fade-right {
+      from {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      to {
+        opacity: 0;
+        transform: translateX(32px);
+      }
+    }
   </style>
   <script>
     (function () {
@@ -322,6 +409,5 @@ import arrow from "../assets/Arrow.svg";
         render();
       }, 2000);
     })();
-    
   </script>
 </section>

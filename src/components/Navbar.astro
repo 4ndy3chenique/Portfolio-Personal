@@ -1,32 +1,67 @@
 ---
 const { className = "" } = Astro.props;
-import logoUrl from '../assets/Logo.svg';
-import iconHamburguesaUrl from '../assets/IconHamburguesa.svg';
-import '../styles/global.css'
+import logoUrl from "../assets/Logo.svg";
+import iconHamburguesaUrl from "../assets/IconHamburguesa.svg";
+import "../styles/global.css";
 ---
-<nav class={`fixed inset-x-0 top-0 z-50 flex justify-center h-[150px] ${className}`} aria-label="Primary">
-  <div class="w-[2560px] h-[150px] flex items-center justify-center">
-    <div class="w-[2280px] h-[150px] flex">
-      <!-- 310x150 (Logo: todo el bloque clickeable, lleva a /) -->
+
+<nav
+  class={`fixed inset-x-0 top-0 z-50 flex justify-center ${className}`}
+  aria-label="Primary"
+>
+  <div class="w-full max-w-[2560px]">
+    
+    <div
+      class="mx-auto flex items-center justify-between w-full
+             h-[90px] sm:h-24 md:h-28 lg:h-[140px] xl:h-[150px]
+             max-w-[402px] sm:max-w-[2280px]
+             px-0 sm:px-6 lg:px-8"
+    >
+     
       <a
         href="/"
         aria-label="Ir al inicio"
-        class="w-[310px] h-[150px] flex items-center justify-center"
+        class="shrink-0 flex items-center justify-center
+         h-[90px]
+         w-[calc(122/402*100%)] max-w-[122px]
+         sm:h-full sm:w-[min(310px,40vw)] sm:max-w-[310px] p-8"
       >
-        <img src={logoUrl.src} alt="Logo" class="h-auto w-auto" />
+        <img
+          src={logoUrl.src}
+          alt="Logo"
+          class="h-[90px] w-full object-contain
+                 sm:w-auto sm:h-[80%] md:h-[85%] lg:h-[90%] xl:h-full
+                 sm:max-h-[100px]"
+        />
       </a>
 
-      <!-- 1660x150 separador -->
-      <div class="w-[1660px] h-[150px]"></div>
+     
+      <div
+        class="h-[90px]
+               w-[calc(155/402*100%)] max-w-[155px]
+               sm:flex-1 sm:h-full sm:max-w-[1660px]"
+      >
+      </div>
 
-      <!-- 310x150 (Hamburguesa centrada) -->
-      <div class="w-[310px] h-[150px] flex items-center justify-center">
+      
+      <div
+        class="shrink-0 flex items-center justify-center
+               h-[90px]
+               w-[calc(125/402*100%)] max-w-[125px]
+               sm:h-full sm:w-[min(310px,40vw)] sm:max-w-[310px]"
+      >
         <button
           type="button"
           aria-label="Abrir menú"
-          class="inline-flex items-center justify-center"
+          class="inline-flex items-center justify-center h-full w-full"
         >
-          <img src={iconHamburguesaUrl.src} alt="Menú" class="h-full w-full max-w-none" />
+          <img
+            src={iconHamburguesaUrl.src}
+            alt="Menú"
+            class="h-[90px] w-full object-contain
+                   sm:w-auto sm:h-[70%] md:h-[80%] lg:h-[90%] xl:h-full
+                   sm:max-h-[86px] p-2"
+          />
         </button>
       </div>
     </div>
