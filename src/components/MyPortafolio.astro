@@ -93,22 +93,29 @@ import "../styles/global.css";
   @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
 </style>
 
-<section id="portfolio" class="scroll-mt-[2px] relative mx-auto w-[2560px] h-[1946px] text-white font-['Lalezar']">
-  <!-- Contenedor centrado 2171x1879 -->
-  <div class="absolute left-1/2 top-1/2 w-[2171px] h-[1879px] -translate-x-1/2 -translate-y-1/2">
+<section id="portfolio"
+  class="scroll-mt-[2px] relative mx-auto text-white font-['Lalezar']
+         w-[402px] h-[796px] md:w-[2560px] md:h-[1946px]">
+  <!-- Contenedor centrado -->
+  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+              w-[340px] h-[750px] md:w-[2171px] md:h-[1879px]">
 
-    <!-- HEADER 2171x277 -->
-    <div class="w-[2171px] h-[277px] flex justify-center">
-      <div class="w-[1382px] h-[277px]">
-        <!-- Título 1382x179 -->
-        <div class="w-[1382px] h-[179px] grid place-items-center">
-          <h2 data-fade-up class="text-[150px] leading-[1] tracking-[0.02em] drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)] font-['Lalezar']">
+
+    <!-- HEADER -->
+    <div class="w-[340px] h-[188px] md:w-[2171px] md:h-[277px] flex justify-center">
+      <div class="w-[340px] h-[188px] md:w-[1382px] md:h-[277px]">
+        <!-- Título -->
+        <div class="w-[340px] h-[88px] md:w-[1382px] md:h-[179px] grid place-items-center">
+          <h2 data-fade-up
+              class="text-[40px] md:text-[150px] leading-[1] tracking-[0.02em]
+                     drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)]">
             Mi Portafolio
           </h2>
         </div>
-        <!-- Subtítulo 1382x98 -->
-        <div class="w-[1382px] h-[98px] flex items-start justify-center">
-          <p data-fade-up data-delay="120" class="text-[30px] text-white text-center font-['Inder']">
+        <!-- Subtítulo -->
+        <div class="w-[340px] h-[98px] md:w-[1382px] md:h-[98px] flex items-start justify-center">
+          <p data-fade-up data-delay="120"
+             class="text-[15px] md:text-[30px] text-white text-center font-['Inder']">
             Explora mi recorrido a través de proyectos, certificaciones y conocimientos técnicos.
             Cada sección representa un paso en mi camino de aprendizaje continuo.
           </p>
@@ -116,157 +123,186 @@ import "../styles/global.css";
       </div>
     </div>
 
-    <!-- CONTENIDO 2171x1602 -->
-    <div class="w-[2171px] h-[1602px]">
-      <!-- Barra de Tabs 2171x244 -->
-<div data-fade-up data-delay="220" class="w-[2171px] h-[244px] flex items-center px-10">
-  <!-- Los 3 items: 670x198 cada uno -->
-  <div class="w-full flex items-center justify-between">
-    <!-- PROYECTOS: IZQUIERDA -->
-    <button
-      data-tab="projects"
-      class="tab-item w-[670px] h-[198px] rounded-[40px] box-border bg-transparent
-              transition focus:outline-none"
-    >
-      <div class="tab-core w-full h-full rounded-[40px] ring-1 ring-white/10">
-        <!-- inner 409x198 -->
-        <div class="w-[409px] h-[198px] mx-auto">
-          <!-- icon 409x121 (centrado X y pegado abajo) -->
-          <div class="w-[409px] h-[121px] flex items-end justify-center">
-            <!-- TODO: icono -->
-            <img src={TabCode.src} alt="" class="" />
-          </div>
-          <!-- texto 409x77 (centrado) -->
-          <div class="w-[409px] h-[77px] grid place-items-center-top">
-            <span class="text-[30px] font-bold font-[Inter] ">Proyectos</span>
-          </div>
-        </div>
-      </div>
-    </button>
+  <!-- CONTENIDO -->
+    <div class="w-[340px] h-[562px] md:w-[2171px] md:h-[1602px]">
+      <!-- Barra de Tabs -->
+      <div data-fade-up data-delay="220"
+           class="w-[340px] h-[113px] md:w-[2171px] md:h-[244px]
+                  grid grid-rows-2 grid-cols-2 gap-y-[13px]
+                  md:flex md:items-center md:px-10">
+        <!-- wrapper items -->
+        <div class="contents md:w-full md:flex md:items-center md:justify-between">
+          <!-- PROYECTOS (fila 1, izquierda) -->
+          <button data-tab="projects"
+                  class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
+                         md:w-[670px] md:h-[198px] md:rounded-[40px] md:bg-transparent">
+            <div class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]">
+              <!-- inner 115×50 -->
+              <div class="w-[115px] h-[50px] mx-auto md:w-[409px] md:h-[198px]">
+                <!-- fila sup 115×29 (icono) -->
+                <div class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end">
+                  <img src={TabCode.src} alt="" class="w-[25px] h-[25px] md:w-auto md:h-auto" />
+                </div>
+                <!-- fila inf 115×21 (texto) -->
+                <div class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]">
+                  <span class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center">Proyectos</span>
+                </div>
+              </div>
+            </div>
+          </button>
 
-    <!-- SKILLS: CENTRO -->
-    <button
-      data-tab="skills"
-      class="tab-item w-[670px] h-[198px] rounded-[40px] box-border bg-transparent
-              transition focus:outline-none"
-    >
-      <div class="tab-core w-full h-full rounded-[40px] ring-1 ring-white/10">
-        <div class="w-[409px] h-[198px] mx-auto">
-          <div class="w-[409px] h-[121px] flex items-end justify-center">
-            <img src={TabSkills.src} alt="" class="" />
-          </div>
-          <div class="w-[409px] h-[77px] grid place-items-center-top">
-            <span class="text-[30px] font-bold font-[Inter]">Skills</span>
-          </div>
-        </div>
-      </div>
-    </button>
+          <!-- SKILLS (fila 1, derecha) -->
+          <button data-tab="skills"
+                  class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
+                         justify-self-end
+                         md:w-[670px] md:h-[198px] md:rounded-[40px]">
+            <div class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]">
+              <div class="w-[115px] h-[50px] mx-auto md:w-[409px] md:h-[198px]">
+                <div class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end">
+                  <img src={TabSkills.src} alt="" class="w-[25px] h-[25px] md:w-auto md:h-auto" />
+                </div>
+                <div class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]">
+                  <span class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center">Skills</span>
+                </div>
+              </div>
+            </div>
+          </button>
 
-    <!-- CERTIFICADOS: DERECHA -->
-    <button
-      data-tab="certs"
-      class="tab-item w-[670px] h-[198px] rounded-[40px] box-border bg-transparent
-              transition focus:outline-none"
-    >
-      <div class="tab-core w-full h-full rounded-[40px] ring-1 ring-white/10">
-        <div class="w-[409px] h-[198px] mx-auto">
-          <div class="w-[409px] h-[121px] flex items-end justify-center">
-            <img src={TabCert.src} alt="" class="" />
-          </div>
-          <div class="w-[409px] h-[77px] grid place-items-center-top">
-            <span class="text-[30px] font-bold font-[Inter]">Certificados</span>
-          </div>
+          <!-- CERTIFICADOS (fila 2, centrado) -->
+          <button data-tab="certs"
+                  class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
+                         col-span-2 justify-self-center
+                         md:w-[670px] md:h-[198px] md:rounded-[40px]">
+            <div class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]">
+              <div class="w-[115px] h-[50px] mx-auto md:w-[409px] md:h-[198px]">
+                <div class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end">
+                  <img src={TabCert.src} alt="" class="w-[25px] h-[25px] md:w-auto md:h-auto" />
+                </div>
+                <div class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]">
+                  <span class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center">Certificados</span>
+                </div>
+              </div>
+            </div>
+          </button>
         </div>
       </div>
-    </button>
+
+
+<!-- Vistas -->
+<div class="mt-6 px-0 md:px-10">
+<!-- PROYECTOS -->
+<div id="tab-projects"
+  class="w-full max-w-[340px] mx-auto
+         grid grid-flow-col auto-cols-[319px] gap-4
+         overflow-x-auto overflow-y-hidden touch-pan-x overscroll-y-none
+         snap-x snap-mandatory px-2
+         [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+         md:max-w-none md:w-auto
++        md:grid-flow-row md:grid-cols-3
+         md:gap-x-[40px] md:gap-y-[40px] md:justify-between
+         md:overflow-visible md:px-0 md:snap-none">
+
+
+
+    {data.map(({ title, subtitle, image, figmaUrl = "#", detailsUrl = "#" }: ProjectCard) => (
+      <article data-card
+        class="w-[319px] h-[378px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+               shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden snap-center
+               md:w-[670px] md:h-[630px] md:rounded-3xl">
+
+        <!-- Imagen (M: 319x184 / D: 670x384) -->
+        <div class="w-[319px] h-[184px] grid place-items-center overflow-hidden
+                    md:w-[670px] md:h-[384px]">
+          <img
+            src={typeof image === 'string' ? image : image.src}
+            alt={title}
+            class="w-[291px] h-[167px] object-contain
+                   md:w-auto md:h-auto md:max-w-full md:max-h-full" />
+        </div>
+
+        <!-- Contenido (M: 319x192 / D: 670x246) -->
+        <div class="w-[319px] h-[192px] px-3 py-3 flex flex-col justify-between
+                    md:w-[670px] md:h-[246px] md:px-6 md:py-4">
+
+          <!-- Texto (M: 291x88 con 20/10px) -->
+          <div class="w-[291px] h-[88px] mx-auto flex flex-col items-center justify-start
+                      md:w-[625px] md:h-[116px] md:items-start">
+            <h3 class="text-[20px] md:text-[24px] leading-tight font-semibold font-['Inter'] pb-1 md:pb-2 tracking-[0.04em] text-center md:text-left">
+              {title}
+            </h3>
+            <p class="text-[10px] md:text-[12px] text-white leading-snug font-['Inter'] font-medium tracking-[0.04em] text-center md:text-left">
+              {subtitle}
+            </p>
+          </div>
+
+          <!-- Acciones -->
+          <!-- Móvil: columna (Detalles arriba, Ver Figma abajo); Desktop: fila como tu diseño -->
+          <div class="w-[291px] mx-auto flex flex-col gap-3 md:w-full 
+          md:flex-row md:gap-0 md:items-center md:justify-between md:px-2"> 
+          <!-- Detalles --> 
+          <a href={detailsUrl} 
+          class="order-1 w-[110px] h-[33px] rounded-[10px] 
+          bg-[#2C2C2C]/[0.13] ring-1 ring-[#2A2A2A] flex items-center 
+          justify-between px-2 transition md:order-2 md:w-[193px] 
+          md:h-[62px] md:rounded-xl md:ring-2 md:px-6"> 
+          <span class="block w-[66px] h-[19px] leading-[19px]
+           text-[12px] md:text-[24px] font-semibold font-['Inter'] tracking-[0.02em] text-right">
+ 
+          Detalles 
+          </span> 
+          <img src={DetailsIcon.src} alt="Detalles" class="w-4 h-4 md:w-auto md:h-auto" /> 
+          </a> 
+          <!-- Ver Figma --> 
+          <a href={figmaUrl} target="_blank" rel="noopener" 
+          class="order-2 text-left text-[#93BAE9] w-auto mx-0 
+          md:order-1 md:w-[193px] md:h-[62px] md:flex md:items-center md:justify-start md:gap-2"> 
+          <span class="text-[12px] md:text-[24px] font-semibold font-['Inter'] tracking-[0.02em]">
+            Ver Figma</span> <img src={FigmaIcon.src} alt="Figma" class="hidden md:block" /> </a> </div>
+        </div>
+      </article>
+    ))}
   </div>
+
+  <!-- Paginación móvil (una card = un punto) -->
+  <div id="projectsDots" class="mt-4 md:hidden flex items-center justify-center gap-2"></div>
 </div>
 
+<!-- SKILLS -->
+<div id="tab-skills"
+     class="hidden mx-auto text-white
+            w-[340px] h-auto
+            md:w-full md:h-[1200px]">
 
-      <!-- Vistas -->
-      <div class="mt-6 px-10">
+  <!-- Móvil: grid 3 columnas | Desktop: vuelve a tu flex-wrap -->
+  <div class="grid grid-cols-3 gap-x-3 gap-y-3 justify-items-center
+              md:flex md:flex-wrap md:justify-center md:gap-x-20 md:gap-y-0 md:h-full">
 
-        <!-- PROYECTOS: grilla 6 cards (670x630) -->
-<div id="tab-projects" data-fade-up data-delay="0" class="grid grid-cols-3 gap-x-[40px] gap-y-[40px] justify-between">
-  {data.map(({ title, subtitle, image, figmaUrl = "#", detailsUrl = "#" }: ProjectCard) => (
-    <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
-                    shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden">
-      <!-- Imagen 670x384 -->
-      <div class="w-[670px] h-[384px] grid place-items-center overflow-hidden">
-        <img src={typeof image === "string" ? image : image.src} alt={title} class="max-w-full max-h-full object-contain" />
-      </div>
-
-      <!-- Contenido 670x246 -->
-      <div class="w-[670px] h-[246px] px-6 py-4 flex flex-col justify-between">
-        <!-- Texto 625x116 -->
-        <div class="w-[625px] h-[116px] px-2">
-          <h3 class="text-[24px] leading-tight font-semibold font-['Inter'] pb-2 tracking-[0.04em]">{title}</h3>
-          <p class="text-[18px] text-white leading-snug font-['Inter'] font-medium tracking-[0.04em]">{subtitle}</p>
-        </div>
-
-        <!-- Acciones (2 × 193x62) -->
-        <div class="flex justify-between items-center w-full px-2">
-          <!-- Botón Figma -->
-          <a href={figmaUrl} target="_blank" rel="noopener"
-            class="w-[193px] h-[62px] flex items-center justify-start gap-2">
-            <img src={FigmaIcon.src} alt="Figma" />
-            <span class="text-[24px] font-semibold font-['Inter'] tracking-[0.02em] text-[#93BAE9]">
-              Ver Figma
-            </span>
-          </a>
-
-          <!-- Botón Detalles -->
-          <a href={detailsUrl}
-            class="w-[193px] h-[62px] rounded-xl flex items-center justify-between gap-2 px-6
-                    bg-[#2C2C2C/13] ring-2 ring-[#2A2A2A] transition">
-            <span class="text-[24px] font-semibold font-['Inter'] tracking-[0.02em]">
-              Detalles
-            </span>
-            <img src={DetailsIcon.src} alt="Detalles" />
-          </a>
-        </div>
-      </div>
-    </article>
-  ))}
-
-  <!-- Card "Próximamente" 1 -->
-  <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
-                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] flex items-center justify-center">
-    <span class="text-[22px] font-medium text-white/70">Próximamente</span>
-  </article>
-
-  <!-- Card "Próximamente" 2 -->
-  <article class="w-[670px] h-[630px] rounded-3xl bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
-                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] flex items-center justify-center">
-    <span class="text-[22px] font-medium text-white/70">Próximamente</span>
-  </article>
-</div>
-
-        <!-- SKILLS / CERTS (placeholders por ahora) -->
-        <div id="tab-skills" class="hidden w-full h-[1200px] grid place-items-center text-white">
-  <!-- Contenedor FLEX: 5 por fila y última fila centrada -->
-  <div class="w-full h-full mx-auto flex flex-wrap justify-center gap-x-20 gap-y-0">
     {skillsData.map((skill: SkillCard) => (
-      <!-- Card 353x300 -->
-      <div class="w-[353px] h-[300px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+      <!-- Card: M 92x78 | D 353x300 -->
+      <div class="w-[92px] h-[78px] md:w-[353px] md:h-[300px]
+                  rounded-[12px] md:rounded-[20px]
+                  bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
                   shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden">
-        <!-- Ícono -->
-        <div class="w-[353px] h-[168px] flex items-center justify-center">
+
+        <!-- Icono: M 30x30 centrado | D tu tamaño -->
+        <div class="w-[92px] h-[46px] md:w-[353px] md:h-[168px] flex items-center justify-center">
           {skill.image && (
             <img
               src={typeof skill.image === 'string' ? skill.image : (skill.image as { src: string }).src}
               alt={skill.title}
-              class="max-h-[120px] max-w-[180px] object-contain"
+              class="w-[30px] h-[30px] object-contain
+                     md:w-auto md:h-auto md:max-h-[120px] md:max-w-[180px]"
             />
           )}
         </div>
-        <!-- Texto -->
-        <div class="w-[353px] h-[132px] flex flex-col items-center">
-          <div class="w-full pt-5 flex justify-center">
-            <span class="text-[40px] font-bold font-['Inter'] leading-tight tracking-[0.02em] text-white text-center">
-              {skill.title}
-            </span>
-          </div>
+
+        <!-- Texto: M 13px centrado | D 40px -->
+        <div class="w-[92px] h-[32px] md:w-[353px] md:h-[132px]
+                    flex flex-col items-center justify-center md:pt-5">
+          <span class="text-[13px] md:text-[40px] font-bold font-['Inter']
+                       leading-tight tracking-[0.02em] text-white text-center">
+            {skill.title}
+          </span>
         </div>
       </div>
     ))}
@@ -274,26 +310,51 @@ import "../styles/global.css";
 </div>
 
 
-        <div id="tab-certs" class="hidden w-full min-h-[1200px] grid place-items-center text-white/70">
-  <!-- GRID de Certificados (2 columnas) -->
-  <div class="w-full max-w-[2034px] grid grid-cols-1 lg:grid-cols-2 gap-x-16 gap-y-12 place-items-center">
+        <!-- CERTIFICADOS -->
+<div id="tab-certs"
+     class="hidden mx-auto text-white/70
+            w-[340px] h-auto
+            md:w-full md:min-h-[1200px] mt-30 md-mt-0">
+
+  <!-- Móvil: carrusel horizontal | Desktop: grilla 2 col -->
+  <div class="w-full max-w-[340px] mx-auto
+              grid grid-flow-col auto-cols-[286px] gap-3
+              overflow-x-auto overflow-y-hidden touch-pan-x
+              snap-x snap-mandatory [scroll-snap-stop:always]
+              px-2
+              [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
+
+              md:max-w-[2034px] md:w-full
+              md:grid md:grid-flow-row md:grid-cols-2
+              md:gap-x-16 md:gap-y-12 md:place-items-center
+              md:overflow-visible md:px-0 md:snap-none"
+       id="certsSlider">
+
     {certsData.map((cert) => (
-      <!-- Card 985x607 -->
-      <div class="w-[985px] h-[607px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
-                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden flex items-center justify-center">
+      <!-- Card: M 286x187 | D 985x607 -->
+      <div data-cert
+           class="w-[286px] h-[187px] rounded-[12px]
+                  bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden
+                  flex items-center justify-center snap-center
+                  md:w-[985px] md:h-[607px] md:rounded-[20px]">
         {cert.image ? (
           <img
             src={typeof cert.image === 'string' ? cert.image : cert.image.src}
             alt={cert.title ?? 'Certificado'}
-            class="w-[900px] h-[557px] object-contain"
-          />
+            class="w-[259px] h-[160px] object-contain
+                   md:w-[900px] md:h-[557px]" />
         ) : (
-          <span class="text-[22px] font-medium text-white/70">Próximamente</span>
+          <span class="text-[12px] md:text-[22px] font-medium text-white/70">Próximamente</span>
         )}
       </div>
     ))}
   </div>
+
+  <!-- Dots móviles -->
+  <div id="certsDots" class="mt-3 md:hidden hidden flex items-center justify-center gap-2"></div>
 </div>
+
 
       </div>
     </div>
@@ -349,142 +410,157 @@ import "../styles/global.css";
   })();
 </script>
 
-<script>
-  (function () {
-    const root = document.getElementById('portfolio') || document;
-    const items = root.querySelectorAll('.tab-item');
+<script is:inline>
+(() => {
+  const root = document.getElementById('portfolio');
+  if (!root) return;
 
-    const views = {
-      projects: root.querySelector('#tab-projects'),
-      skills:   root.querySelector('#tab-skills'),
-      certs:    root.querySelector('#tab-certs'),
-    };
+  // --- REFS
+  const items  = Array.from(root.querySelectorAll('.tab-item'));
+  const views  = {
+    projects: root.querySelector('#tab-projects'),
+    skills:   root.querySelector('#tab-skills'),
+    certs:    root.querySelector('#tab-certs'),
+  };
 
-    const RMO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const projSlider = root.querySelector('#tab-projects');
+  const projDots   = root.querySelector('#projectsDots');
+  const certSlider = root.querySelector('#certsSlider');
+  const certDots   = root.querySelector('#certsDots');
 
-    // ---------------- ANIMACIONES ----------------
-    function animateGroup(
-      els: any[],
-      kind: 'left' | 'center' | 'right',
-      baseDelay = 0
-    ) {
-      if (!els || els.length === 0) return;
-
-      const keyframesByKind: {
-        left: { opacity: number; transform: string }[];
-        center: { opacity: number; transform: string }[];
-        right: { opacity: number; transform: string }[];
-      } = {
-        left:   [{opacity: 0, transform: 'translateX(-40px)'}, {opacity: 1, transform: 'translateX(0)'}],
-        center: [{opacity: 0, transform: 'scale(0.94)'},       {opacity: 1, transform: 'scale(1)'}],
-        right:  [{opacity: 0, transform: 'translateX(40px)'},  {opacity: 1, transform: 'translateX(0)'}],
-      };
-
-      els.forEach((el: { style: { willChange: string; opacity: string; transform: string; }; animate: (arg0: any, arg1: { duration: number; easing: string; delay: number; fill: string; }) => void; }, i: number) => {
-        el.style.willChange = 'transform, opacity';
-        if (RMO) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
-
-        el.animate(keyframesByKind[kind], {
-          duration: 600,
-          easing: 'cubic-bezier(0.22,1,0.36,1)',
-          delay: baseDelay + i * 80,
-          fill: 'both',
-        });
+  // --- DOTS (genérico)
+  function buildDotsFor(sliderEl, dotsWrapEl, itemSelector) {
+    if (!sliderEl || !dotsWrapEl) return;
+    const cards = Array.from(sliderEl.querySelectorAll(itemSelector));
+    dotsWrapEl.innerHTML = '';
+    const dots = cards.map((_, i) => {
+      const b = document.createElement('button');
+      b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+      b.className = 'w-2 h-2 rounded-full transition-colors ' +
+                    'aria-[current=true]:bg-white aria-[current=false]:bg-white/30';
+      b.addEventListener('click', () => {
+        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       });
-    }
-
-    // Para proyectos: 3 columnas fijas
-    function playProjects(viewEl: { querySelectorAll: (arg0: string) => Iterable<unknown> | ArrayLike<unknown>; }) {
-      const cards = Array.from(viewEl.querySelectorAll('article'));
-      if (!cards.length) return;
-
-      const left  = cards.filter((_, i) => i % 3 === 0);
-      const mid   = cards.filter((_, i) => i % 3 === 1);
-      const right = cards.filter((_, i) => i % 3 === 2);
-
-      animateGroup(left,  'left',   0);
-      animateGroup(mid,   'center', 80);
-      animateGroup(right, 'right',  160);
-    }
-
-    // Para skills/certs: agrupar por posición X (tercios del contenedor)
-    function playByPosition(viewEl: {
-      [x: string]: any; id: string; querySelectorAll: (arg0: string) => Iterable<unknown> | ArrayLike<unknown>; 
-}) {
-      const container = viewEl; // el propio tab es el contenedor
-      const rect = container.getBoundingClientRect();
-      const t1 = rect.left + rect.width / 3;
-      const t2 = rect.left + (2 * rect.width) / 3;
-
-      // Tomamos los hijos "tarjeta" directos (dos niveles por tu markup)
-      const cards =
-        viewEl.id === 'tab-skills'
-          ? Array.from(viewEl.querySelectorAll(':scope > div > div'))
-          : Array.from(viewEl.querySelectorAll(':scope > div > div'));
-
-      if (!cards.length) return;
-
-      const left: unknown[] = [], mid: unknown[] = [], right: unknown[] = [];
-      cards.forEach((el) => {
-        const r = (el as HTMLElement).getBoundingClientRect();
-        const cx = r.left + r.width / 2;
-        if (cx < t1) left.push(el);
-        else if (cx < t2) mid.push(el);
-        else right.push(el);
-      });
-
-      animateGroup(left,  'left',   0);
-      animateGroup(mid,   'center', 80);
-      animateGroup(right, 'right',  160);
-    }
-
-    function playEnter(key: 'projects' | 'skills' | 'certs') {
-      const view = views[key];
-      if (!view) return;
-      // Asegura que los hijos empiecen visibles para animar
-      view.querySelectorAll('*').forEach((n: Element) => { (n as HTMLElement).style.opacity = ''; });
-      if (key === 'projects') playProjects(view);
-      else playByPosition(view);
-    }
-
-    // ---------------- TABS ----------------
-    function setActive(key: string | null) {
-      Object.entries(views).forEach(([k, el]) => {
-        if (!el) return;
-        el.classList.toggle('hidden', k !== key);
-      });
-
-      // Estilo activo del botón
-      items.forEach((btn) => {
-        const is = btn.getAttribute('data-tab') === key;
-        const core = btn.querySelector('.tab-core');
-        btn.classList.toggle('shadow-[0_0_15px_rgba(38,189,212,0.45)]', is);
-        btn.classList.toggle('shadow-none', !is);
-
-        if (core) {
-          core.classList.toggle('bg-[#A8F1FE]/[0.15]', is);
-          core.classList.toggle('backdrop-blur-md', is);
-          core.classList.toggle('border-2', is);
-          core.classList.toggle('border-[#26BDD4]', is);
-          core.classList.toggle('ring-1', !is);
-          core.classList.toggle('ring-white/10', !is);
-        }
-      });
-
-      // Lanzar animación de entrada tras mostrar el tab
-      if (key === "projects" || key === "skills" || key === "certs") {
-        requestAnimationFrame(() => playEnter(key));
-      }
-    }
-
-    items.forEach((btn) => {
-      btn.addEventListener('click', () => setActive(btn.getAttribute('data-tab')));
+      dotsWrapEl.appendChild(b);
+      return b;
     });
 
-    // Estado inicial
-    setActive('projects');
-  })();
+    const io = new IntersectionObserver((entries) => {
+      const now = Array.from(sliderEl.querySelectorAll(itemSelector));
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const idx = now.indexOf(e.target);
+        dots.forEach((d, j) => d.setAttribute('aria-current', String(j === idx)));
+      });
+    }, { root: sliderEl, threshold: 0.6 });
+
+    cards.forEach(c => io.observe(c));
+  }
+
+  // --- ANIMACIONES
+  const RMO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateGroup(els, kind, baseDelay = 0) {
+    if (!els || !els.length) return;
+    const kfs = {
+      left:   [{opacity:0, transform:'translateX(-40px)'}, {opacity:1, transform:'translateX(0)'}],
+      center: [{opacity:0, transform:'scale(0.94)'},       {opacity:1, transform:'scale(1)'}],
+      right:  [{opacity:0, transform:'translateX(40px)'},  {opacity:1, transform:'translateX(0)'}],
+    }[kind];
+    els.forEach((el, i) => {
+      el.style.willChange = 'transform, opacity';
+      if (RMO) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
+      el.animate(kfs, {
+        duration: 600,
+        easing: 'cubic-bezier(0.22,1,0.36,1)',
+        delay: baseDelay + i * 80,
+        fill: 'both',
+      });
+    });
+  }
+
+  function playProjects(viewEl) {
+    const cards = Array.from(viewEl.querySelectorAll('article'));
+    if (!cards.length) return;
+    const left  = cards.filter((_, i) => i % 3 === 0);
+    const mid   = cards.filter((_, i) => i % 3 === 1);
+    const right = cards.filter((_, i) => i % 3 === 2);
+    animateGroup(left,  'left',   0);
+    animateGroup(mid,   'center', 80);
+    animateGroup(right, 'right',  160);
+  }
+
+  function playByPosition(viewEl) {
+    const rect = viewEl.getBoundingClientRect();
+    const t1 = rect.left + rect.width / 3;
+    const t2 = rect.left + (2 * rect.width) / 3;
+    const cards = Array.from(viewEl.querySelectorAll(':scope > div > div'));
+    if (!cards.length) return;
+    const left = [], mid = [], right = [];
+    cards.forEach((el) => {
+      const r = el.getBoundingClientRect();
+      const cx = r.left + r.width / 2;
+      if (cx < t1) left.push(el);
+      else if (cx < t2) mid.push(el);
+      else right.push(el);
+    });
+    animateGroup(left,  'left',   0);
+    animateGroup(mid,   'center', 80);
+    animateGroup(right, 'right',  160);
+  }
+
+  function playEnter(key) {
+    const view = views[key];
+    if (!view) return;
+    view.querySelectorAll('*').forEach(n => { n.style.opacity = ''; });
+    if (key === 'projects') playProjects(view);
+    else playByPosition(view);
+  }
+
+  // --- TABS
+  function setActive(key) {
+    Object.entries(views).forEach(([k, el]) => {
+      if (!el) return;
+      el.classList.toggle('hidden', k !== key);
+    });
+
+    // Dots visibles solo en su tab
+    if (projDots) projDots.classList.toggle('hidden', key !== 'projects');
+    if (certDots) certDots.classList.toggle('hidden', key !== 'certs');
+
+    // Estilo activo de los botones
+    const tabs = Array.from(root.querySelectorAll('.tab-item'));
+    tabs.forEach((btn) => {
+      const is = btn.getAttribute('data-tab') === key;
+      const core = btn.querySelector('.tab-core');
+      btn.classList.toggle('shadow-[0_0_15px_rgba(38,189,212,0.45)]', is);
+      btn.classList.toggle('shadow-none', !is);
+      if (core) {
+        core.classList.toggle('bg-[#A8F1FE]/[0.15]', is);
+        core.classList.toggle('backdrop-blur-md', is);
+        core.classList.toggle('border-2', is);
+        core.classList.toggle('border-[#26BDD4]', is);
+        core.classList.toggle('ring-1', !is);
+        core.classList.toggle('ring-white/10', !is);
+      }
+    });
+
+    requestAnimationFrame(() => {
+      if (key === 'projects' || key === 'skills' || key === 'certs') playEnter(key);
+    });
+  }
+
+  // Listeners
+  items.forEach(btn => btn.addEventListener('click', () => setActive(btn.getAttribute('data-tab'))));
+
+  // Init
+  buildDotsFor(projSlider, projDots, '[data-card]');
+  buildDotsFor(certSlider, certDots, '[data-cert]');
+  setActive('projects');
+})();
 </script>
+
+
 
 <script>
 (function () {
@@ -535,6 +611,41 @@ import "../styles/global.css";
 
   els.forEach((el) => io.observe(el));
 })();
+</script>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('tab-projects');   // mismo contenedor
+    const dotsWrap = document.getElementById('projectsDots');
+    if (!slider || !dotsWrap) return;
+
+    const cards = Array.from(slider.querySelectorAll('[data-card]'));
+
+    // Crear dots
+    dotsWrap.innerHTML = '';
+    const dots = cards.map((_, i) => {
+      const b = document.createElement('button');
+      b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
+      b.className = 'w-2 h-2 rounded-full transition-colors ' +
+                    'aria-[current=true]:bg-white aria-[current=false]:bg-white/30';
+      dotsWrap.appendChild(b);
+      b.addEventListener('click', () => {
+        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      });
+      return b;
+    });
+
+    // Activar dot cuando la card esté visible
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = cards.indexOf(e.target);
+          dots.forEach((d, i) => d.setAttribute('aria-current', String(i === idx)));
+        }
+      });
+    }, { root: slider, threshold: 0.6 });
+
+    cards.forEach(c => io.observe(c));
+  });
 </script>
 
 

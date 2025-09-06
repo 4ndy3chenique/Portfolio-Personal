@@ -39,7 +39,7 @@ import arrow from "../assets/Arrow.svg";
 
         <p
           class="intro-line-2 will-change-[opacity,transform,filter] m-5
-                 text-transparent text-[64px] md:text-[280px] tracking-[0.05em]
+                 text-transparent text-[55px] md:text-[280px] tracking-[0.05em]
                  pl-0 md:pl-0 pt-0 pb-0 md:pt-[10px] md:pb-[10px]
                  [-webkit-text-stroke:3px_#fff]
                  [filter:drop-shadow(0_0_0px_#fff)_drop-shadow(0_0_0px_var(--neon))_drop-shadow(0_0_10px_var(--neon))]"
@@ -222,23 +222,24 @@ import arrow from "../assets/Arrow.svg";
       Estudiante en Universidad Privada del Norte
     </span>
   </div>
-  <a
-    href="#about"
-    aria-label="Ir a la siguiente sección"
-    class="group absolute z-10
+ <a
+  href="#about"
+  aria-label="Ir a la siguiente sección"
+  class="group absolute z-10
          left-1/2 top-1/2 -translate-x-1/2
          translate-y-[calc(-50%+var(--arrowOffsetY,0px))]
          md:top-auto md:bottom-0 md:-translate-x-1/2 md:translate-y-10"
-    style="--arrowOffsetY: 350px;"
-  >
-    <img
-      src={flecha.src}
-      alt=""
-      class="block select-none will-change-transform
-           animate-[arrow-slow_1s_ease-in-out_infinite]
+  style="--arrowOffsetY: 270px;"
+>
+  <img
+    src={flecha.src}
+    alt=""
+    class="block w-[90px] md:w-auto md:h-auto select-none
+           will-change-transform animate-[arrow-slow_1s_ease-in-out_infinite]
            motion-reduce:animate-none"
-    />
-  </a>
+  />
+</a>
+
 
   <style>
     @keyframes arrow-slow {
