@@ -1,5 +1,4 @@
 ---
-
 interface ProjectCard {
   title: string;
   subtitle: string;
@@ -7,18 +6,49 @@ interface ProjectCard {
   figmaUrl?: string;
   detailsUrl?: string;
 }
-import Portfolio1 from '../assets/Portfolio1.svg';
-import Portfolio2 from '../assets/Portfolio2.svg';
-import Portfolio3 from '../assets/Portfolio3.svg';
-import Portfolio4 from '../assets/Portfolio4.svg';
+import Portfolio1 from "../assets/Portfolio1.svg";
+import Portfolio2 from "../assets/Portfolio2.svg";
+import Portfolio3 from "../assets/Portfolio3.svg";
+import Portfolio4 from "../assets/Portfolio4.svg";
 
 const { projects = [] as ProjectCard[] } = Astro.props;
 
 const fallback = [
-  { title: "Portfolio Personal", subtitle: "Portafolio personal creado para exponer proyectos desarrollados a lo largo de mi experiencia", image: Portfolio1, figmaUrl: "#", detailsUrl: "/Portfolio" },
-  { title: "Veterinaria Santa Cruz",       subtitle: "Plataforma integral para la gestión de citas, control de ingresos, ventas de productos y abastecimiento, con opción de generar reportes.",   image: Portfolio2, figmaUrl: "#", detailsUrl: "/Veterinaria" },
-  { title: "Booky App",    subtitle: "App móvil para compartir cursos con estilo TikTok. Permite seguir usuarios, publicar y compartir archivos, e incluir imágenes, PDFs y más, además de gestionar tu perfil.",     image: Portfolio3, figmaUrl: "#", detailsUrl: "/BookyApp" },
-  { title: "Barberia ByL",    subtitle: "Sistema web para la venta de productos y gestión de citas, diseñado para optimizar procesos y mejorar la experiencia del cliente.",       image: Portfolio4, figmaUrl: "#", detailsUrl: "/BarberiaByL" },
+  {
+    title: "Portfolio Personal",
+    subtitle:
+      "Portafolio personal creado para exponer proyectos desarrollados a lo largo de mi experiencia",
+    image: Portfolio1,
+    figmaUrl:
+      "https://www.figma.com/design/yCBzQRzZgn2JE1Uo0E22Jd/Portafolio-Web--Prototipe-?t=lzcm0jfTzA2DehMr-1",
+    detailsUrl: "/Portfolio",
+  },
+  {
+    title: "Veterinaria Santa Cruz",
+    subtitle:
+      "Plataforma integral para la gestión de citas, control de ingresos, ventas de productos y abastecimiento, con opción de generar reportes.",
+    image: Portfolio2,
+    figmaUrl:
+      "https://www.figma.com/design/5Qsa8urgWC6ArETrkhiP0z/SolucionesWeb?node-id=0-1&t=NwSs0TvRUfckrcrv-1",
+    detailsUrl: "/Veterinaria",
+  },
+  {
+    title: "Booky App",
+    subtitle:
+      "App móvil para compartir cursos con estilo TikTok. Permite seguir usuarios, publicar y compartir archivos, e incluir imágenes, PDFs y más, además de gestionar tu perfil.",
+    image: Portfolio3,
+    figmaUrl:
+      "https://www.figma.com/design/7WiYqR02HIXxRmUydrDioD/Booky?node-id=37-43&t=lzcm0jfTzA2DehMr-1",
+    detailsUrl: "/BookyApp",
+  },
+  {
+    title: "Barberia ByL",
+    subtitle:
+      "Sistema web para la venta de productos y gestión de citas, diseñado para optimizar procesos y mejorar la experiencia del cliente.",
+    image: Portfolio4,
+    figmaUrl: "#",
+    detailsUrl: "/BarberiaByL",
+  },
 ];
 const data = projects.length ? projects : fallback;
 
@@ -28,45 +58,46 @@ export type SkillCard = {
 };
 const { skills = [] as SkillCard[] } = Astro.props;
 
-import Html from '../assets/skills/html.svg';
-import Css from '../assets/skills/css.svg';
-import Js from '../assets/skills/js.svg';
-import Java from '../assets/skills/java.svg';
-import Csharp from '../assets/skills/csharp.svg';
-import Python from '../assets/skills/python.svg';
-import Php from '../assets/skills/php.svg';
-import Azure from '../assets/skills/azure.svg';
-import Mysql from '../assets/skills/mysql.svg';
-import Firebase from '../assets/skills/firebase.svg';
-import Xml from '../assets/skills/xml.svg';
-import Bootstrap from '../assets/skills/bootstrap.svg';
-import Figma from '../assets/skills/figma.svg';
-import AstroIcon from '../assets/skills/AstroIcon.svg';
-import Tailwind from '../assets/skills/TailwindIcon.svg';
-
+import Html from "../assets/skills/html.svg";
+import Css from "../assets/skills/css.svg";
+import Js from "../assets/skills/js.svg";
+import Java from "../assets/skills/java.svg";
+import Csharp from "../assets/skills/csharp.svg";
+import Python from "../assets/skills/python.svg";
+import Php from "../assets/skills/php.svg";
+import Azure from "../assets/skills/azure.svg";
+import Mysql from "../assets/skills/mysql.svg";
+import Firebase from "../assets/skills/firebase.svg";
+import Xml from "../assets/skills/xml.svg";
+import Bootstrap from "../assets/skills/bootstrap.svg";
+import Figma from "../assets/skills/figma.svg";
+import AstroIcon from "../assets/skills/AstroIcon.svg";
+import Tailwind from "../assets/skills/TailwindIcon.svg";
 
 const skillsFallback: SkillCard[] = [
-  { title: 'HTML', image: Html },
-  { title: 'CSS', image: Css },
-  { title: 'JavaScript', image: Js },
-  { title: 'Java', image: Java },
-  { title: 'C sharp', image: Csharp },
-  { title: 'Python', image: Python },
-  { title: 'PHP', image: Php },
-  { title: 'Astro', image: AstroIcon },
-  { title: 'Tailwind', image: Tailwind },
-  { title: 'Azure', image: Azure },
-  { title: 'MySQL', image: Mysql },
-  { title: 'Firebase', image: Firebase },
-  { title: 'XML', image: Xml },
-  { title: 'Bootstrap', image: Bootstrap },
-  { title: 'Figma', image: Figma },
+  { title: "HTML", image: Html },
+  { title: "CSS", image: Css },
+  { title: "JavaScript", image: Js },
+  { title: "Java", image: Java },
+  { title: "C sharp", image: Csharp },
+  { title: "Python", image: Python },
+  { title: "PHP", image: Php },
+  { title: "Astro", image: AstroIcon },
+  { title: "Tailwind", image: Tailwind },
+  { title: "Azure", image: Azure },
+  { title: "MySQL", image: Mysql },
+  { title: "Firebase", image: Firebase },
+  { title: "XML", image: Xml },
+  { title: "Bootstrap", image: Bootstrap },
+  { title: "Figma", image: Figma },
 ];
 
 const skillsData = skills.length ? skills : skillsFallback;
 
-import Cert1 from '../assets/certs/Certificado1.svg';
-import Cert2 from '../assets/certs/Certificado2.svg';
+import Cert1 from "../assets/certs/Certificado1.svg";
+import Cert2 from "../assets/certs/Certificado2.svg";
+import Cert3 from "../assets/certs/Cert3.svg";
+import Cert4 from "../assets/certs/Cert4.svg";
 
 type CertCard = {
   title: string;
@@ -76,15 +107,15 @@ type CertCard = {
 const certsData: CertCard[] = [
   { title: "Power BI Básico", image: Cert1 },
   { title: "Python Básico", image: Cert2 },
-  { title: "Cert 3", image: null },
-  { title: "Cert 4", image: null },
+  { title: "Certificado Python", image: Cert3 },
+  { title: "Certificado Electronica", image: Cert4 },
 ];
 
-import TabSkills from '../assets/TabSkills.svg';
-import TabCert from '../assets/TabCert.svg';
-import TabCode from '../assets/TabCode.svg';
-import FigmaIcon from '../assets/VerFigmaIcon.svg';
-import DetailsIcon from '../assets/DetallesIcon.svg';
+import TabSkills from "../assets/TabSkills.svg";
+import TabCert from "../assets/TabCert.svg";
+import TabCode from "../assets/TabCode.svg";
+import FigmaIcon from "../assets/VerFigmaIcon.svg";
+import DetailsIcon from "../assets/DetallesIcon.svg";
 import "../styles/global.css";
 ---
 
@@ -93,560 +124,666 @@ import "../styles/global.css";
   @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
 </style>
 
-<section id="portfolio"
+<section
+  id="portfolio"
   class="scroll-mt-[2px] relative mx-auto text-white font-['Lalezar']
-         w-[402px] h-[796px] md:w-[2560px] md:h-[1946px]">
-  <!-- Contenedor centrado -->
-  <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-              w-[340px] h-[750px] md:w-[2171px] md:h-[1879px]">
-
-
-    <!-- HEADER -->
-    <div class="w-[340px] h-[188px] md:w-[2171px] md:h-[277px] flex justify-center">
+         w-[402px] h-[796px] md:w-[2560px] md:h-[1946px]"
+>
+  <div
+    class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+              w-[340px] h-[750px] md:w-[2171px] md:h-[1879px]"
+  >
+    <div
+      class="w-[340px] h-[188px] md:w-[2171px] md:h-[277px] flex justify-center"
+    >
       <div class="w-[340px] h-[188px] md:w-[1382px] md:h-[277px]">
-        <!-- Título -->
-        <div class="w-[340px] h-[88px] md:w-[1382px] md:h-[179px] grid place-items-center">
-          <h2 data-fade-up
-              class="text-[40px] md:text-[150px] leading-[1] tracking-[0.02em]
-                     drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)]">
+        <div
+          class="w-[340px] h-[88px] md:w-[1382px] md:h-[179px] grid place-items-center"
+        >
+          <h2
+            data-fade-up
+            class="text-[40px] md:text-[150px] leading-[1] tracking-[0.02em]
+                     drop-shadow-[0_6px_24px_rgba(255,255,255,0.35)]"
+          >
             Mi Portafolio
           </h2>
         </div>
-        <!-- Subtítulo -->
-        <div class="w-[340px] h-[98px] md:w-[1382px] md:h-[98px] flex items-start justify-center">
-          <p data-fade-up data-delay="120"
-             class="text-[15px] md:text-[30px] text-white text-center font-['Inder']">
-            Explora mi recorrido a través de proyectos, certificaciones y conocimientos técnicos.
-            Cada sección representa un paso en mi camino de aprendizaje continuo.
+        <div
+          class="w-[340px] h-[98px] md:w-[1382px] md:h-[98px] flex items-start justify-center"
+        >
+          <p
+            data-fade-up
+            data-delay="120"
+            class="text-[15px] md:text-[30px] text-white text-center font-['Inder']"
+          >
+            Explora mi recorrido a través de proyectos, certificaciones y
+            conocimientos técnicos. Cada sección representa un paso en mi camino
+            de aprendizaje continuo.
           </p>
         </div>
       </div>
     </div>
-
-  <!-- CONTENIDO -->
     <div class="w-[340px] h-[562px] md:w-[2171px] md:h-[1602px]">
-      <!-- Barra de Tabs -->
-      <div data-fade-up data-delay="220"
-           class="w-[340px] h-[113px] md:w-[2171px] md:h-[244px]
+      <div
+        data-fade-up
+        data-delay="220"
+        class="w-[340px] h-[113px] md:w-[2171px] md:h-[244px]
                   grid grid-rows-2 grid-cols-2 gap-y-[13px]
-                  md:flex md:items-center md:px-10">
-        <!-- wrapper items -->
-        <div class="contents md:w-full md:flex md:items-center md:justify-between">
-          <!-- PROYECTOS (fila 1, izquierda) -->
-          <button data-tab="projects"
-                  class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
-                         md:w-[670px] md:h-[198px] md:rounded-[40px] md:bg-transparent">
-            <div class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]">
-              <!-- inner 115×50 -->
+                  md:flex md:items-center md:px-10"
+      >
+        <div
+          class="contents md:w-full md:flex md:items-center md:justify-between"
+        >
+          <button
+            data-tab="projects"
+            class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
+                         md:w-[670px] md:h-[198px] md:rounded-[40px] md:bg-transparent"
+          >
+            <div
+              class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]"
+            >
               <div class="w-[115px] h-[50px] mx-auto md:w-[409px] md:h-[198px]">
-                <!-- fila sup 115×29 (icono) -->
-                <div class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end">
-                  <img src={TabCode.src} alt="" class="w-[25px] h-[25px] md:w-auto md:h-auto" />
+                <div
+                  class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end"
+                >
+                  <img
+                    src={TabCode.src}
+                    alt=""
+                    class="w-[25px] h-[25px] md:w-auto md:h-auto"
+                  />
                 </div>
-                <!-- fila inf 115×21 (texto) -->
-                <div class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]">
-                  <span class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center">Proyectos</span>
+                <div
+                  class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]"
+                >
+                  <span
+                    class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center"
+                    >Proyectos</span
+                  >
                 </div>
               </div>
             </div>
           </button>
-
-          <!-- SKILLS (fila 1, derecha) -->
-          <button data-tab="skills"
-                  class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
+          <button
+            data-tab="skills"
+            class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
                          justify-self-end
-                         md:w-[670px] md:h-[198px] md:rounded-[40px]">
-            <div class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]">
+                         md:w-[670px] md:h-[198px] md:rounded-[40px]"
+          >
+            <div
+              class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]"
+            >
               <div class="w-[115px] h-[50px] mx-auto md:w-[409px] md:h-[198px]">
-                <div class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end">
-                  <img src={TabSkills.src} alt="" class="w-[25px] h-[25px] md:w-auto md:h-auto" />
+                <div
+                  class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end"
+                >
+                  <img
+                    src={TabSkills.src}
+                    alt=""
+                    class="w-[25px] h-[25px] md:w-auto md:h-auto"
+                  />
                 </div>
-                <div class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]">
-                  <span class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center">Skills</span>
+                <div
+                  class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]"
+                >
+                  <span
+                    class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center"
+                    >Skills</span
+                  >
                 </div>
               </div>
             </div>
           </button>
-
-          <!-- CERTIFICADOS (fila 2, centrado) -->
-          <button data-tab="certs"
-                  class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
+          <button
+            data-tab="certs"
+            class="tab-item w-[139px] h-[50px] rounded-[16px] transition focus:outline-none
                          col-span-2 justify-self-center
-                         md:w-[670px] md:h-[198px] md:rounded-[40px]">
-            <div class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]">
+                         md:w-[670px] md:h-[198px] md:rounded-[40px]"
+          >
+            <div
+              class="tab-core w-full h-full rounded-[16px] ring-1 ring-white/10 md:rounded-[40px]"
+            >
               <div class="w-[115px] h-[50px] mx-auto md:w-[409px] md:h-[198px]">
-                <div class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end">
-                  <img src={TabCert.src} alt="" class="w-[25px] h-[25px] md:w-auto md:h-auto" />
+                <div
+                  class="w-[115px] h-[29px] flex items-center justify-center md:w-[409px] md:h-[121px] md:items-end"
+                >
+                  <img
+                    src={TabCert.src}
+                    alt=""
+                    class="w-[25px] h-[25px] md:w-auto md:h-auto"
+                  />
                 </div>
-                <div class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]">
-                  <span class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center">Certificados</span>
+                <div
+                  class="w-[115px] h-[21px] grid place-items-center md:w-[409px] md:h-[77px]"
+                >
+                  <span
+                    class="text-[12px] md:text-[30px] font-bold font-[Inter] text-center"
+                    >Certificados</span
+                  >
                 </div>
               </div>
             </div>
           </button>
         </div>
       </div>
-
-
-<!-- Vistas -->
-<div class="mt-6 px-0 md:px-10">
-<!-- PROYECTOS -->
-<div id="tab-projects"
-  class="w-full max-w-[340px] mx-auto
+      <div class="mt-6 px-0 md:px-10">
+        <div
+          id="proyectos"
+          class="h-0 scroll-mt-[80px] md:scroll-mt-[120px]"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          id="tab-projects"
+          class="w-full max-w-[340px] mx-auto
          grid grid-flow-col auto-cols-[319px] gap-4
          overflow-x-auto overflow-y-hidden touch-pan-x overscroll-y-none
          snap-x snap-mandatory px-2
          [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
          md:max-w-none md:w-auto
-+        md:grid-flow-row md:grid-cols-3
++ md:grid-flow-row md:grid-cols-3
          md:gap-x-[40px] md:gap-y-[40px] md:justify-between
-         md:overflow-visible md:px-0 md:snap-none">
-
-
-
-    {data.map(({ title, subtitle, image, figmaUrl = "#", detailsUrl = "#" }: ProjectCard) => (
-      <article data-card
-        class="w-[319px] h-[378px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+         md:overflow-visible md:px-0 md:snap-none"
+        >
+          {
+            data.map(
+              ({
+                title,
+                subtitle,
+                image,
+                figmaUrl = "#",
+                detailsUrl = "#",
+              }: ProjectCard) => (
+                <article
+                  data-card
+                  class="w-[319px] h-[378px] rounded-[20px] bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
                shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden snap-center
-               md:w-[670px] md:h-[630px] md:rounded-3xl">
-
-        <!-- Imagen (M: 319x184 / D: 670x384) -->
-        <div class="w-[319px] h-[184px] grid place-items-center overflow-hidden
-                    md:w-[670px] md:h-[384px]">
-          <img
-            src={typeof image === 'string' ? image : image.src}
-            alt={title}
-            class="w-[291px] h-[167px] object-contain
-                   md:w-auto md:h-auto md:max-w-full md:max-h-full" />
-        </div>
-
-        <!-- Contenido (M: 319x192 / D: 670x246) -->
-        <div class="w-[319px] h-[192px] px-3 py-3 flex flex-col justify-between
-                    md:w-[670px] md:h-[246px] md:px-6 md:py-4">
-
-          <!-- Texto (M: 291x88 con 20/10px) -->
-          <div class="w-[291px] h-[88px] mx-auto flex flex-col items-center justify-start
-                      md:w-[625px] md:h-[116px] md:items-start">
-            <h3 class="text-[20px] md:text-[24px] leading-tight font-semibold font-['Inter'] pb-1 md:pb-2 tracking-[0.04em] text-center md:text-left">
-              {title}
-            </h3>
-            <p class="text-[10px] md:text-[12px] text-white leading-snug font-['Inter'] font-medium tracking-[0.04em] text-center md:text-left">
-              {subtitle}
-            </p>
-          </div>
-
-          <!-- Acciones -->
-          <!-- Móvil: columna (Detalles arriba, Ver Figma abajo); Desktop: fila como tu diseño -->
-          <div class="w-[291px] mx-auto flex flex-col gap-3 md:w-full 
-          md:flex-row md:gap-0 md:items-center md:justify-between md:px-2"> 
-          <!-- Detalles --> 
-          <a href={detailsUrl} 
-          class="order-1 w-[110px] h-[33px] rounded-[10px] 
+               md:w-[670px] md:h-[630px] md:rounded-3xl"
+                >
+                  <div
+                    class="w-[319px] h-[184px] grid place-items-center overflow-hidden
+                    md:w-[670px] md:h-[384px]"
+                  >
+                    <img
+                      src={typeof image === "string" ? image : image.src}
+                      alt={title}
+                      class="w-[291px] h-[167px] object-contain
+                   md:w-auto md:h-auto md:max-w-full md:max-h-full"
+                    />
+                  </div>
+                  <div
+                    class="w-[319px] h-[192px] px-3 py-3 flex flex-col justify-between
+                    md:w-[670px] md:h-[246px] md:px-6 md:py-4"
+                  >
+                    <div
+                      class="w-[291px] h-[88px] mx-auto flex flex-col items-center justify-start
+                      md:w-[625px] md:h-[116px] md:items-start"
+                    >
+                      <h3 class="text-[20px] md:text-[24px] leading-tight font-semibold font-['Inter'] pb-1 md:pb-2 tracking-[0.04em] text-center md:text-left">
+                        {title}
+                      </h3>
+                      <p class="text-[10px] md:text-[12px] text-white leading-snug font-['Inter'] font-medium tracking-[0.04em] text-center md:text-left">
+                        {subtitle}
+                      </p>
+                    </div>
+                    <div
+                      class="w-[291px] mx-auto flex flex-col gap-3 md:w-full 
+          md:flex-row md:gap-0 items-center md:items-center md:justify-between md:px-2"
+                    >
+                      <a
+                        href={detailsUrl}
+                        class="order-1 w-[110px] h-[33px] rounded-[10px] 
           bg-[#2C2C2C]/[0.13] ring-1 ring-[#2A2A2A] flex items-center 
           justify-between px-2 transition md:order-2 md:w-[193px] 
-          md:h-[62px] md:rounded-xl md:ring-2 md:px-6"> 
-          <span class="block w-[66px] h-[19px] leading-[19px]
-           text-[12px] md:text-[24px] font-semibold font-['Inter'] tracking-[0.02em] text-right">
- 
-          Detalles 
-          </span> 
-          <img src={DetailsIcon.src} alt="Detalles" class="w-4 h-4 md:w-auto md:h-auto" /> 
-          </a> 
-          <!-- Ver Figma --> 
-          <a href={figmaUrl} target="_blank" rel="noopener" 
-          class="order-2 text-left text-[#93BAE9] w-auto mx-0 
-          md:order-1 md:w-[193px] md:h-[62px] md:flex md:items-center md:justify-start md:gap-2"> 
-          <span class="text-[12px] md:text-[24px] font-semibold font-['Inter'] tracking-[0.02em]">
-            Ver Figma</span> <img src={FigmaIcon.src} alt="Figma" class="hidden md:block" /> </a> </div>
+          md:h-[62px] md:rounded-xl md:ring-2 md:px-6"
+                      >
+                        <span
+                          class="block w-[66px] h-[19px] leading-[19px]
+           text-[12px] md:text-[24px] font-semibold font-['Inter'] tracking-[0.02em] text-right"
+                        >
+                          Detalles
+                        </span>
+                        <img
+                          src={DetailsIcon.src}
+                          alt="Detalles"
+                          class="w-4 h-4 md:w-auto md:h-auto"
+                        />
+                      </a>
+                      <a
+                        href={figmaUrl}
+                        target="_blank"
+                        rel="noopener"
+                        class="order-2 text-left text-[#93BAE9] w-auto mx-0 
+          md:order-1 md:w-[193px] md:h-[62px] md:flex md:items-center md:justify-start md:gap-2"
+                      >
+                        <span class="text-[12px] md:text-[24px] font-semibold font-['Inter'] tracking-[0.02em]">
+                          Ver Figma
+                        </span>{" "}
+                        <img
+                          src={FigmaIcon.src}
+                          alt="Figma"
+                          class="hidden md:block"
+                        />{" "}
+                      </a>{" "}
+                    </div>
+                  </div>
+                </article>
+              )
+            )
+          }
         </div>
-      </article>
-    ))}
-  </div>
-
-  <!-- Paginación móvil (una card = un punto) -->
-  <div id="projectsDots" class="mt-4 md:hidden flex items-center justify-center gap-2"></div>
-</div>
-
-<!-- SKILLS -->
-<div id="tab-skills"
-     class="hidden mx-auto text-white
-            w-[340px] h-auto
-            md:w-full md:h-[1200px]">
-
-  <!-- Móvil: grid 3 columnas | Desktop: vuelve a tu flex-wrap -->
-  <div class="grid grid-cols-3 gap-x-3 gap-y-3 justify-items-center
-              md:flex md:flex-wrap md:justify-center md:gap-x-20 md:gap-y-0 md:h-full">
-
-    {skillsData.map((skill: SkillCard) => (
-      <!-- Card: M 92x78 | D 353x300 -->
-      <div class="w-[92px] h-[78px] md:w-[353px] md:h-[300px]
-                  rounded-[12px] md:rounded-[20px]
-                  bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
-                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden">
-
-        <!-- Icono: M 30x30 centrado | D tu tamaño -->
-        <div class="w-[92px] h-[46px] md:w-[353px] md:h-[168px] flex items-center justify-center">
-          {skill.image && (
-            <img
-              src={typeof skill.image === 'string' ? skill.image : (skill.image as { src: string }).src}
-              alt={skill.title}
-              class="w-[30px] h-[30px] object-contain
-                     md:w-auto md:h-auto md:max-h-[120px] md:max-w-[180px]"
-            />
-          )}
-        </div>
-
-        <!-- Texto: M 13px centrado | D 40px -->
-        <div class="w-[92px] h-[32px] md:w-[353px] md:h-[132px]
-                    flex flex-col items-center justify-center md:pt-5">
-          <span class="text-[13px] md:text-[40px] font-bold font-['Inter']
-                       leading-tight tracking-[0.02em] text-white text-center">
-            {skill.title}
-          </span>
+        <div
+          id="projectsDots"
+          class="mt-4 md:hidden flex items-center justify-center gap-2"
+        >
         </div>
       </div>
-    ))}
-  </div>
-</div>
-
-
-        <!-- CERTIFICADOS -->
-<div id="tab-certs"
-     class="hidden mx-auto text-white/70
+      <div
+        id="tab-skills"
+        class="hidden mx-auto text-white
             w-[340px] h-auto
-            md:w-full md:min-h-[1200px] mt-30 md-mt-0">
-
-  <!-- Móvil: carrusel horizontal | Desktop: grilla 2 col -->
-  <div class="w-full max-w-[340px] mx-auto
+            md:w-full md:h-[1200px]"
+      >
+        <div
+          class="grid grid-cols-3 gap-x-3 gap-y-3 justify-items-center
+              md:flex md:flex-wrap md:justify-center md:gap-x-20 md:gap-y-0 md:h-full"
+        >
+          {
+            skillsData.map((skill: SkillCard) => (
+              <div
+                class="w-[92px] h-[78px] md:w-[353px] md:h-[300px]
+                  rounded-[12px] md:rounded-[20px]
+                  bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
+                  shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden"
+              >
+                <div class="w-[92px] h-[46px] md:w-[353px] md:h-[168px] flex items-center justify-center">
+                  {skill.image && (
+                    <img
+                      src={
+                        typeof skill.image === "string"
+                          ? skill.image
+                          : (skill.image as { src: string }).src
+                      }
+                      alt={skill.title}
+                      class="w-[30px] h-[30px] object-contain
+                     md:w-auto md:h-auto md:max-h-[120px] md:max-w-[180px]"
+                    />
+                  )}
+                </div>
+                <div
+                  class="w-[92px] h-[32px] md:w-[353px] md:h-[132px]
+                    flex flex-col items-center justify-center md:pt-5"
+                >
+                  <span
+                    class="text-[13px] md:text-[40px] font-bold font-['Inter']
+                       leading-tight tracking-[0.02em] text-white text-center"
+                  >
+                    {skill.title}
+                  </span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+      <div
+        id="tab-certs"
+        class="hidden mx-auto text-white/70
+            w-[340px] h-auto
+            md:w-full md:min-h-[1200px] mt-30 md-mt-0"
+      >
+        <div
+          class="w-full max-w-[340px] mx-auto
               grid grid-flow-col auto-cols-[286px] gap-3
               overflow-x-auto overflow-y-hidden touch-pan-x
               snap-x snap-mandatory [scroll-snap-stop:always]
               px-2
               [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
-
               md:max-w-[2034px] md:w-full
               md:grid md:grid-flow-row md:grid-cols-2
               md:gap-x-16 md:gap-y-12 md:place-items-center
               md:overflow-visible md:px-0 md:snap-none"
-       id="certsSlider">
-
-    {certsData.map((cert) => (
-      <!-- Card: M 286x187 | D 985x607 -->
-      <div data-cert
-           class="w-[286px] h-[187px] rounded-[12px]
+          id="certsSlider"
+        >
+          {
+            certsData.map((cert) => (
+              <div
+                data-cert
+                class="w-[286px] h-[187px] rounded-[12px]
                   bg-[#060606] backdrop-blur-md ring-1 ring-[#1F1F1F]
                   shadow-[0_8px_30px_rgba(0,0,0,0.35)] overflow-hidden
                   flex items-center justify-center snap-center
-                  md:w-[985px] md:h-[607px] md:rounded-[20px]">
-        {cert.image ? (
-          <img
-            src={typeof cert.image === 'string' ? cert.image : cert.image.src}
-            alt={cert.title ?? 'Certificado'}
-            class="w-[259px] h-[160px] object-contain
-                   md:w-[900px] md:h-[557px]" />
-        ) : (
-          <span class="text-[12px] md:text-[22px] font-medium text-white/70">Próximamente</span>
-        )}
-      </div>
-    ))}
-  </div>
-
-  <!-- Dots móviles -->
-  <div id="certsDots" class="mt-3 md:hidden hidden flex items-center justify-center gap-2"></div>
-</div>
-
-
+                  md:w-[985px] md:h-[607px] md:rounded-[20px]"
+              >
+                {cert.image ? (
+                  <img
+                    src={
+                      typeof cert.image === "string"
+                        ? cert.image
+                        : cert.image.src
+                    }
+                    alt={cert.title ?? "Certificado"}
+                    class="w-[259px] h-[160px] object-contain
+                   md:w-[900px] md:h-[557px]"
+                  />
+                ) : (
+                  <span class="text-[12px] md:text-[22px] font-medium text-white/70">
+                    Próximamente
+                  </span>
+                )}
+              </div>
+            ))
+          }
+        </div>
+        <div
+          id="certsDots"
+          class="mt-3 md:hidden hidden flex items-center justify-center gap-2"
+        >
+        </div>
       </div>
     </div>
-
   </div>
 </section>
 
-
 <script>
-  (function(){
-    const root = document.getElementById('portfolio') || document; // ajusta si tu sección tiene otro id
-    const items = root.querySelectorAll('.tab-item');
+  (function () {
+    const root = document.getElementById("portfolio") || document;
+    const items = root.querySelectorAll(".tab-item");
     const views = {
-      projects: root.querySelector('#tab-projects'),
-      skills:   root.querySelector('#tab-skills'),
-      certs:    root.querySelector('#tab-certs'),
+      projects: root.querySelector("#tab-projects"),
+      skills: root.querySelector("#tab-skills"),
+      certs: root.querySelector("#tab-certs"),
     };
 
-    function setActive(key: string | null){
-      // vista
-      Object.entries(views).forEach(([k,el])=>{
-        if(!el) return;
-        el.classList.toggle('hidden', k !== key);
+    function setActive(key: string | null) {
+      Object.entries(views).forEach(([k, el]) => {
+        if (!el) return;
+        el.classList.toggle("hidden", k !== key);
       });
+      items.forEach((btn) => {
+        const is = btn.getAttribute("data-tab") === key;
+        const core = btn.querySelector(".tab-core");
+        btn.classList.toggle("shadow-[0_0_15px_rgba(38,189,212,0.45)]", is);
+        btn.classList.toggle("shadow-none", !is);
 
-      // estilo de botón: borde/degradado cuando activo
-      items.forEach(btn => {
-  const is = btn.getAttribute('data-tab') === key;
-  const core = btn.querySelector('.tab-core');
-
-  // halo sutil cuando está activo
-  btn.classList.toggle('shadow-[0_0_15px_rgba(38,189,212,0.45)]', is);
-  btn.classList.toggle('shadow-none', !is);
-
-  if (core) {
-    // estado activo: glass + borde 2px #26BDD4 + fondo #A8F1FE al 15%
-    core.classList.toggle('bg-[#A8F1FE]/[0.15]', is);
-    core.classList.toggle('backdrop-blur-md', is);
-    core.classList.toggle('border-3', is);
-    core.classList.toggle('border-[#26BDD4]/[0.15]', is);
-
-  }
-});
-
+        if (core) {
+          core.classList.toggle("bg-[#A8F1FE]/[0.15]", is);
+          core.classList.toggle("backdrop-blur-md", is);
+          core.classList.toggle("border-3", is);
+          core.classList.toggle("border-[#26BDD4]/[0.15]", is);
+        }
+      });
     }
 
-    items.forEach(btn=>{
-      btn.addEventListener('click', ()=> setActive(btn.getAttribute('data-tab')));
+    items.forEach((btn) => {
+      btn.addEventListener("click", () =>
+        setActive(btn.getAttribute("data-tab"))
+      );
     });
-
-    // Estado inicial
-    setActive('projects');
+    setActive("projects");
   })();
 </script>
 
 <script is:inline>
-(() => {
-  const root = document.getElementById('portfolio');
-  if (!root) return;
+  (() => {
+    const root = document.getElementById("portfolio");
+    if (!root) return;
+    const items = Array.from(root.querySelectorAll(".tab-item"));
+    const views = {
+      projects: root.querySelector("#tab-projects"),
+      skills: root.querySelector("#tab-skills"),
+      certs: root.querySelector("#tab-certs"),
+    };
 
-  // --- REFS
-  const items  = Array.from(root.querySelectorAll('.tab-item'));
-  const views  = {
-    projects: root.querySelector('#tab-projects'),
-    skills:   root.querySelector('#tab-skills'),
-    certs:    root.querySelector('#tab-certs'),
-  };
+    const projSlider = root.querySelector("#tab-projects");
+    const projDots = root.querySelector("#projectsDots");
+    const certSlider = root.querySelector("#certsSlider");
+    const certDots = root.querySelector("#certsDots");
 
-  const projSlider = root.querySelector('#tab-projects');
-  const projDots   = root.querySelector('#projectsDots');
-  const certSlider = root.querySelector('#certsSlider');
-  const certDots   = root.querySelector('#certsDots');
-
-  // --- DOTS (genérico)
-  function buildDotsFor(sliderEl, dotsWrapEl, itemSelector) {
-    if (!sliderEl || !dotsWrapEl) return;
-    const cards = Array.from(sliderEl.querySelectorAll(itemSelector));
-    dotsWrapEl.innerHTML = '';
-    const dots = cards.map((_, i) => {
-      const b = document.createElement('button');
-      b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
-      b.className = 'w-2 h-2 rounded-full transition-colors ' +
-                    'aria-[current=true]:bg-white aria-[current=false]:bg-white/30';
-      b.addEventListener('click', () => {
-        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    function buildDotsFor(sliderEl, dotsWrapEl, itemSelector) {
+      if (!sliderEl || !dotsWrapEl) return;
+      const cards = Array.from(sliderEl.querySelectorAll(itemSelector));
+      dotsWrapEl.innerHTML = "";
+      const dots = cards.map((_, i) => {
+        const b = document.createElement("button");
+        b.setAttribute("aria-current", i === 0 ? "true" : "false");
+        b.className =
+          "w-2 h-2 rounded-full transition-colors " +
+          "aria-[current=true]:bg-white aria-[current=false]:bg-white/30";
+        b.addEventListener("click", () => {
+          cards[i].scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest",
+          });
+        });
+        dotsWrapEl.appendChild(b);
+        return b;
       });
-      dotsWrapEl.appendChild(b);
-      return b;
-    });
 
-    const io = new IntersectionObserver((entries) => {
-      const now = Array.from(sliderEl.querySelectorAll(itemSelector));
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const idx = now.indexOf(e.target);
-        dots.forEach((d, j) => d.setAttribute('aria-current', String(j === idx)));
+      const io = new IntersectionObserver(
+        (entries) => {
+          const now = Array.from(sliderEl.querySelectorAll(itemSelector));
+          entries.forEach((e) => {
+            if (!e.isIntersecting) return;
+            const idx = now.indexOf(e.target);
+            dots.forEach((d, j) =>
+              d.setAttribute("aria-current", String(j === idx))
+            );
+          });
+        },
+        { root: sliderEl, threshold: 0.6 }
+      );
+
+      cards.forEach((c) => io.observe(c));
+    }
+
+    const RMO = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function animateGroup(els, kind, baseDelay = 0) {
+      if (!els || !els.length) return;
+      const kfs = {
+        left: [
+          { opacity: 0, transform: "translateX(-40px)" },
+          { opacity: 1, transform: "translateX(0)" },
+        ],
+        center: [
+          { opacity: 0, transform: "scale(0.94)" },
+          { opacity: 1, transform: "scale(1)" },
+        ],
+        right: [
+          { opacity: 0, transform: "translateX(40px)" },
+          { opacity: 1, transform: "translateX(0)" },
+        ],
+      }[kind];
+      els.forEach((el, i) => {
+        el.style.willChange = "transform, opacity";
+        if (RMO) {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+          return;
+        }
+        el.animate(kfs, {
+          duration: 600,
+          easing: "cubic-bezier(0.22,1,0.36,1)",
+          delay: baseDelay + i * 80,
+          fill: "both",
+        });
       });
-    }, { root: sliderEl, threshold: 0.6 });
+    }
 
-    cards.forEach(c => io.observe(c));
-  }
+    function playProjects(viewEl) {
+      const cards = Array.from(viewEl.querySelectorAll("article"));
+      if (!cards.length) return;
+      const left = cards.filter((_, i) => i % 3 === 0);
+      const mid = cards.filter((_, i) => i % 3 === 1);
+      const right = cards.filter((_, i) => i % 3 === 2);
+      animateGroup(left, "left", 0);
+      animateGroup(mid, "center", 80);
+      animateGroup(right, "right", 160);
+    }
 
-  // --- ANIMACIONES
-  const RMO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function animateGroup(els, kind, baseDelay = 0) {
-    if (!els || !els.length) return;
-    const kfs = {
-      left:   [{opacity:0, transform:'translateX(-40px)'}, {opacity:1, transform:'translateX(0)'}],
-      center: [{opacity:0, transform:'scale(0.94)'},       {opacity:1, transform:'scale(1)'}],
-      right:  [{opacity:0, transform:'translateX(40px)'},  {opacity:1, transform:'translateX(0)'}],
-    }[kind];
-    els.forEach((el, i) => {
-      el.style.willChange = 'transform, opacity';
-      if (RMO) { el.style.opacity = '1'; el.style.transform = 'none'; return; }
-      el.animate(kfs, {
-        duration: 600,
-        easing: 'cubic-bezier(0.22,1,0.36,1)',
-        delay: baseDelay + i * 80,
-        fill: 'both',
+    function playByPosition(viewEl) {
+      const rect = viewEl.getBoundingClientRect();
+      const t1 = rect.left + rect.width / 3;
+      const t2 = rect.left + (2 * rect.width) / 3;
+      const cards = Array.from(viewEl.querySelectorAll(":scope > div > div"));
+      if (!cards.length) return;
+      const left = [],
+        mid = [],
+        right = [];
+      cards.forEach((el) => {
+        const r = el.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        if (cx < t1) left.push(el);
+        else if (cx < t2) mid.push(el);
+        else right.push(el);
       });
-    });
-  }
+      animateGroup(left, "left", 0);
+      animateGroup(mid, "center", 80);
+      animateGroup(right, "right", 160);
+    }
 
-  function playProjects(viewEl) {
-    const cards = Array.from(viewEl.querySelectorAll('article'));
-    if (!cards.length) return;
-    const left  = cards.filter((_, i) => i % 3 === 0);
-    const mid   = cards.filter((_, i) => i % 3 === 1);
-    const right = cards.filter((_, i) => i % 3 === 2);
-    animateGroup(left,  'left',   0);
-    animateGroup(mid,   'center', 80);
-    animateGroup(right, 'right',  160);
-  }
+    function playEnter(key) {
+      const view = views[key];
+      if (!view) return;
+      view.querySelectorAll("*").forEach((n) => {
+        n.style.opacity = "";
+      });
+      if (key === "projects") playProjects(view);
+      else playByPosition(view);
+    }
 
-  function playByPosition(viewEl) {
-    const rect = viewEl.getBoundingClientRect();
-    const t1 = rect.left + rect.width / 3;
-    const t2 = rect.left + (2 * rect.width) / 3;
-    const cards = Array.from(viewEl.querySelectorAll(':scope > div > div'));
-    if (!cards.length) return;
-    const left = [], mid = [], right = [];
-    cards.forEach((el) => {
-      const r = el.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      if (cx < t1) left.push(el);
-      else if (cx < t2) mid.push(el);
-      else right.push(el);
-    });
-    animateGroup(left,  'left',   0);
-    animateGroup(mid,   'center', 80);
-    animateGroup(right, 'right',  160);
-  }
+    function setActive(key) {
+      Object.entries(views).forEach(([k, el]) => {
+        if (!el) return;
+        el.classList.toggle("hidden", k !== key);
+      });
 
-  function playEnter(key) {
-    const view = views[key];
-    if (!view) return;
-    view.querySelectorAll('*').forEach(n => { n.style.opacity = ''; });
-    if (key === 'projects') playProjects(view);
-    else playByPosition(view);
-  }
+      if (projDots) projDots.classList.toggle("hidden", key !== "projects");
+      if (certDots) certDots.classList.toggle("hidden", key !== "certs");
 
-  // --- TABS
-  function setActive(key) {
-    Object.entries(views).forEach(([k, el]) => {
-      if (!el) return;
-      el.classList.toggle('hidden', k !== key);
-    });
+      const tabs = Array.from(root.querySelectorAll(".tab-item"));
+      tabs.forEach((btn) => {
+        const is = btn.getAttribute("data-tab") === key;
+        const core = btn.querySelector(".tab-core");
+        btn.classList.toggle("shadow-[0_0_15px_rgba(38,189,212,0.45)]", is);
+        btn.classList.toggle("shadow-none", !is);
+        if (core) {
+          core.classList.toggle("bg-[#A8F1FE]/[0.15]", is);
+          core.classList.toggle("backdrop-blur-md", is);
+          core.classList.toggle("border-2", is);
+          core.classList.toggle("border-[#26BDD4]", is);
+          core.classList.toggle("ring-1", !is);
+          core.classList.toggle("ring-white/10", !is);
+        }
+      });
 
-    // Dots visibles solo en su tab
-    if (projDots) projDots.classList.toggle('hidden', key !== 'projects');
-    if (certDots) certDots.classList.toggle('hidden', key !== 'certs');
+      requestAnimationFrame(() => {
+        if (key === "projects" || key === "skills" || key === "certs")
+          playEnter(key);
+      });
+    }
 
-    // Estilo activo de los botones
-    const tabs = Array.from(root.querySelectorAll('.tab-item'));
-    tabs.forEach((btn) => {
-      const is = btn.getAttribute('data-tab') === key;
-      const core = btn.querySelector('.tab-core');
-      btn.classList.toggle('shadow-[0_0_15px_rgba(38,189,212,0.45)]', is);
-      btn.classList.toggle('shadow-none', !is);
-      if (core) {
-        core.classList.toggle('bg-[#A8F1FE]/[0.15]', is);
-        core.classList.toggle('backdrop-blur-md', is);
-        core.classList.toggle('border-2', is);
-        core.classList.toggle('border-[#26BDD4]', is);
-        core.classList.toggle('ring-1', !is);
-        core.classList.toggle('ring-white/10', !is);
-      }
-    });
+    items.forEach((btn) =>
+      btn.addEventListener("click", () =>
+        setActive(btn.getAttribute("data-tab"))
+      )
+    );
 
-    requestAnimationFrame(() => {
-      if (key === 'projects' || key === 'skills' || key === 'certs') playEnter(key);
-    });
-  }
-
-  // Listeners
-  items.forEach(btn => btn.addEventListener('click', () => setActive(btn.getAttribute('data-tab'))));
-
-  // Init
-  buildDotsFor(projSlider, projDots, '[data-card]');
-  buildDotsFor(certSlider, certDots, '[data-cert]');
-  setActive('projects');
-})();
+    buildDotsFor(projSlider, projDots, "[data-card]");
+    buildDotsFor(certSlider, certDots, "[data-cert]");
+    setActive("projects");
+  })();
 </script>
-
-
 
 <script>
-(function () {
-  const root = document.getElementById('portfolio');
-  if (!root) return;
+  (function () {
+    const root = document.getElementById("portfolio");
+    if (!root) return;
 
-  const RMO = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const els = Array.from(root.querySelectorAll('[data-fade-up]'));
+    const RMO = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const els = Array.from(root.querySelectorAll("[data-fade-up]"));
 
-  // Estado inicial
-  els.forEach((el) => {
-    const e = el as HTMLElement;
-    e.style.opacity = '0';
-    e.style.transform = 'translateY(24px)';
-    e.style.willChange = 'transform, opacity';
-  });
+    els.forEach((el) => {
+      const e = el as HTMLElement;
+      e.style.opacity = "0";
+      e.style.transform = "translateY(24px)";
+      e.style.willChange = "transform, opacity";
+    });
 
-  const io = new IntersectionObserver(
-    (entries, obs) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        const el = /** @type {HTMLElement} */ (entry.target);
-        const delay = Number(el.getAttribute('data-delay') || 0);
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const el = /** @type {HTMLElement} */ (entry.target);
+          const delay = Number(el.getAttribute("data-delay") || 0);
 
-        if (RMO) {
-          (el as HTMLElement).style.opacity = '1';
-          (el as HTMLElement).style.transform = 'none';
-        } else {
-          el.animate(
-            [
-              { opacity: 0, transform: 'translateY(24px)' },
-              { opacity: 1, transform: 'translateY(0)' }
-            ],
-            {
-              duration: 650,
-              easing: 'cubic-bezier(0.22,1,0.36,1)',
-              delay,
-              fill: 'both'
-            }
-          );
-        }
+          if (RMO) {
+            (el as HTMLElement).style.opacity = "1";
+            (el as HTMLElement).style.transform = "none";
+          } else {
+            el.animate(
+              [
+                { opacity: 0, transform: "translateY(24px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              {
+                duration: 650,
+                easing: "cubic-bezier(0.22,1,0.36,1)",
+                delay,
+                fill: "both",
+              }
+            );
+          }
 
-        obs.unobserve(el); // solo una vez
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -5% 0px' }
-  );
+          obs.unobserve(el);
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -5% 0px" }
+    );
 
-  els.forEach((el) => io.observe(el));
-})();
+    els.forEach((el) => io.observe(el));
+  })();
 </script>
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.getElementById('tab-projects');   // mismo contenedor
-    const dotsWrap = document.getElementById('projectsDots');
+  document.addEventListener("DOMContentLoaded", () => {
+    const slider = document.getElementById("tab-projects");
+    const dotsWrap = document.getElementById("projectsDots");
     if (!slider || !dotsWrap) return;
 
-    const cards = Array.from(slider.querySelectorAll('[data-card]'));
+    const cards = Array.from(slider.querySelectorAll("[data-card]"));
 
-    // Crear dots
-    dotsWrap.innerHTML = '';
+    dotsWrap.innerHTML = "";
     const dots = cards.map((_, i) => {
-      const b = document.createElement('button');
-      b.setAttribute('aria-current', i === 0 ? 'true' : 'false');
-      b.className = 'w-2 h-2 rounded-full transition-colors ' +
-                    'aria-[current=true]:bg-white aria-[current=false]:bg-white/30';
+      const b = document.createElement("button");
+      b.setAttribute("aria-current", i === 0 ? "true" : "false");
+      b.className =
+        "w-2 h-2 rounded-full transition-colors " +
+        "aria-[current=true]:bg-white aria-[current=false]:bg-white/30";
       dotsWrap.appendChild(b);
-      b.addEventListener('click', () => {
-        cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      b.addEventListener("click", () => {
+        cards[i].scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
       });
       return b;
     });
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const idx = cards.indexOf(e.target);
+            dots.forEach((d, i) =>
+              d.setAttribute("aria-current", String(i === idx))
+            );
+          }
+        });
+      },
+      { root: slider, threshold: 0.6 }
+    );
 
-    // Activar dot cuando la card esté visible
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const idx = cards.indexOf(e.target);
-          dots.forEach((d, i) => d.setAttribute('aria-current', String(i === idx)));
-        }
-      });
-    }, { root: slider, threshold: 0.6 });
-
-    cards.forEach(c => io.observe(c));
+    cards.forEach((c) => io.observe(c));
   });
 </script>
-
-
-

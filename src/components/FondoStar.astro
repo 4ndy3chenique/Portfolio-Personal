@@ -1,15 +1,15 @@
 ---
 const { count = 400 } = Astro.props;
-import '../styles/global.css'
-
+import "../styles/global.css";
 ---
+
 <style is:global>
   .star {
     position: absolute;
     border-radius: 9999px;
     will-change: transform, opacity;
     pointer-events: none;
-    filter: blur(.3px);
+    filter: blur(0.3px);
   }
 </style>
 
@@ -19,52 +19,51 @@ import '../styles/global.css'
   class="fixed inset-0 z-0 pointer-events-none bg-black overflow-hidden
           [perspective:300px] [transform-style:preserve-3d]"
   aria-hidden="true"
-></div>
+>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+  defer></script>
 
 <script>
-
-declare global {
-  interface Window {
-    gsap: any;
+  declare global {
+    interface Window {
+      gsap: any;
+    }
   }
-}
 
-  window.addEventListener('load', () => {
-    const wrap = document.getElementById('star-wrap');
+  window.addEventListener("load", () => {
+    const wrap = document.getElementById("star-wrap");
     const gs = window.gsap;
     if (!wrap || !gs) return;
 
-    
     let w = wrap.clientWidth;
     let h = wrap.clientHeight;
 
-    
     const base = Number(wrap.dataset.count || 400);
-    const NUM = matchMedia('(max-width: 640px)').matches ? Math.round(base * 0.6) : base;
+    const NUM = matchMedia("(max-width: 640px)").matches
+      ? Math.round(base * 0.6)
+      : base;
 
-    
     const SIZE_MIN = 1;
-    const SIZE_MAX = 6
-    
-    ;
+    const SIZE_MAX = 6;
 
     const rand = (a: number, b: number) => Math.random() * (b - a) + a;
 
     const frag = document.createDocumentFragment();
     for (let i = 0; i < NUM; i++) {
-      const el = document.createElement('div');
-      el.className = 'star';
+      const el = document.createElement("div");
+      el.className = "star";
 
       const size = rand(SIZE_MIN, SIZE_MAX);
-      const z = rand(-1200, -300);       
-      const speed = rand(12, 25);        
+      const z = rand(-1200, -300);
+      const speed = rand(12, 25);
       const baseOpacity = rand(0.3, 0.8);
       const flicker = rand(0.02, 0.06);
 
       const color = `rgba(255,255,255,${baseOpacity.toFixed(2)})`;
-      const glow  = `rgba(255,255,255,${Math.min(1, baseOpacity + 0.2).toFixed(2)})`;
+      const glow = `rgba(255,255,255,${Math.min(1, baseOpacity + 0.2).toFixed(2)})`;
 
       Object.assign(el.style, {
         width: `${size}px`,
@@ -77,45 +76,53 @@ declare global {
 
       frag.appendChild(el);
 
-      
-      gs.fromTo(el, { opacity: 0, z: z }, {
-        opacity: 1,
-        z: 400,
-        repeat: -1,
-        delay: -i * 0.02,
-        ease: 'none',
-        duration: speed
-      });
+      gs.fromTo(
+        el,
+        { opacity: 0, z: z },
+        {
+          opacity: 1,
+          z: 400,
+          repeat: -1,
+          delay: -i * 0.02,
+          ease: "none",
+          duration: speed,
+        }
+      );
 
-      
       gs.to(el, {
         opacity: Math.min(1, baseOpacity + flicker),
         repeat: -1,
         yoyo: true,
-        ease: 'sine.inOut',
+        ease: "sine.inOut",
         duration: rand(2, 6),
-        delay: rand(0, 4)
+        delay: rand(0, 4),
       });
     }
     wrap.appendChild(frag);
 
-    
     const updatePO = (e: MouseEvent | TouchEvent) => {
       const tx = (e as TouchEvent).touches?.[0]?.clientX;
       const ty = (e as TouchEvent).touches?.[0]?.clientY;
       const x = tx ?? (e as MouseEvent).clientX;
       const y = ty ?? (e as MouseEvent).clientY;
       if (x != null && y != null) {
-        gs.to(wrap, { duration: 2, overwrite: true, css: { perspectiveOrigin: `${x}px ${y}px` } });
+        gs.to(wrap, {
+          duration: 2,
+          overwrite: true,
+          css: { perspectiveOrigin: `${x}px ${y}px` },
+        });
       }
     };
-    window.addEventListener('mousemove', updatePO, { passive: true });
-    window.addEventListener('touchmove', updatePO, { passive: true });
+    window.addEventListener("mousemove", updatePO, { passive: true });
+    window.addEventListener("touchmove", updatePO, { passive: true });
 
-    
-    window.addEventListener('resize', () => {
-      w = wrap.clientWidth;
-      h = wrap.clientHeight;
-    }, { passive: true });
+    window.addEventListener(
+      "resize",
+      () => {
+        w = wrap.clientWidth;
+        h = wrap.clientHeight;
+      },
+      { passive: true }
+    );
   });
 </script>

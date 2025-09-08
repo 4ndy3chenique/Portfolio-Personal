@@ -10,23 +10,23 @@ import codecont from "../assets/CodeContent.svg";
 
 export interface Props {
   backHref?: string;
-  crumbLeft?: string; // ej: "Proyectos"
-  crumbRight?: string; // ej: "Portafolio Personal"
-  title?: string; // ej: "Portafolio"
-  image?: string; // 807x462 aprox
+  crumbLeft?: string;
+  crumbRight?: string;
+  title?: string;
+  image?: string;
   description?: string;
 
-  techCount?: number; // cantidad de tecnologías
-  funcCount?: number; // cantidad de funciones
+  techCount?: number;
+  funcCount?: number;
 
-  features?: string[]; // listado de funciones principales
-  techs?: string[]; // listado de tecnologías
+  features?: string[];
+  techs?: string[];
 
   figmaUrl?: string;
   githubUrl?: string;
   docsUrl?: string;
 }
-const BASE = import.meta.env.BASE_URL || '/';
+const BASE = import.meta.env.BASE_URL || "/";
 const {
   backHref = `${BASE}#portfolio`,
   crumbLeft = "Proyectos",
@@ -45,9 +45,18 @@ const {
     "Modo día/noche y configuración según preferencias del usuario.",
     "Registros de ingresos y movimientos de productos.",
   ],
-  techs = ["Java", "JSP", "Boostrap", "HTML", "CSS", "JavaScript", "MySQL", "Tomcat"],
-  figmaUrl = "https://www.figma.com/design/yCBzQRzZgn2JE1Uo0E22Jd/Portafolio-Web--Prototipe-?node-id=0-1&t=hp0zYpPfw052E4Nu-1",
-  githubUrl = "#",
+  techs = [
+    "Java",
+    "JSP",
+    "Boostrap",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "MySQL",
+    "Tomcat",
+  ],
+  figmaUrl = "https://www.figma.com/design/5Qsa8urgWC6ArETrkhiP0z/SolucionesWeb?node-id=0-1&t=NwSs0TvRUfckrcrv-1",
+  githubUrl = "https://github.com/4ndy3chenique/Veterinaria-Santa-Cruz.git",
   docsUrl = "#",
 } = Astro.props;
 ---
@@ -57,118 +66,152 @@ const {
   @import url("https://fonts.googleapis.com/css2?family=Alice&family=Inder&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lalezar&display=swap");
 </style>
 
-<section class="w-full grid place-items-center pt-35">
-  <!-- Contenedor 1800x1122 centrado -->
-  <div class="relative w-[1800px] h-[1122px]">
-    <!-- 1) Header 1800x135 -->
-    <div class="w-[1800px] h-[135px] flex items-center">
-      <!-- Botón -->
-      <div class="w-[218px] h-[135px] flex items-center">
+<section class="w-full grid place-items-center pt-25 md:pt-35">
+  <div class="relative w-[348px] h-[1300px] md:w-[1800px] md:h-[1122px]">
+    <div
+      class="w-[348px] h-[47px] md:w-[1800px] md:h-[135px] flex items-center justify-between md:justify-start"
+    >
+      <div
+        class="w-[86px] h-[30px] md:w-[218px] md:h-[135px] flex items-center"
+      >
         <a
           href={backHref}
-          class="w-[193px] h-[62px] rounded-[10px] grid grid-cols-[30px_1fr] items-center gap-3
-             bg-[#2C2C2C]/[0.13] ring-2 ring-[#2A2A2A] backdrop-blur-md hover:bg-white/10 transition pl-5"
+          class="w-[86px] h-[28px] md:w-[193px] md:h-[62px]
+                  rounded-[8px] md:rounded-[10px]
+                  grid grid-cols-[15px_1fr] md:grid-cols-[30px_1fr] items-center gap-2 md:gap-3
+                  bg-[#2C2C2C]/[0.13] ring-1 md:ring-2 ring-[#2A2A2A] backdrop-blur-md hover:bg-white/10 transition px-2 md:pl-5"
         >
-          <img src={ArrowLeft.src} alt="" />
+          <img
+            src={ArrowLeft.src}
+            alt=""
+            class="w-[15px] h-[15px] md:w-auto md:h-auto"
+          />
           <span
-            class="font-['Inter'] text-[24px] font-semibold tracking-[0.02em] pl-1"
+            class="font-['Inter'] text-[11px] md:text-[24px] font-semibold tracking-[0.02em]"
             >Regresar</span
           >
         </a>
       </div>
-
-      <!-- Breadcrumb -->
-      <div class="w-[379px] h-[134px] flex items-center gap-3">
+      <div
+        class="w-[238px] h-[47px] md:w-[379px] md:h-[134px] flex items-center justify-start md:justify-start gap-2 md:gap-3"
+      >
         <span
-          class="text-[#A7A7A7] font-['Inter'] text-[24px] font-regular tracking-[0.02em]"
+          class="text-[#A7A7A7] font-['Inter'] text-[13px] md:text-[24px] tracking-[0.02em]"
           >{crumbLeft}</span
         >
-        <img src={ArrowRight.src} alt="" class="pt-3" />
-        <span class="text-white font-['Inter'] text-[21px] font-semibold"
+        <img
+          src={ArrowRight.src}
+          alt=""
+          class="w-3 h-5 md:w-auto md:h-auto pt-1 md:pt-3"
+        />
+        <span
+          class="text-white font-['Inter'] text-[13px] md:text-[21px] font-semibold"
           >{crumbRight}</span
         >
       </div>
     </div>
-
-    <!-- 2) Cuerpo: 2 columnas 900x987 -->
-    <div class="w-[1800px] h-[987px] grid grid-cols-2 gap-0">
-      <!-- 2.A Columna izquierda (info) 900x987 -->
-      <div class="w-[900px] h-[987px]">
-        <!-- 2.A.1 Título 900x124 -->
-        <div class="w-[900px] h-[124px] flex items-end">
+    <div
+      class="w-[348px] h-[1128px] md:w-[1800px] md:h-[987px] grid grid-cols-1 md:grid-cols-2 md:gap-0"
+    >
+      <div class="w-[348px] h-[627px] md:w-[900px] md:h-[987px]">
+        <div
+          class="w-[348px] h-[52px] md:w-[900px] md:h-[124px] flex items-end"
+        >
           <h1
-            class="font-['Inter'] font-extrabold text-[96px] tracking-[0.02em]"
+            class="font-['Inter'] font-extrabold text-[32px] md:text-[96px] tracking-[0.02em]"
           >
             {title}
           </h1>
         </div>
-
-        <!-- 2.A.2 Separador 168x10 con degradado -->
-        <div class="w-[900px] h-[10px] mt-3">
+        <div class="w-[348px] h-[10px] md:w-[900px] md:h-[10px] mt-1 md:mt-3">
           <div
-            class="w-[168px] h-[10px] rounded-full"
+            class="w-[100px] h-[6px] md:w-[168px] md:h-[10px] rounded-full"
             style="background:linear-gradient(90deg,#28717E 0%, rgba(34,118,118,0.7) 100%);"
           >
           </div>
         </div>
-
-        <!-- 2.A.3 Contenido 900x853 -->
-        <div class="w-[900px] h-[853px] mt-4 flex flex-col justify-between">
-          <!-- a) Descripción 900x293 -->
-          <div class="w-[900px] h-[293px]">
+        <div
+          class="w-[348px] h-[538px] md:w-[900px] md:h-[853px] mt-2 md:mt-4 flex flex-col justify-between"
+        >
+          <div class="w-[348px] h-[253px] md:w-[900px] md:h-[293px]">
             <p
-              class="font-['Inter'] text-[20px] font-regular tracking-[0.02em] text-white"
+              class="font-['Inter'] text-[12px] md:text-[20px] tracking-[0.02em] text-white"
             >
               {description}
             </p>
           </div>
-
-          <!-- b) Cantidades 900x181 -> inner 886x155 -> 2 × (403x126) -->
-          <div class="w-[900px] h-[181px] pt-4">
+          <div
+            class="w-[348px] h-[87px] md:w-[900px] md:h-[181px] pt-5 md:pt-4"
+          >
             <div
-              class="w-[886px] h-[155px] mx-auto flex items-center justify-between rounded-[20px] px-5 ring-1 ring-[#1F1F1F] bg-[#060606]"
+              class="w-[348px] h-[69px] md:w-[886px] md:h-[155px]
+              mx-auto flex items-center justify-between
+              md:rounded-[20px] md:px-5 md:ring-1 md:ring-[#1F1F1F] md:bg-[#060606]
+              rounded-[20px] px-2 ring-1 ring-[#1F1F1F] bg-[#060606]"
             >
-              <!-- Tecnologías -->
               <div
-                class="w-[403px] h-[126px] rounded-[20px] bg-[#060606] ring-1 ring-white/10 backdrop-blur-md px-4 flex items-center px-10 gap-6"
+                class="w-[129px] h-[51px] md:w-[403px] md:h-[126px]
+                rounded-[12px] md:rounded-[20px]
+                bg-[#060606] md:ring-1 md:ring-white/10 md:backdrop-blur-md
+                grid grid-cols-[25px_1fr] items-center gap-[7px]
+                md:grid-cols-none md:flex md:items-center md:px-10 md:gap-6
+                mx-[11px]
+                md:mx-0 ring-1 ring-white/10 backdrop-blur-md
+                grid grid-cols-[25px_1fr] items-center gap-[7px]
+                md:grid-cols-none flex items-center px-3 gap-6
+                mx-[11px] mx-0"
               >
-                <!-- Icono primero -->
                 <div
-                  class="w-[60px] h-[60px] rounded-full grid place-items-center"
+                  class="w-[25px] h-[25px] md:w-[60px] md:h-[60px] grid place-items-center"
                 >
-                  <img src={CodeCard.src} alt="" class="" />
+                  <img
+                    src={CodeCard.src}
+                    alt=""
+                    class="w-[25px] h-[25px] md:w-auto md:h-auto"
+                  />
                 </div>
-                <!-- Texto a la derecha -->
-                <div class="flex-1">
-                  <div class="font-['Lalezar'] text-[40px] leading-none">
+                <div class="w-[87px] h-[40px] md:w-auto md:h-auto pt-2">
+                  <div
+                    class="font-['Lalezar'] text-[16px] md:text-[40px] leading-none"
+                  >
                     {techCount}
                   </div>
                   <div
-                    class="font-['Inter'] text-[20px] text-[#8F8F8F] leading-tight tracking-[0.02em]"
+                    class="font-['Inter'] text-[8px] md:text-[20px] text-[#8F8F8F] leading-tight"
                   >
                     Tecnologías Usadas
                   </div>
                 </div>
               </div>
-
-              <!-- Funciones -->
               <div
-                class="w-[403px] h-[126px] rounded-[20px] bg-[#060606] ring-1 ring-white/10 backdrop-blur-md px-4 flex items-center px-10 gap-6"
+                class="w-[129px] h-[51px] md:w-[403px] md:h-[126px]
+                rounded-[12px] md:rounded-[20px]
+                bg-[#060606] md:ring-1 md:ring-white/10 md:backdrop-blur-md
+                grid grid-cols-[25px_1fr] items-center gap-[7px]
+                md:grid-cols-none md:flex md:items-center md:px-10 md:gap-6
+                mx-[11px]
+                md:mx-0 ring-1 ring-white/10 backdrop-blur-md
+                grid grid-cols-[25px_1fr] items-center gap-[7px]
+                md:grid-cols-none flex items-center px-3 gap-6
+                mx-[11px] mx-0"
               >
-                <!-- Icono primero -->
                 <div
-                  class="w-[60px] h-[60px] rounded-full grid place-items-center"
+                  class="w-[25px] h-[25px] md:w-[60px] md:h-[60px] grid place-items-center"
                 >
-                  <!-- cambia por tu icono -->
-                  <img src={TagCard.src} alt="" class="" />
+                  <img
+                    src={TagCard.src}
+                    alt=""
+                    class="w-[25px] h-[25px] md:w-auto md:h-auto"
+                  />
                 </div>
-                <!-- Texto a la derecha -->
-                <div class="flex-1">
-                  <div class="font-['Lalezar'] text-[40px] leading-none">
+                <div class="w-[87px] h-[40px] md:w-auto md:h-auto pt-2">
+                  <div
+                    class="font-['Lalezar'] text-[16px] md:text-[40px] leading-none"
+                  >
                     {funcCount}
                   </div>
                   <div
-                    class="font-['Inter'] text-[20px] text-[#8F8F8F] leading-tight tracking-[0.02em]"
+                    class="font-['Inter'] text-[8px] md:text-[20px] text-[#8F8F8F] leading-tight"
                   >
                     Funciones Principales
                   </div>
@@ -176,31 +219,37 @@ const {
               </div>
             </div>
           </div>
-
-          <!-- c) Botones 900x136 (tres × 273x83) -->
-          <div class="w-[900px] h-[136px] grid grid-cols-3 items-center">
-            <!-- IZQUIERDA -->
-            <div class="flex justify-start pl-1">
+          <div
+            class="w-[348px] h-[54px] md:w-[900px] md:h-[136px] grid grid-cols-3 items-center"
+          >
+            <div class="flex justify-start">
               {
                 figmaUrl && (
                   <a
                     href={figmaUrl}
                     target="_blank"
                     rel="noopener"
-                    class="w-[273px] h-[83px] rounded-2xl p-[10px] ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
+                    class="w-[96px] h-[34px] md:w-[273px] md:h-[83px]
+                          rounded-[8px] md:rounded-2xl pt-[6px] md:p-[10px]
+                          ring-2 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
                   >
-                    <div class="w-[223px] h-[62px] grid grid-cols-[60px_1fr] items-center pl-5">
-                      <img src={ArrowFigma.src} alt="" class="" />
-                      <span class="justify-self-end font-['Inter'] text-[28px] text-[#C5D5E9] font-semibold tracking-[0.04em]">
-                        Ver Figma
+                    <div
+                      class="w-[78px] h-[21px] md:w-[223px] md:h-[62px]
+                              mx-auto flex items-center justify-center gap-1 md:grid md:grid-cols-[60px_1fr]"
+                    >
+                      <img
+                        src={ArrowFigma.src}
+                        alt=""
+                        class="w-[20px] h-[20px] md:w-auto md:h-auto"
+                      />
+                      <span class="text-[10px] md:text-[28px] text-[#C5D5E9] font-['Inter'] font-semibold tracking-[0.04em]">
+                        Figma
                       </span>
                     </div>
                   </a>
                 )
               }
             </div>
-
-            <!-- CENTRO -->
             <div class="flex justify-center">
               {
                 githubUrl && (
@@ -208,30 +257,42 @@ const {
                     href={githubUrl}
                     target="_blank"
                     rel="noopener"
-                    class="w-[273px] h-[83px] rounded-2xl p-[10px] ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
+                    class="w-[96px] h-[34px] md:w-[273px] md:h-[83px]
+                          rounded-[8px] md:rounded-2xl pt-[6px] md:p-[10px]
+                          ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
                   >
-                    <div class="w-[223px] h-[62px] grid grid-cols-[60px_1fr] items-center pl-5">
-                      <img src={githubIcon.src} alt="" class="pl-5" />
-                      <span class="justify-self-center font-['Inter'] text-[28px] text-[#C5D5E9] font-semibold pl-5 tracking-[0.04em]">
-                        Github
+                    <div
+                      class="w-[78px] h-[21px] md:w-[223px] md:h-[62px]
+                              mx-auto flex items-center justify-center gap-1 md:grid md:grid-cols-[60px_1fr]"
+                    >
+                      <img
+                        src={githubIcon.src}
+                        alt=""
+                        class="w-[14px] h-[14px] md:w-auto md:h-auto"
+                      />
+                      <span class="text-[10px] md:text-[28px] text-[#C5D5E9] font-['Inter'] font-semibold tracking-[0.04em]">
+                        GitHub
                       </span>
                     </div>
                   </a>
                 )
               }
             </div>
-
-            <!-- DERECHA -->
-            <div class="flex justify-end pr-1">
+            <div class="flex justify-end">
               {
                 docsUrl && (
                   <a
                     href={docsUrl}
-                    class="w-[273px] h-[83px] rounded-2xl p-[10px] ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
+                    class="w-[96px] h-[34px] md:w-[273px] md:h-[83px]
+                          rounded-[8px] md:rounded-2xl pt-[6px] md:p-[10px]
+                          ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md hover:bg-white/10 transition"
                   >
-                    <div class="w-[223px] h-[62px] grid grid-cols-[60px_1fr] items-center">
-                      <span class="justify-self-center font-['Inter'] text-[28px] text-[#C5D5E9] font-semibold pl-50 tracking-[0.04em]">
-                        Documentación
+                    <div
+                      class="w-[78px] h-[21px] md:w-[223px] md:h-[62px]
+                              mx-auto flex items-center justify-center"
+                    >
+                      <span class="text-[10px] md:text-[28px] text-[#C5D5E9] font-['Inter'] font-semibold tracking-[0.04em]">
+                        Documento
                       </span>
                     </div>
                   </a>
@@ -239,27 +300,34 @@ const {
               }
             </div>
           </div>
-
-          <!-- d) Tecnologías 900x243 -->
-          <div class="w-[900px] h-[243px]">
-            <!-- título fila 900x65 -->
-            <div class="w-[900px] h-[65px] flex items-center gap-4 pl-1">
-              <!-- TODO: icono -->
-              <img src={codecont.src} alt="" class="" />
+          <div class="w-[348px] h-[112px] md:w-[900px] md:h-[243px]">
+            <div
+              class="w-[348px] h-[38px] md:w-[900px] md:h-[65px] flex items-center gap-2 md:gap-4"
+            >
+              <img
+                src={codecont.src}
+                alt=""
+                class="w-[20px] h-[17px] md:w-auto md:h-auto"
+              />
               <p
-                class="font-['Inter'] text-[28px] tracking-[0.02em] text-semibold"
+                class="font-['Inter'] text-[14px] md:text-[28px] tracking-[0.02em] font-semibold"
               >
                 Tecnologías Usadas
               </p>
             </div>
-            <!-- grid 900x178 : 5 columnas, cada chip 127x46 -->
             <div
-              class="w-[900px] h-[178px] grid grid-cols-5 gap-5 content-start pt-4 px-1"
+              class="w-[348px] h-[77px] md:w-[900px] md:h-[178px]
+                        grid grid-cols-3 gap-3 content-center pt-15 md:grid-cols-5 md:gap-5 md:pt-4"
             >
               {
                 techs.map((t) => (
-                  <div class="w-[127px] h-[46px] rounded-full grid place-items-center ring-1 ring-[#1F1F1F] bg-[#060606]">
-                    <span class="font-['Inter'] text-[20px]">{t}</span>
+                  <div
+                    class="w-[84px] h-[30px] md:w-[127px] md:h-[46px]
+                            rounded-full grid place-items-center ring-1 ring-[#1F1F1F] bg-[#060606]"
+                  >
+                    <span class="font-['Inter'] text-[11px] md:text-[20px]">
+                      {t}
+                    </span>
                   </div>
                 ))
               }
@@ -267,12 +335,12 @@ const {
           </div>
         </div>
       </div>
-
-      <!-- 2.B Columna derecha 900x987 (foto + funciones) -->
-      <div class="w-[900px] h-[987px] relative">
-        <!-- Foto 807x462, centrada X / top Y -->
+      <div
+        class="w-[348px] h-[527px] md:w-[900px] md:h-[987px] relative mt-15 md:mt-0"
+      >
         <div
-          class="absolute left-1/2 top-0 -translate-x-1/2 w-[807px] h-[462px] rounded-3xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-md"
+          class="w-[316px] h-[181px] mx-auto rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-md
+                    md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2 md:w-[807px] md:h-[462px] md:rounded-3xl"
         >
           <img
             src={typeof image === "string" ? image : image.src}
@@ -280,25 +348,25 @@ const {
             class="w-full h-full object-cover"
           />
         </div>
-
-        <!-- Funciones 807x493, centrada X / bottom Y -->
         <div
-          class="absolute left-1/2 bottom-0 -translate-x-1/2 w-[807px] h-[493px] rounded-3xl ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md p-5"
+          class="w-[316px] h-[330px] mx-auto mt-2 rounded-2xl ring-1 ring-[#1F1F1F] bg-[#060606] backdrop-blur-md p-3
+                    md:absolute md:left-1/2 md:bottom-0 md:-translate-x-1/2 md:w-[807px] md:h-[493px] md:rounded-3xl md:p-5"
         >
-          <!-- inner 765x442 -->
-          <div class="w-[765px] h-[442px] mx-auto">
-            <!-- título 765x58 -->
-            <div class="w-[765px] h-[58px] flex items-center">
+          <div class="w-[296px] h-[290px] md:w-[765px] md:h-[442px] mx-auto">
+            <div
+              class="w-[296px] h-[46px] md:w-[765px] md:h-[58px] flex items-center"
+            >
               <h3
-                class="font-['Inter'] text-[30px] font-medium tracking-[0.02em]"
+                class="font-['Inter'] text-[20px] md:text-[30px] font-medium tracking-[0.02em]"
               >
                 Funciones Principales
               </h3>
             </div>
-            <!-- lista 765x384 -->
-            <div class="w-[765px] h-[384px] overflow-auto">
+            <div
+              class="w-[296px] h-[260px] md:w-[765px] md:h-[384px] overflow-auto"
+            >
               <ul
-                class="list-disc pl-8 font-['Inter'] text-[20px] leading-12 text-[#ACACAC]"
+                class="list-disc pl-5 md:pl-8 font-['Inter'] text-[11px] md:text-[20px] leading-5 md:leading-[3rem] text-[#ACACAC]"
               >
                 {features.map((f) => <li>{f}</li>)}
               </ul>

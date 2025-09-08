@@ -8,18 +8,17 @@ export interface Props {
   bottom2Href?: string;
 }
 
-import github from "../assets/Icon1.svg?url"; 
+import github from "../assets/Icon1.svg?url";
 import linkedin from "../assets/Icon2.svg?url";
-import mail from "../assets/Icon3.svg?url"; 
+import mail from "../assets/Icon3.svg?url";
 import reloadIcon from "../assets/IconCambio.svg?url";
 import langIcon from "../assets/IconLeng.svg?url";
 
 const {
   className = "",
   githubHref = "https://github.com/4ndy3chenique",
-  mailHref = "andy974275@gmail.com",
-  linkedinHref = "https://www.linkedin.com/in/JhonEchenique/",
-  bottom1Href = "#",
+  mailHref = "ortegaecheniqueandy@gmail.com",
+  linkedinHref = "https://www.linkedin.com/in/jhon-carlos-ortega-echenique-289b36382/",
   bottom2Href = "#",
 } = Astro.props;
 
@@ -33,7 +32,6 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
   aria-label="Secondary navigation"
 >
   <div class="relative w-full h-full">
-    
     <nav
       aria-label="Social links"
       class="absolute left-1/2 -translate-x-1/2
@@ -46,7 +44,6 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
         class="w-full h-full rounded-[25px] md:rounded-[74px] overflow-hidden bg-[#5C5C5C]/[0.17] backdrop-blur-md ring-1 ring-white/10 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
       >
         <ul class="grid grid-rows-3 h-full">
-         
           <li class="grid place-items-center">
             <a
               href={githubHref}
@@ -58,7 +55,7 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
               <img src={github} alt="GitHub" class="select-none" />
             </a>
           </li>
-         
+
           <li class="grid place-items-center">
             <a
               href={linkedinHref}
@@ -70,7 +67,7 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
               <img src={linkedin} alt="LinkedIn" class="select-none" />
             </a>
           </li>
-          
+
           <li class="grid place-items-center">
             <a
               href={mailHrefFinal}
@@ -84,7 +81,6 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
       </div>
     </nav>
 
-    
     <div
       class="absolute left-1/2 bottom-10 md:bottom-10 -translate-x-1/2 mb-3 md:mb-6 w-[50px] h-[104px] md:w-[148px] md:h-[296px] pointer-events-auto"
     >
@@ -92,7 +88,6 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
         class="w-full h-full rounded-[25px] md:rounded-[74px] overflow-hidden bg-[#5C5C5C]/[0.17] backdrop-blur-md ring-1 ring-white/10 shadow-[0_6px_24px_rgba(0,0,0,0.35)]"
       >
         <ul class="grid grid-rows-2 h-full">
-        
           <li class="grid place-items-center">
             <button
               type="button"
@@ -103,7 +98,7 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
               <img src={reloadIcon} alt="" class="select-none" />
             </button>
           </li>
-          
+
           <li class="grid place-items-center">
             <a
               href={bottom2Href}
@@ -120,7 +115,6 @@ const mailHrefFinal = mailHref.startsWith("mailto:")
 </aside>
 
 <script>
-  
   (function () {
     const btn = document.querySelector("[data-hero-toggle]");
     btn?.addEventListener("click", (e) => {
