@@ -3,20 +3,21 @@ const { title = "Mi Portfolio", showStarfield = false } = Astro.props;
 import FondoStar from "../components/FondoStar.astro";
 import Navbar from "../components/Navbar.astro";
 import SideNavbar from "../components/SideNavbar.astro";
-import '../styles/global.css'
-
+import "../styles/global.css";
+const animScript = "/src/scripts/anim.ts";
 ---
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>JhonEcheniqueDev</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet">
-
+    <title>{title}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lalezar&display=swap" rel="stylesheet" />
   </head>
-  <body class="min-h-screen text-white ">
-    <FondoStar count={400} />
+  <body class="min-h-[100svh] text-white">
+    {showStarfield && <FondoStar count={400} />}
     <Navbar />
-    <SideNavbar/>
+    <SideNavbar />
+    <slot />
+    <script type="module" src={animScript}></script>
   </body>
 </html>
