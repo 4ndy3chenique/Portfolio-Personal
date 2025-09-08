@@ -1,1 +1,5 @@
 @import "tailwindcss";
+@supports (-webkit-touch-callout: none) {
+  .ios-backdrop-none { -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .ios-no-fixed { background-attachment: scroll !important; }
+}
