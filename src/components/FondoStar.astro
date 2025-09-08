@@ -1,128 +1,92 @@
 ---
-const { count = 400 } = Astro.props;
-import "../styles/global.css";
+const { count = 220 } = Astro.props;
 ---
-
 <style is:global>
-  .star {
-    position: absolute;
-    border-radius: 9999px;
-    will-change: transform, opacity;
-    pointer-events: none;
-    filter: blur(0.3px);
+  #star-canvas{
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: #000;
   }
 </style>
 
-<div
-  id="star-wrap"
-  data-count={count}
-  class="fixed inset-0 z-0 pointer-events-none bg-black overflow-hidden
-          [perspective:300px] [transform-style:preserve-3d]"
-  aria-hidden="true"
->
-</div>
-
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-  defer></script>
+<canvas id="star-canvas" aria-hidden="true"></canvas>
 
 <script>
-  declare global {
-    interface Window {
-      gsap: any;
-    }
+(function(){
+  const isIOS = /iP(hone|od|ad)/.test(navigator.userAgent) ||
+                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const c = document.getElementById("star-canvas");
+  if (!(c instanceof HTMLCanvasElement)) return;
+
+  // Fallback estático para iOS / reduced-motion
+  if (isIOS || reduce) {
+    c.style.background = "#000 radial-gradient(circle at 50% 50%, rgba(255,255,255,.7) 1px, transparent 1.6px) repeat";
+    c.style.backgroundSize = "3px 3px";
+    return;
   }
 
-  window.addEventListener("load", () => {
-    const wrap = document.getElementById("star-wrap");
-    const gs = window.gsap;
-    if (!wrap || !gs) return;
+  const ctx = (c instanceof HTMLCanvasElement ? c : null)?.getContext("2d", { alpha: false });
+  if (!ctx) return;
+  let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-    let w = wrap.clientWidth;
-    let h = wrap.clientHeight;
+  function resize(){
+    if (!(c instanceof HTMLCanvasElement)) return;
+    const w = c.clientWidth, h = c.clientHeight;
+    c.width = Math.floor(w * dpr);
+    c.height = Math.floor(h * dpr);
+    if (ctx) ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
 
-    const base = Number(wrap.dataset.count || 400);
-    const NUM = matchMedia("(max-width: 640px)").matches
-      ? Math.round(base * 0.6)
-      : base;
+  const base = Number(/* astro-prop:count */ `<!--${Astro.props.count ?? 220}-->`.replace(/<!--|-->/g, ""));
+  const mobile = window.matchMedia("(max-width: 640px)").matches;
+  const N = mobile ? Math.round(base * 0.5) : base;
 
-    const SIZE_MIN = 1;
-    const SIZE_MAX = 6;
+  function r(a: number,b: number){ return Math.random()*(b-a)+a; }
 
-    const rand = (a: number, b: number) => Math.random() * (b - a) + a;
+  const stars = Array.from({length:N}, () => ({
+    x: r(0, window.innerWidth),
+    y: r(0, window.innerHeight),
+    z: r(0.6, 1.6),       // profundidad (afecta velocidad)
+    s: r(0.6, 2.0),       // tamaño
+    o: r(0.35, 0.9),      // opacidad base
+    f: r(0.0, 0.02),      // leve flicker
+    vx: r(-0.04, 0.04),   // deriva horizontal
+    vy: r(0.08, 0.32)     // caída vertical
+  }));
 
-    const frag = document.createDocumentFragment();
-    for (let i = 0; i < NUM; i++) {
-      const el = document.createElement("div");
-      el.className = "star";
+  function step(){
+    if (!ctx || !(c instanceof HTMLCanvasElement)) return;
+    ctx.fillStyle = "#000";
+    ctx.fillRect(0, 0, c.clientWidth, c.clientHeight);
 
-      const size = rand(SIZE_MIN, SIZE_MAX);
-      const z = rand(-1200, -300);
-      const speed = rand(12, 25);
-      const baseOpacity = rand(0.3, 0.8);
-      const flicker = rand(0.02, 0.06);
+    const t = performance.now() * 0.001;
+    for(const s of stars){
+      s.y += s.vy * s.z;
+      s.x += s.vx * s.z;
 
-      const color = `rgba(255,255,255,${baseOpacity.toFixed(2)})`;
-      const glow = `rgba(255,255,255,${Math.min(1, baseOpacity + 0.2).toFixed(2)})`;
+      if (s.y > c.clientHeight + 2) { s.y = -2; s.x = r(0, c.clientWidth); }
+      if (s.x > c.clientWidth + 2) s.x = -2;
+      if (s.x < -2) s.x = c.clientWidth + 2;
 
-      Object.assign(el.style, {
-        width: `${size}px`,
-        height: `${size}px`,
-        left: `${rand(0, w)}px`,
-        top: `${rand(0, h)}px`,
-        background: color,
-        boxShadow: `0 0 ${size * 6}px ${glow}`,
-      });
-
-      frag.appendChild(el);
-
-      gs.fromTo(
-        el,
-        { opacity: 0, z: z },
-        {
-          opacity: 1,
-          z: 400,
-          repeat: -1,
-          delay: -i * 0.02,
-          ease: "none",
-          duration: speed,
-        }
-      );
-
-      gs.to(el, {
-        opacity: Math.min(1, baseOpacity + flicker),
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        duration: rand(2, 6),
-        delay: rand(0, 4),
-      });
+      const op = Math.max(0, Math.min(1, s.o + Math.sin(t + s.s) * s.f));
+      ctx.globalAlpha = op;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.s, 0, Math.PI * 2);
+      ctx.fillStyle = "#fff";
+      ctx.fill();
     }
-    wrap.appendChild(frag);
+    ctx.globalAlpha = 1;
+    raf = requestAnimationFrame(step);
+  }
 
-    const updatePO = (e: MouseEvent | TouchEvent) => {
-      const tx = (e as TouchEvent).touches?.[0]?.clientX;
-      const ty = (e as TouchEvent).touches?.[0]?.clientY;
-      const x = tx ?? (e as MouseEvent).clientX;
-      const y = ty ?? (e as MouseEvent).clientY;
-      if (x != null && y != null) {
-        gs.to(wrap, {
-          duration: 2,
-          overwrite: true,
-          css: { perspectiveOrigin: `${x}px ${y}px` },
-        });
-      }
-    };
-    window.addEventListener("mousemove", updatePO, { passive: true });
-    window.addEventListener("touchmove", updatePO, { passive: true });
+  let raf: number;
+  function onResize(){ dpr = Math.min(window.devicePixelRatio||1, 2); resize(); }
+  resize(); raf = requestAnimationFrame(step);
 
-    window.addEventListener(
-      "resize",
-      () => {
-        w = wrap.clientWidth;
-        h = wrap.clientHeight;
-      },
-      { passive: true }
-    );
+  window.addEventListener("resize", onResize, { passive:true });
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) cancelAnimationFrame(raf);
+    else raf = requestAnimationFrame(step);
   });
+})();
 </script>
