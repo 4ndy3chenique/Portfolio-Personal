@@ -1,92 +1,115 @@
 ---
-const { count = 220 } = Astro.props;
+const { count = 400 } = Astro.props;
+import '../styles/global.css';
 ---
+
 <style is:global>
-  #star-canvas{
-    position: fixed; inset: 0; z-index: 0; pointer-events: none;
-    background: #000;
+  .star {
+    position: absolute;
+    border-radius: 9999px;
+    pointer-events: none;
   }
 </style>
 
-<canvas id="star-canvas" aria-hidden="true"></canvas>
+<div
+  id="star-wrap"
+  data-count={count}
+  class="fixed inset-0 z-0 pointer-events-none bg-black overflow-hidden [perspective:300px]"
+  aria-hidden="true"
+></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
 
-<script>
-(function(){
-  const isIOS = /iP(hone|od|ad)/.test(navigator.userAgent) ||
-                (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const c = document.getElementById("star-canvas");
-  if (!(c instanceof HTMLCanvasElement)) return;
+<script type="module">
+  const isIOS =
+    /iP(hone|od|ad)/.test(navigator.userAgent) ||
+    (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  window.addEventListener("load", () => {
+    const wrap = document.getElementById("star-wrap");
+    const gs = window.gsap;
+    if (!wrap || !gs) return;
+    let w = wrap.clientWidth;
+    let h = wrap.clientHeight;
+    const base = Number(wrap.dataset.count || 400);
+    const isSmall = matchMedia("(max-width: 640px)").matches;
+    const NUM = isIOS ? Math.round(base * 0.35) : (isSmall ? Math.round(base * 0.6) : base);
 
-  // Fallback estático para iOS / reduced-motion
-  if (isIOS || reduce) {
-    c.style.background = "#000 radial-gradient(circle at 50% 50%, rgba(255,255,255,.7) 1px, transparent 1.6px) repeat";
-    c.style.backgroundSize = "3px 3px";
-    return;
-  }
+    const SIZE_MIN = 1;
+    const SIZE_MAX = 6;
+    const rand = (a, b) => Math.random() * (b - a) + a;
 
-  const ctx = (c instanceof HTMLCanvasElement ? c : null)?.getContext("2d", { alpha: false });
-  if (!ctx) return;
-  let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const frag = document.createDocumentFragment();
 
-  function resize(){
-    if (!(c instanceof HTMLCanvasElement)) return;
-    const w = c.clientWidth, h = c.clientHeight;
-    c.width = Math.floor(w * dpr);
-    c.height = Math.floor(h * dpr);
-    if (ctx) ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
+    for (let i = 0; i < NUM; i++) {
+      const el = document.createElement("div");
+      el.className = "star";
 
-  const base = Number(/* astro-prop:count */ `<!--${Astro.props.count ?? 220}-->`.replace(/<!--|-->/g, ""));
-  const mobile = window.matchMedia("(max-width: 640px)").matches;
-  const N = mobile ? Math.round(base * 0.5) : base;
+      const size = rand(SIZE_MIN, SIZE_MAX);
+      const z = rand(-1200, -300);
+      const speed = rand(12, 25);
+      const baseOpacity = rand(0.3, 0.8);
+      const flicker = rand(0.02, 0.06);
+      const withGlow = i % 3 === 0;
+      const color = `rgba(255,255,255,${baseOpacity.toFixed(2)})`;
+      const glow  = `0 0 ${Math.round(size * 6)}px rgba(255,255,255,${Math.min(1, baseOpacity + 0.2).toFixed(2)})`;
 
-  function r(a: number,b: number){ return Math.random()*(b-a)+a; }
+      Object.assign(el.style, {
+        width: `${size}px`,
+        height: `${size}px`,
+        left: `${rand(0, w)}px`,
+        top: `${rand(0, h)}px`,
+        background: color,
+        boxShadow: withGlow ? glow : "none",
+        transform: `translateZ(${z}px)`
+      });
 
-  const stars = Array.from({length:N}, () => ({
-    x: r(0, window.innerWidth),
-    y: r(0, window.innerHeight),
-    z: r(0.6, 1.6),       // profundidad (afecta velocidad)
-    s: r(0.6, 2.0),       // tamaño
-    o: r(0.35, 0.9),      // opacidad base
-    f: r(0.0, 0.02),      // leve flicker
-    vx: r(-0.04, 0.04),   // deriva horizontal
-    vy: r(0.08, 0.32)     // caída vertical
-  }));
-
-  function step(){
-    if (!ctx || !(c instanceof HTMLCanvasElement)) return;
-    ctx.fillStyle = "#000";
-    ctx.fillRect(0, 0, c.clientWidth, c.clientHeight);
-
-    const t = performance.now() * 0.001;
-    for(const s of stars){
-      s.y += s.vy * s.z;
-      s.x += s.vx * s.z;
-
-      if (s.y > c.clientHeight + 2) { s.y = -2; s.x = r(0, c.clientWidth); }
-      if (s.x > c.clientWidth + 2) s.x = -2;
-      if (s.x < -2) s.x = c.clientWidth + 2;
-
-      const op = Math.max(0, Math.min(1, s.o + Math.sin(t + s.s) * s.f));
-      ctx.globalAlpha = op;
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.s, 0, Math.PI * 2);
-      ctx.fillStyle = "#fff";
-      ctx.fill();
+      frag.appendChild(el);
+      gs.fromTo(
+        el,
+        { z },
+        {
+          z: 400,
+          repeat: -1,
+          ease: "none",
+          duration: speed,
+          onRepeat: () => { el.style.willChange = ""; }
+        }
+      );
+      gs.to(el, {
+        opacity: Math.min(1, baseOpacity + flicker),
+        repeat: -1,
+        yoyo: true,
+        ease: "sine.inOut",
+        duration: rand(2, 6),
+        delay: rand(0, 4)
+      });
     }
-    ctx.globalAlpha = 1;
-    raf = requestAnimationFrame(step);
-  }
+    wrap.appendChild(frag);
+    let lastX = null, lastY = null, raf = 0;
+    const queuePO = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        if (lastX != null && lastY != null) {
+          gs.set(wrap, { css: { perspectiveOrigin: `${lastX}px ${lastY}px` } });
+        }
+        raf = 0;
+      });
+    };
+    const updatePO = (e) => {
+      const t = e.touches?.[0];
+      lastX = (t ? t.clientX : e.clientX);
+      lastY = (t ? t.clientY : e.clientY);
+      queuePO();
+    };
+    window.addEventListener("mousemove", updatePO, { passive: true });
+    window.addEventListener("touchmove", updatePO, { passive: true });
 
-  let raf: number;
-  function onResize(){ dpr = Math.min(window.devicePixelRatio||1, 2); resize(); }
-  resize(); raf = requestAnimationFrame(step);
-
-  window.addEventListener("resize", onResize, { passive:true });
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) cancelAnimationFrame(raf);
-    else raf = requestAnimationFrame(step);
+    window.addEventListener("resize", () => {
+      w = wrap.clientWidth;
+      h = wrap.clientHeight;
+    }, { passive: true });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) gs.globalTimeline.pause();
+      else gs.globalTimeline.resume();
+    });
   });
-})();
 </script>
